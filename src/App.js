@@ -1,23 +1,22 @@
-import TodoList from "./features/todo/TodoList";
-import About from "./pages/About";
-import NotFoundPage from "./pages/NotFoundPage";
-import Layout from "./layout/Layout";
+import WeTicketLayout from "./layout/WeTicketLayout";
 
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from "react";
+import Home from "./feature/home/Home";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<TodoList />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<WeTicketLayout/>}>
+                    <Route index element={<Home/>}/>
+                </Route>
+                <Route path="*" element={<NotFoundPage/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
