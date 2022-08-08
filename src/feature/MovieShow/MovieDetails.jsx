@@ -8,17 +8,18 @@ import "../../CSS/Descriptions.css";
 
 const MovieDetails = () => {
 
-    const { Header, Footer,  Content } = Layout;
+    const {  Footer,  Content } = Layout;
 
     return (
         <Layout>
-            <Header>Header</Header>
             <Layout style={{ display: "flex" }}>
                 <Content>
-                    <div style={{ display: "flex" }}>
-                        <img src={img} alt="" style={{ margin: "200px", height: "600px" }}></img>
+                {/* background:"-webkit-linear-gradient(top,white,#b5f5ec)" */}
+                <div style={{display:"flex"}}>
+                    <div style={{  display: "flex"}}>
+                        <img src={img} alt="" style={{ margin: "100px 50px 200px 200px", height: "600px" }}></img>
                         <div>
-                            <div style={{ marginTop: "200px", fontSize: "60px" }}>
+                            <div style={{ marginTop: "100px", fontSize: "60px" }}>
                                 电影名字
                             </div>
                             <div>
@@ -40,12 +41,13 @@ const MovieDetails = () => {
                                 </Card>
                             </div>
                         </div>
+                        </div>
                     <div style={{margin:"100px", alignItems: "center"}}> 
-                    <div style={{marginTop:"300px", alignItems: "center"}}>
+                     <div style={{marginTop:"300px", alignItems: "center"}}>
                     <a class="push_button red" href="#">Buy Ticket</a> 
-                    </div>
+                     </div>
                     <br/>
-                    <div>
+                     <div>
                     <a class="push_button blue" href="#">Buy Food</a>
                     </div>
                     </div>
@@ -53,7 +55,7 @@ const MovieDetails = () => {
                 </Content>
 
             </Layout>
-            <Footer>Footer</Footer>
+            <Footer></Footer>
         </Layout>
     );
 };
