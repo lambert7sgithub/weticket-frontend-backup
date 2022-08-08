@@ -10,7 +10,7 @@ export default class MovieList extends React.Component {
             {id:"2",url:"/photos/2.jpg",movieName:"魔法精灵2",score:100.0},
             {id:"3",url:"/photos/3.jpg",movieName:"战狼3",score:100.0},
             {id:"4",url:"/photos/2.jpg",movieName:"无敌最俊朗",score:100.0},
-            {id:"5",url:"/photos/3.jpg",movieName:"寻觅环游记",score:100.0}], 
+            {id:"5",url:"/photos/zhanlan.png",movieName:"寻觅环游记",score:100.0}], 
             count:10,
         }
     }
