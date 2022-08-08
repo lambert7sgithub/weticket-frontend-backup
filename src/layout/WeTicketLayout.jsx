@@ -8,7 +8,7 @@ const WeTicketLayout = () => {
   const env = process.env;
   console.log(env);
 
-  const [bottom,setBottom] = useState(10)
+  const [bottom] = useState(10)
   return (
     <div>
       <Layout>

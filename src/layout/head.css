@@ -1,3 +1,6 @@
-.navigation{
-    background: #fff;
+.favicon {
+  background: no-repeat center/80% url("./favicon.ico");
+  float: left;
+  width: 64px;
+  height: 64px;
 }

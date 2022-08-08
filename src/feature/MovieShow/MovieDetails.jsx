@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
-import img from "../images/zhanlan.png";
+// import img from "../images/zhanlan.png";
 import { Divider } from 'antd';
 import { Card } from 'antd';
 import "../../CSS/Descriptions.css";
@@ -17,9 +17,10 @@ const MovieDetails = () => {
                     {/* background:"-webkit-linear-gradient(top,white,#b5f5ec)" */}
                     <div style={{ display: "flex" }}>
                         <div style={{ display: "flex" }}>
-                            <img src={img} alt="" style={{ margin: "120px 50px 200px 50px", height: "600px" }}></img>
+                            <img src="/photos/zhanlan.png" alt="" style={{ margin: "120px 50px 200px 50px", height: "600px" }}></img>
                             <div style={{ marginRight: "10px", width: "700px" }}>
                                 {/* <div style={{ marginTop: "100px", fontSize: "60px" }}>
+
                                 电影名字
                             </div> */}
                                 <div style={{ height: "400px", marginTop: "100px", fontSize: "30px" }}>
