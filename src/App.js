@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
+import MovieDetails from "./feature/MovieShow/MovieDetails"
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route index element={<Home/>}/>
                 </Route>
                 <Route path="*" element={<NotFoundPage/>}/>
+                <Route path="MovieDetials" element={<MovieDetails/>} />
             </Routes>
         </BrowserRouter>
     );
