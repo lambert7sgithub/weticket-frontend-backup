@@ -1,32 +1,35 @@
-import React, { useState } from "react";
-import { Menu, Col, Row, Input, Image } from "antd";
-import { NavLink } from "react-router-dom";
-import imgLogo from "./logo.png";
+import React, {useState} from "react";
+import {Col, Input, Menu, Row} from "antd";
+import {NavLink} from "react-router-dom";
+import "./head.css";
 
 export default function Navigation() {
-  const { Search } = Input;
+  const {Search} = Input;
   const [current, setCurrent] = useState("home");
 
   const onClick = (e) => {
     setCurrent(e.key);
   };
 
-  const register = () => {};
+  const register = () => {
+  };
 
   const login = () => {};
 
   return (
     <div>
       <Row>
-        <Col span={4} offset={4} style={{ marginTop: "15px" }}>
-          <Image src={imgLogo} style={{ float: "left" }} />
+        <Col span={4} offset={4}>
+          <NavLink to={"/"}>
+            <div className="favicon"></div>
+          </NavLink>
         </Col>
         <Col span={4}>
           <Menu
-            theme="light"
-            onClick={onClick}
-            mode="horizontal"
-            selectedKeys={[current]}
+              theme="light"
+              onClick={onClick}
+              mode="horizontal"
+              selectedKeys={[current]}
           >
             <Menu.Item key="index">
               <NavLink to={"/"}> 首页 </NavLink>
@@ -50,7 +53,7 @@ export default function Navigation() {
               enterButton
             />
             <label style={{ marginLeft: "10px" }}>
-              <b onClick={register} style={{marginRight:"10px"}}>
+              <b onClick={register} style={{marginRight: "10px"}}>
                 <NavLink to={"register"}>注册</NavLink>
               </b>
               <b onClick={login}>
