@@ -6,20 +6,34 @@ export default class MovieList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            movies: [{id:"1",url:"/photos/1.jpg",movieName:"寻觅环游记",score:100.0},
-            {id:"2",url:"/photos/2.jpg",movieName:"魔法精灵2",score:100.0},
-            {id:"3",url:"/photos/3.jpg",movieName:"战狼3",score:100.0},
-            {id:"4",url:"/photos/2.jpg",movieName:"无敌最俊朗",score:100.0},
-            {id:"5",url:"/photos/zhanlan.png",movieName:"寻觅环游记",score:100.0}], 
+            // movies: [{id:"1",url:"/photos/1.jpg",movieName:"寻觅环游记",score:100.0},
+            // {id:"2",url:"/photos/2.jpg",movieName:"魔法精灵2",score:100.0},
+            // {id:"3",url:"/photos/3.jpg",movieName:"战狼3",score:100.0},
+            // {id:"4",url:"/photos/2.jpg",movieName:"无敌最俊朗",score:100.0},
+            // {id:"5",url:"/photos/zhanlan.png",movieName:"寻觅环游记",score:100.0}], 
+            movies:[],
             count:10,
         }
     }
- 
+    componentDidMount(){
+      const url = "http://localhost:8080/movie/list"
+      fetch(url)
+        .then((res)=>res.json())
+        .then((res)=>{
+          console.log(res);
+          
+        this.setState({movies:res})
+      })
+    }
+  
     render() {
-        return <div>
-            {this.renderList()}
-        </div>
- 
+      
+    // if(this.state.movies == null) 
+    // return <div></div>
+   
+      return <div>
+           {this.renderList()}
+      </div>
     }
  
     renderList = () => {
