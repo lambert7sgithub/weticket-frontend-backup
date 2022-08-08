@@ -6,7 +6,6 @@ import imgLogo from "./logo.png";
 export default function Navigation() {
   const { Search } = Input;
   const [current, setCurrent] = useState("home");
-  const onSearch = (value) => console.log(value);
 
   const onClick = (e) => {
     setCurrent(e.key);

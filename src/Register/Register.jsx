@@ -5,13 +5,17 @@ import {
   UserOutlined,
   VerifiedOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import './Register.css'
-
+import { postUser } from "../api/user";
 
 export default function Register() {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    postUser(values).then((response)=>{
+        //给出消息提示
+        console.log(response);
+    })
   };
 
   const [passWord,setPassWord] = useState('');
