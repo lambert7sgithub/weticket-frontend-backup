@@ -27,9 +27,6 @@ export default class MovieList extends React.Component {
     }
   
     render() {
-      
-    // if(this.state.movies == null) 
-    // return <div></div>
    
       return <div>
            {this.renderList()}
