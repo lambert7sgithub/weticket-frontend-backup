@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
+import MovieDetails from "./feature/MovieShow/MovieDetails"
 import MovieShow from "./feature/MovieShow/MovieShow";
 import Food from "./pages/Food";
 import Friend from "./pages/Friend";
@@ -23,6 +24,8 @@ function App() {
                     <Route path="login" element={<Login/>}/>
                     <Route path="register" element={<Register/>}/>
                 </Route>
+                <Route path="*" element={<NotFoundPage/>}/>
+                <Route path="MovieDetials" element={<MovieDetails/>} />
             </Routes>
         </div>
     );
