@@ -1,0 +1,15 @@
+.register{
+    margin: 100px auto;
+	width:400px;
+	height:500px;
+	top: 40%;
+	left: 50%; 
+}
+
+.outBorder {
+    width: 100%;
+    padding: 50px;
+    border: 2px solid #BBBBBB;
+    border-radius: 10px;
+    position: relative;
+}

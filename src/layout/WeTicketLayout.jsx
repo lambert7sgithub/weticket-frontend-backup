@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Layout } from "antd";
+import { Layout, Affix } from "antd";
 import Navigation from "./Navigation";
 
 const { Content, Footer, Header } = Layout;
 const WeTicketLayout = () => {
   const env = process.env;
   console.log(env);
+
+  const [bottom,setBottom] = useState(10)
   return (
     <div>
       <Layout>
@@ -16,9 +18,9 @@ const WeTicketLayout = () => {
         <Content>
           <Outlet />
         </Content>
-        <Footer style={{ position: "absolute", bottom: "0", width: "100%" }}>
-          Footer
-        </Footer>
+        <Affix offsetBottom={bottom}>
+          <Footer>Footer</Footer>
+        </Affix>
       </Layout>
     </div>
   );

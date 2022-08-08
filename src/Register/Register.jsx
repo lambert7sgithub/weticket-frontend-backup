@@ -6,6 +6,8 @@ import {
   VerifiedOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
+import './Register.css'
+
 
 export default function Register() {
   const onFinish = (values) => {
@@ -21,7 +23,7 @@ export default function Register() {
 
   return (
     <div>
-      <div className="login">
+      <div className="register">
         <div className="outBorder">
           <Form
             name="normal_login"
