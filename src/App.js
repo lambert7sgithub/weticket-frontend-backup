@@ -1,10 +1,14 @@
 import WeTicketLayout from "./layout/WeTicketLayout";
-
 import "./App.css";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
+import MovieShow from "./feature/MovieShow/MovieShow";
+import Food from "./pages/Food";
+import Friend from "./pages/Friend";
+import Login from "./Login/Login";
+import Register from './Register/Register.jsx'
 
 function App() {
     return (
