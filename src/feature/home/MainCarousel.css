@@ -1,0 +1,43 @@
+.carousel {
+    margin: 0 auto;
+    width: 1200px;
+    height: 400px;
+  }
+  .ant-carousel .slick-prev,
+  .ant-carousel .slick-prev:hover {
+    left: 10px;
+    z-index: 2;
+    color: white;
+    font-size: 20px;
+    height: 30px;
+  }
+  
+  .ant-carousel .slick-next,
+  .ant-carousel .slick-next:hover {
+    right: 10px;
+    z-index: 2;
+    color: white;
+    font-size: 20px;
+    height: 30px;
+  }
+  .leftButton,
+  .rightButton {
+    border: none;
+    height: 36px;
+    width: 36px;
+    transition: 1s;
+    border-radius: 50%;
+    background-color: #001529;
+    color: #ff0000;
+    position: absolute;
+    top: 60%;
+    z-index: 10;
+    transform: translateY(-50%);
+    opacity: 0.3;
+  }
+  
+  .leftButton:hover,
+  .rightButton:hover {
+    opacity: 1;
+  }
+  
