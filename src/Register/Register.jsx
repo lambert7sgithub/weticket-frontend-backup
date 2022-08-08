@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import {
   LockOutlined,
-  PhoneOutlined,
+  MailOutlined,
   UserOutlined,
   VerifiedOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
-import './Register.css'
+import "./Register.css";
 import { postUser } from "../api/user";
 
 export default function Register() {
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    postUser(values).then((response)=>{
-        //给出消息提示
-        console.log(response);
-    })
+    postUser(values).then((response) => {
+      //给出消息提示
+      console.log(response);
+    });
   };
 
-  const [passWord,setPassWord] = useState('');
-  
-  
+  const [passWord, setPassWord] = useState("");
+
   const getFieldValue = (event) => {
-    setPassWord(event.target.value)
-  }
+    setPassWord(event.target.value);
+  };
 
   return (
     <div>
@@ -55,21 +55,21 @@ export default function Register() {
               />
             </Form.Item>
             <Form.Item
-              name="phoneNumber"
+              name="email"
               rules={[
                 {
                   required: true,
-                  message: "请输入您的手机号!",
+                  message: "请输入您的邮箱!",
                 },
                 {
-                  max: 11,
-                  message: "手机号格式不正确!",
+                  type: "email",
+                  message: "邮箱格式不对!",
                 },
               ]}
             >
               <Input
-                prefix={<PhoneOutlined className="site-form-item-icon" />}
-                placeholder="手机号"
+                prefix={<MailOutlined className="site-form-item-icon" />}
+                placeholder="邮箱"
               />
             </Form.Item>
             <Form.Item
@@ -89,17 +89,16 @@ export default function Register() {
               />
             </Form.Item>
             <Form.Item
-              name="confirmPassWord"
               rules={[
-                { required: true, message: "请再次输入您的密码!"},
+                { required: true, message: "请再次输入您的密码!" },
                 () => ({
-                    validator(_,value){
-                        if(value !== passWord){
-                            return Promise.reject("两次密码不一致")
-                        }
-                        return Promise.resolve()
+                  validator(_, value) {
+                    if (value !== passWord) {
+                      return Promise.reject("两次密码不一致");
                     }
-                })
+                    return Promise.resolve();
+                  },
+                }),
               ]}
             >
               <Input
@@ -109,7 +108,6 @@ export default function Register() {
               />
             </Form.Item>
             <Form.Item
-              name="verification"
               rules={[
                 {
                   required: true,
