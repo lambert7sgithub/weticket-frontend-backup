@@ -5,7 +5,7 @@ import {
   UserOutlined,
   VerifiedOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input, message } from "antd";
+import { Button, Form, Input } from "antd";
 import './Register.css'
 import { postUser } from "../api/user";
 
