@@ -5,8 +5,6 @@ import Navigation from "./Navigation";
 
 const { Content, Footer, Header } = Layout;
 const WeTicketLayout = () => {
-  const env = process.env;
-  console.log(env);
 
   const [bottom] = useState(10)
   return (
