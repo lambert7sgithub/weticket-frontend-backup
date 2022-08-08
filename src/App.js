@@ -8,14 +8,19 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
     return (
-        <BrowserRouter>
+        <div>
             <Routes>
-                <Route path="/" element={<WeTicketLayout/>}>
-                    <Route index element={<Home/>}/>
+                <Route path="/" element={<WeTicketLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path='movie' element={<MovieShow />} />
+                    <Route path='food' element={<Food />} />
+                    <Route path='friend' element={<Friend />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="register" element={<Register/>}/>
                 </Route>
-                <Route path="*" element={<NotFoundPage/>}/>
             </Routes>
-        </BrowserRouter>
+        </div>
     );
 }
 
