@@ -6,12 +6,11 @@ import "./CSS/MovieDetails.css";
 import { RightCircleOutlined, SearchOutlined } from '@ant-design/icons';
 import { getMovieById } from "../../api/movie";
 import { useParams } from 'react-router-dom';
-import Navigation from '../../Navigation/Navigation';
 
 const MovieDetails = () => {
 
     let { movieId } = useParams();
-    const { Header, Content } = Layout;
+    const {Content } = Layout;
 
     const [movie, setMovie] = useState({});
 
