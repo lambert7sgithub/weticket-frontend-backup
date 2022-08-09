@@ -1,9 +1,9 @@
-name: CD
+name: CD_TO_Prod
 
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
   build:

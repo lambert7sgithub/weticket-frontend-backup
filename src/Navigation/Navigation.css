@@ -5,11 +5,48 @@
   height: 64px;
 }
 
-.right{
+/* .right{
   margin-left: 10px;
 }
 .right > b {
   margin-right: 10px;
+} */
+
+.header-logo{
+  padding-top: 3px;
+  padding-right: 10%;
+  float: left;
+  letter-spacing: 2px;
+}
+
+.header-links{
+  float:left;
+  padding-left: 350px;
+  padding-right: 200px;
+  padding-top: 2px;
 }
 
 
+.ant-menu-item{
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight:800;
+}
+
+.header-search{
+  margin-top: 5px;
+  float: left;
+  width: 300px;
+  padding-top: 16px;
+}
+
+.header-user{
+  float: left;
+  padding-left: 35px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+b{
+  padding-left: 15px;
+}
