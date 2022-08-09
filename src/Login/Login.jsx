@@ -7,9 +7,11 @@ import {
 import { Button, Form, Input, message } from "antd";
 import "./Login.css";
 import { postLoginUser } from "../api/user";
-import history from "../router/history";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate()
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     const loginUser = { ...values, captchaCode: "123" };
@@ -18,8 +20,7 @@ export default function Login() {
         if (response.status === 200) {
           sessionStorage.setItem("username", loginUser.credentialId);
           sessionStorage.setItem("token", response.headers['authorization']);
-          history.replace({pathname:"/index",state:{}})
-          history.go(-1)
+          navigate('/')
         } else {
           message.error("登录失败");
           return;
