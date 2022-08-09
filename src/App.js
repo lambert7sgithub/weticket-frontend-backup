@@ -15,7 +15,7 @@ import ScheduleTable from "./feature/Scheduling/Scheduling";
 
 function App() {
     return (
-        <div>
+        <div className="App">
             <Routes>
                 <Route path="/" element={<WeTicketLayout />}>
                     <Route index element={<Home />} />
