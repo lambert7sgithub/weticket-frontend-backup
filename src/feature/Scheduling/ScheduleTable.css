@@ -13,11 +13,16 @@
 }
 .odd {
   color: rgb(0, 0, 0);
-
   background: #eef0f1 !important;
 }
-.schedule-table {
+.schedule-main-page {
+  padding: 30px;
   width: 1200px;
+  margin: 5px auto;
+  box-shadow: 0px 10px 10px gray;
+}
+.schedule-table {
+  width: 1100px;
   margin: 20px auto;
 }
 .current-price {
@@ -32,4 +37,45 @@
 
 .title {
   font-weight: bold;
+  font-size: large;
+}
+.search {
+  width: 1100px;
+  margin: 5px auto 25px auto;
+}
+.search-row {
+  border-bottom: 1px solid rgba(139, 210, 238, 0.842);
+  border-radius: 30%;
+}
+.search-header {
+  background-color: rgba(165, 219, 241, 0.842);
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  color: rgb(8, 84, 114);
+}
+.search-content {
+  background-color: rgba(213, 248, 245, 0.432);
+  height: 70px;
+  text-align: center;
+  color: rgb(8, 84, 114);
+  padding-left: 10px;
+}
+.contents {
+  margin: 10px auto;
+  word-wrap: break-word;
+  text-align: left;
+}
+.cinema {
+  margin-right: 20px;
+}
+.more-cinema {
+  float: right;
+  margin-right: 260px;
+  font-style: italic;
+}
+.date-contents {
+  margin: 20px auto;
+  word-wrap: break-word;
+  text-align: left;
 }
