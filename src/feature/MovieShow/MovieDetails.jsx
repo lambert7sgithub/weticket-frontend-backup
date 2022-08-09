@@ -83,7 +83,7 @@ const MovieDetails = () => {
                         <div style={{ alignItems: "center" }}>
                             <div style={{ marginTop: "280px", alignItems: "center" }}>
                                 <Card>
-                                    <a className="push_button red" href="/">Buy Ticket</a>
+                                    <a className="push_button red" href="/screening">Buy Ticket</a>
                                 </Card>
                             </div>
                             <br />

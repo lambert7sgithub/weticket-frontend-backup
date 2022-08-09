@@ -11,6 +11,7 @@ import Login from "./Login/Login";
 import Register from './Register/Register.jsx'
 import "./App.css";
 import ScheduleTable from "./feature/Scheduling/Scheduling";
+import Screening from "./feature/MovieTicket/Screening";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="MovieDetials/:movieId" element={<MovieDetails />} />
+                    <Route path="Screening" element={<Screening/>} />
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="s" element={<ScheduleTable/>} />
