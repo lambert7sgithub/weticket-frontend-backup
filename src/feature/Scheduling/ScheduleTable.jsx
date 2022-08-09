@@ -10,7 +10,7 @@ const ScheduleTable = () => {
       screeningId: 1,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
       startTime: "12:00",
       endTime: "12:30",
       seatSituation: "有",
@@ -21,7 +21,7 @@ const ScheduleTable = () => {
       screeningId: 2,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
       startTime: "12:30",
       endTime: "13:30",
       language: "国语2D",
@@ -32,7 +32,29 @@ const ScheduleTable = () => {
       screeningId: 3,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
+      startTime: "13:30",
+      endTime: "14:50",
+      language: "国语2D",
+      seatSituation: "有",
+      price: 20,
+    },
+    {
+      screeningId: 4,
+      movieId: 1,
+      audioriumId: 1,
+      auditoriumNmae: "work",
+      startTime: "13:30",
+      endTime: "14:50",
+      language: "国语2D",
+      seatSituation: "有",
+      price: 20,
+    },
+    {
+      screeningId: 5,
+      movieId: 1,
+      audioriumId: 1,
+      auditoriumNmae: "work",
       startTime: "13:30",
       endTime: "14:50",
       language: "国语2D",
@@ -78,6 +100,7 @@ const ScheduleTable = () => {
                     defaultValue={chosenCinema}
                     size="small"
                     className="cinema"
+                    buttonStyle="solid"
                     onChange={updateCinema}
                     style={{
                       marginTop: 16,
@@ -105,6 +128,7 @@ const ScheduleTable = () => {
                     defaultValue={chosenDate}
                     size="small"
                     className="cinema"
+                    buttonStyle="solid"
                     onChange={updateDate}
                     style={{
                       marginTop: 16,
@@ -136,42 +160,42 @@ const ScheduleTable = () => {
               )}
           />
           <Column
-          title="语言版本"
-          dataIndex="language"
-          key="language"
-          align="center"
-        />
+              title="语言版本"
+              dataIndex="language"
+              key="language"
+              align="center"
+          />
 
-        <Column
-          title="放映厅"
-          dataIndex="auditoriumNmae"
-          key="auditoriumNmae"
-          align="center"
-        />
-        <Column
-          title="座位情况"
-          dataIndex="seatSituation"
-          key="seatSituation"
-          align="center"
-        />
-        <Column
-          title="价格"
-          dataIndex="price"
-          key="price"
-          align="center"
-          render={(_, record) => (
-            <div>
-              <span className="current-price">￥{record.price}</span>
-            </div>
-          )}
-        />
-        <Column
-            title="选座购票"
-            key="action"
-            align="center"
-            render={(_) => <Button type="primary">选座购票</Button>}
-        />
-      </Table>
+          <Column
+              title="放映厅"
+              dataIndex="auditoriumNmae"
+              key="auditoriumNmae"
+              align="center"
+          />
+          <Column
+              title="座位情况"
+              dataIndex="seatSituation"
+              key="seatSituation"
+              align="center"
+          />
+          <Column
+              title="价格"
+              dataIndex="price"
+              key="price"
+              align="center"
+              render={(_, record) => (
+                  <div>
+                    <span className="current-price">￥{record.price}</span>
+                  </div>
+              )}
+          />
+          <Column
+              title="选座购票"
+              key="action"
+              align="center"
+              render={(_) => <Button type="primary">选座购票</Button>}
+          />
+        </Table>
     </div>
   );
 };
