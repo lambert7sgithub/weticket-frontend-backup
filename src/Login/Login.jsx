@@ -4,12 +4,31 @@ import {
   UserOutlined,
   VerifiedOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import "./Login.css";
+import { postLoginUser } from "../api/user";
+import history from "../router/history";
 
 export default function Login() {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    const loginUser = { ...values, captchaCode: "123" };
+    postLoginUser(loginUser)
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          sessionStorage.setItem("username", loginUser.credentialId);
+          sessionStorage.setItem("token", response.headers['authorization']);
+          history.replace({pathname:"/index",state:{}})
+          history.go(-1)
+        } else {
+          message.error("登录失败");
+          return;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -24,18 +43,16 @@ export default function Login() {
             }}
             onFinish={onFinish}
           >
-            <h2 style={{ textAlign: "center", marginBottom:'25px' }}>登录 WeTicket</h2>
+            <h2 style={{ textAlign: "center", marginBottom: "25px" }}>
+              登录 WeTicket
+            </h2>
             <Form.Item
-              name="username"
+              name="credentialId"
               rules={[
                 {
                   required: true,
                   message: "请输入您的用户名/邮箱/手机号!",
                 },
-                {
-                  max:11,
-                  message:"手机号格式不正确!"
-                }
               ]}
             >
               <Input
@@ -44,7 +61,7 @@ export default function Login() {
               />
             </Form.Item>
             <Form.Item
-              name="password"
+              name="credential"
               rules={[
                 {
                   required: true,
@@ -59,7 +76,6 @@ export default function Login() {
               />
             </Form.Item>
             <Form.Item
-              name="verification"
               rules={[
                 {
                   required: true,
@@ -75,7 +91,7 @@ export default function Login() {
 
             <Form.Item>
               <Button
-                style={{display:'block',margin:'0 auto'}}
+                style={{ display: "block", margin: "0 auto" }}
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"

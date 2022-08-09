@@ -19,12 +19,12 @@ export default function Navigation() {
   return (
     <div>
       <Row>
-        <Col span={4} offset={4}>
+        <Col span={5} offset={4}>
           <NavLink to={"/"}>
             <div className="favicon"></div>
           </NavLink>
         </Col>
-        <Col span={4}>
+        <Col span={8}>
           <Menu
               theme="light"
               onClick={onClick}
@@ -45,7 +45,7 @@ export default function Navigation() {
             </Menu.Item>
           </Menu>
         </Col>
-        <Col span={8}>
+        <Col span={6}>
           <div style={{ float: "right" }}>
             <Search
               placeholder="搜索电影"

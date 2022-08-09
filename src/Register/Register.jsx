@@ -8,14 +8,19 @@ import {
 import { Button, Form, Input } from "antd";
 import "./Register.css";
 import { postUser } from "../api/user";
+import history from "../router/history";
 
 export default function Register() {
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    postUser(values).then((response) => {
-      //给出消息提示
-      console.log(response);
+    const user = {...values,captchaCode:'123'}
+    postUser(user).then(() => {
+      history.push({pathname:"/login",state:{}})
+      //弹出成功提示
+      // message.success(response.data.msg);
+    }).catch(err => {
+      console.log(err);
     });
   };
 

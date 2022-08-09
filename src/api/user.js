@@ -1,6 +1,10 @@
 import api from './api'
 
 export const postUser = (newUser) => {
-    console.log('111')
     return api.post("/user",newUser)
+}
+
+
+export const postLoginUser = (loginUser) => {
+    return api.post("/session",loginUser)
 }
