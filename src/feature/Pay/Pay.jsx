@@ -1,64 +1,67 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table,Tag } from 'antd';
+import './Pay.css';
 
 
-const Pay = ()=>{
+const Pay = () => {
     const columns = [
         {
-          title: '电影',
-          dataIndex: 'pictureAddress',
-          align: 'center',
-          render: (record) => <img src={record} alt="" />,
+            title: '电影',
+            dataIndex: 'pictureAddress',
+            width: "400px",
+            render: (record) => 
+            <div className="movieName">
+            <div>
+            <span><img src={record.picture} alt="" className="photo" /> </span>
+            </div>
+            <div>
+            <span className="nameSpan">{record.name} </span>片长：120分钟  
+            </div>
+            </div>,
         },
         {
-          title: '场次',
-          className: 'column-money',
-          dataIndex: 'money',
-          align: 'center',
+            title: '场次',
+            className: 'column-money',
+            dataIndex: 'money',
+            align: 'center',
+            render: (record) =><div className="divFontSize"><div>珠海英皇电影城</div><div>4号激光厅</div><div>8月8日(周一)22:20</div></div> ,
         },
         {
-          title: '票数/座位',
-          dataIndex: 'address',
-          align: 'center',
+            title: '票数/座位',
+            dataIndex: 'address',
+            align: 'center',
+            render: (record) =><div className="divFontSize"><div>1张</div><div><Tag className="divFontSize">9排02座</Tag></div></div> ,
         },
         {
             title: '金额小计',
             dataIndex: 'address',
             align: 'center',
-          },
-      ];
-      const data = [
-        {
-          key: '1',
-          pictureAddress: '../../../public/photos/1.jpg',
-          money: '￥300,000.00',
-          address: 'New York No. 1 Lake Park',
+            render: (record) =><div className="moneyStyle">￥39.90</div> ,
         },
-        // {
-        //   key: '2',
-        //   name: 'Jim Green',
-        //   money: '￥1,256,000.00',
-        //   address: 'London No. 1 Lake Park',
-        // },
-        // {
-        //   key: '3',
-        //   name: 'Joe Black',
-        //   money: '￥120,000.00',
-        //   address: 'Sidney No. 1 Lake Park',
-        // },
-      ];
+    ];
+    const data = [
+        {
+            key: '1',
+            pictureAddress: {
+                picture: '/photos/1.jpg',
+                name: "旅行记"
+            },
+            money: '￥300,000.00',
+            address: 'New York No. 1 Lake Park',
+        },
+    ];
 
-    return(
+    return (
         <div>
-        <div> <img src="../../../public/photos/1.jpg" alt=""></img></div>
-        <div style={{margin:"0 auto"}}><Table
-        columns={columns}
-        dataSource={data}
-        bordered
-        title={() => '订单号：'}
-        footer={() => 'Footer'}
-      /></div>
-      </div>
+            <div></div>
+            <Table
+                columns={columns}
+                dataSource={data}
+                bordered
+                title={() => '订单号：'}
+                footer={() => <div className="footerStyle">实付款：<span className="moneyStyle">￥39.90</span></div>}
+            />
+        </div>
     );
 
 }

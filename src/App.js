@@ -1,6 +1,5 @@
 import WeTicketLayout from "./layout/WeTicketLayout";
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -11,6 +10,8 @@ import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from './Register/Register.jsx'
 import Pay from './feature/Pay/Pay';
+import "./App.css";
+import ScheduleTable from "./feature/Scheduling/Scheduling";
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path="Pay" element={<Pay />} />
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="s" element={<ScheduleTable/>} />
 
             </Routes>
         </div>

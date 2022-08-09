@@ -6,18 +6,18 @@ import "./CSS/MovieDetails.css";
 import { RightCircleOutlined, SearchOutlined } from '@ant-design/icons';
 import { getMovieById } from "../../api/movie";
 import { useParams } from 'react-router-dom';
-import Navigation from '../../Navigation/Navigation';
 
 const MovieDetails = () => {
 
     let { movieId } = useParams();
-    const { Header, Content } = Layout;
+    const {Content } = Layout;
 
     const [movie, setMovie] = useState({});
 
     useEffect(() => {
         getMovieById(movieId).then((response) => {
-            setMovie(response.data);
+            console.log(response.data)
+            setMovie(response.data)
         }).catch((error) => {
             alert(error);
         })
@@ -30,9 +30,6 @@ const MovieDetails = () => {
     return (
         <Layout>
             <Layout style={{ display: "flex" }}>
-            <Header style={{ background: "#fff" }}>
-            <Navigation />
-        </Header>
                 <Content>
                     <div style={{ display: "flex" }}>
                         <div style={{ display: "flex" }}>

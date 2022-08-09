@@ -1,0 +1,32 @@
+.movieName {
+    display: flex
+ }
+
+ .photo{
+    height: 220px
+ }
+
+ .nameSpan{
+     margin-left: 5px;
+    text-align: center;
+    line-height: 200px;
+ }
+
+ .divFontSize{
+     margin: 5px;
+     font-size: 20px;
+ }
+ 
+ .moneyStyle{
+    font-size: 30px;
+    color: red;
+ }
+ 
+ .footerStyle{
+    font-size: 20px;
+    text-align: right;
+ }
+
+ .replacecolor{
+     background-color: lightblue;
+ }
