@@ -1,12 +1,11 @@
 import React from "react";
 
-
 import ScheduleTable from "./ScheduleTable";
-
+import "./ScheduleTable.css";
 
 const Schduling = () => {
   return (
-    <div>
+    <div className="schedule-main-page">
       <ScheduleTable />
     </div>
   );

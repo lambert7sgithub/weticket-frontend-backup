@@ -7,14 +7,17 @@
  }
 
  .nameSpan{
-     margin-left: 5px;
+    display: block;
+     margin-left: 10px;
     text-align: center;
-    line-height: 200px;
+    margin-top: 60%;
+    font-size: 18px;
  }
 
  .divFontSize{
      margin: 5px;
      font-size: 20px;
+     
  }
  
  .moneyStyle{
@@ -30,3 +33,22 @@
  .replacecolor{
      background-color: lightblue;
  }
+
+ .remindPay{
+    text-align: center;
+    height: 100px;
+    padding: 25px;
+    background-color:#bae7ff;
+ }
+
+ .buyButtonDiv{
+     margin: 10px;
+     float: right;
+     width: 200px;
+ }
+
+ .buyButton{
+     background-color: #40a9ff;
+ }
+
+

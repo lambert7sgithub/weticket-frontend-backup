@@ -1,6 +1,6 @@
 import React from "react";
-import { Table, Button, Divider } from "antd";
-
+import { Table, Button, Divider, Col, Row } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
 const { Column } = Table;
 const ScheduleTable = () => {
@@ -40,13 +40,58 @@ const ScheduleTable = () => {
       price: 20,
     },
   ];
-
+  const date = ["8月9日", "8月10日", "8月11日"];
+  const cinemaName = [
+    "a cinema(qwertyuiopas)",
+    "corn cinema",
+    "a cinema(qwertyuiopas) to test",
+    "a cinema(qwertyuiopas)",
+    "a cinema(qwertyuiopas)",
+    "cinema(qwertyuiopas)",
+    "test cinema",
+    "no name cinema",
+  ];
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
       <Divider className="divider"></Divider>
       <div className="search">
-        
+        <Row className="search-row">
+          <Col span={4} className="search-header">
+            选择影院
+          </Col>
+          <Col span={20} className="search-content">
+            <p className="contents">
+              {cinemaName.map((item, index) => {
+                return (
+                  <span key={index} className="cinema">
+                    {item}
+                  </span>
+                );
+              })}
+              <p className="more-cinema">
+                更多
+                <ArrowRightOutlined style={{ marginLeft: "5px" }} />
+              </p>
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={4} className="search-header">
+            选择时间
+          </Col>
+          <Col span={20} className="search-content">
+            <p className="date-contents">
+              {date.map((item, index) => {
+                return (
+                  <text key={index} className="cinema">
+                    {item}
+                  </text>
+                );
+              })}
+            </p>
+          </Col>
+        </Row>
       </div>
       <Table
         dataSource={data}
@@ -99,14 +144,7 @@ const ScheduleTable = () => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_, record) => (
-            <Button
-              type="primary"
-              style={{ background: "red", borderColor: "red" }}
-            >
-              选座购票
-            </Button>
-          )}
+          render={(_, record) => <Button type="primary">选座购票</Button>}
         />
       </Table>
     </div>

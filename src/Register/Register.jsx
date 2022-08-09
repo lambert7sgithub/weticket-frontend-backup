@@ -8,16 +8,18 @@ import {
 import { Button, Form, Input } from "antd";
 import "./Register.css";
 import { postUser } from "../api/user";
-import history from "../router/history";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate()
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     const user = { ...values, captchaCode: "123" };
     console.log(user);
     postUser(user)
       .then(() => {
-        history.push({ pathname: "/login", state: {} });
+        navigate("/login");
         //弹出成功提示
         // message.success(response.data.msg);
       })
