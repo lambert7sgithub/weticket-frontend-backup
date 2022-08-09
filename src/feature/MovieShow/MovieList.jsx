@@ -51,7 +51,7 @@ export default class MovieList extends React.Component {
                 </div>
                 <div className="context">
                     {this.state.movies.map((items) => {
-                        return <MovieItem {...items} key={items.id}/>;
+                        return <MovieItem {...items} key={items.movieId}/>;
                     })}
                 </div>
             </div>
