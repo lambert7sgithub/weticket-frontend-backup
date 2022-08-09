@@ -25,7 +25,7 @@ function App() {
                     <Route path="register" element={<Register/>}/>
                 </Route>
                 <Route path="*" element={<NotFoundPage/>}/>
-                <Route path="MovieDetials" element={<MovieDetails/>} />
+                <Route path="MovieDetials/:movieId" element={<MovieDetails/>} />
             </Routes>
         </div>
     );
