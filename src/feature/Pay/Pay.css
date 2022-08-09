@@ -1,0 +1,54 @@
+.movieName {
+    display: flex
+ }
+
+ .photo{
+    height: 220px
+ }
+
+ .nameSpan{
+    display: block;
+     margin-left: 10px;
+    text-align: center;
+    margin-top: 60%;
+    font-size: 18px;
+ }
+
+ .divFontSize{
+     margin: 5px;
+     font-size: 20px;
+     
+ }
+ 
+ .moneyStyle{
+    font-size: 30px;
+    color: red;
+ }
+ 
+ .footerStyle{
+    font-size: 20px;
+    text-align: right;
+ }
+
+ .replacecolor{
+     background-color: lightblue;
+ }
+
+ .remindPay{
+    text-align: center;
+    height: 100px;
+    padding: 25px;
+    background-color:#bae7ff;
+ }
+
+ .buyButtonDiv{
+     margin: 10px;
+     float: right;
+     width: 200px;
+ }
+
+ .buyButton{
+     background-color: #40a9ff;
+ }
+
+

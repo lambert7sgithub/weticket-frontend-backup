@@ -9,10 +9,10 @@ import Food from "./pages/Food";
 import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from './Register/Register.jsx'
+import Pay from './feature/Pay/Pay';
 import "./App.css";
 import ScheduleTable from "./feature/Scheduling/Scheduling";
 import Screening from "./feature/MovieTicket/Screening";
-
 
 function App() {
     return (
@@ -27,7 +27,9 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="MovieDetials/:movieId" element={<MovieDetails />} />
+                    <Route path="Pay" element={<Pay />} />
                     <Route path="Screening" element={<Screening/>} />
+
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="s" element={<ScheduleTable/>} />
