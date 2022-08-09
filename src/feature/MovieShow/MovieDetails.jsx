@@ -17,7 +17,8 @@ const MovieDetails = () => {
 
     useEffect(() => {
         getMovieById(movieId).then((response) => {
-            setMovie(response.data);
+            console.log(response.data)
+            setMovie(response.data)
         }).catch((error) => {
             alert(error);
         })
@@ -30,9 +31,6 @@ const MovieDetails = () => {
     return (
         <Layout>
             <Layout style={{ display: "flex" }}>
-            <Header style={{ background: "#fff" }}>
-            <Navigation />
-        </Header>
                 <Content>
                     <div style={{ display: "flex" }}>
                         <div style={{ display: "flex" }}>

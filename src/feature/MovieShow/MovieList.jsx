@@ -14,7 +14,8 @@ export default class MovieList extends React.Component {
       const url = "http://localhost:8080/movie/list"
       fetch(url)
         .then((res)=>res.json())
-        .then((res)=>{         
+        .then((res)=>{   
+          console.log(res.data)      
         this.setState({movies:res})
       })
     }
