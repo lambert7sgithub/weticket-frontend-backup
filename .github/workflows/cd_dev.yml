@@ -1,9 +1,9 @@
-name: CD_TO_Prod
+name: CD_TO_Pre
 
 on:
   push:
     tags:
-      - 'v*'
+      - 'dev_*'
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "weticket-frontend-prod" #Must be unique in Heroku
+          heroku_app_name: "weticket-frontend" #Must be unique in Heroku
           heroku_email: ${{secrets.EMAIL}}
         env:
           NODE_ENV: production
