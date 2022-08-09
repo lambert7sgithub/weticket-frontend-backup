@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout, Affix } from "antd";
-import Navigation from "./Navigation";
+import Navigation from "../Navigation/Navigation";
 
 const { Content, Footer, Header } = Layout;
 const WeTicketLayout = () => {

@@ -1,18 +1,15 @@
 import axios from "axios";
 
-const currentHostName = process.env.NODE_ENV;
-console.log(document.location.hostname);
-let baseURL;
-if (currentHostName === 'weticket-frontend.herokuapp.com') {
-    baseURL = "https://weticket-backend.herokuapp.com/";
-} else if (currentHostName === 'weticket-frontend-prod.herokuapp.com') {
-    baseURL = "https://weticket-backend.prod.herokuapp.com/";
-} else {
-    baseURL = "http://localhost:8080/";
-}
+// const env = process.env.NODE_ENV;
+// let baseURL = '';
+// if (env === 'development') {
+//     baseURL = "https://weticket-backend.herokuapp.com/";
+// } else if (env === 'production') {
+//     baseURL = "https://weticket-backend.prod.herokuapp.com/";
+// }
 
 const api = axios.create({
-    baseURL
+    baseURL:"http://localhost:8081/",
 });
 
 export default api;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
 import MovieList from './MovieList';
 
-const MovieShow = () => {
 
+const MovieShow = () => {
+    
     return (
         <div>
             <MovieList />

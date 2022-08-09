@@ -1,6 +1,6 @@
 import WeTicketLayout from "./layout/WeTicketLayout";
 import "./App.css";
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -21,11 +21,12 @@ function App() {
                     <Route path='food' element={<Food />} />
                     <Route path='friend' element={<Friend />} />
                     <Route path="*" element={<NotFoundPage />} />
-                    <Route path="login" element={<Login/>}/>
-                    <Route path="register" element={<Register/>}/>
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                    <Route path="MovieDetials/:movieId" element={<MovieDetails />} />
                 </Route>
-                <Route path="*" element={<NotFoundPage/>}/>
-                <Route path="MovieDetials/:movieId" element={<MovieDetails/>} />
+                <Route path="*" element={<NotFoundPage />} />
+
             </Routes>
         </div>
     );

@@ -4,3 +4,12 @@
   width: 64px;
   height: 64px;
 }
+
+.right{
+  margin-left: 10px;
+}
+.right > b {
+  margin-right: 10px;
+}
+
+

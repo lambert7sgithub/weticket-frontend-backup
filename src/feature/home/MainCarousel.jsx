@@ -6,10 +6,10 @@ import "./MainCarousel.css";
 import { useRef } from "react";
 const MainCarousel = () => {
   const contentStyle = {
-    height: "400px",
+    height: "380px",
     width: "1200px",
     color: "#fff",
-    lineHeight: "400px",
+    lineHeight: "380px",
     textAlign: "center",
     background: "#364d79",
   };
@@ -53,7 +53,7 @@ const MainCarousel = () => {
               key={index}
               style={contentStyle}
               width={1200}
-              height={400}
+              height={380}
             />
           );
         })}

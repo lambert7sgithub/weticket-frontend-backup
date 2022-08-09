@@ -6,7 +6,7 @@ import "./CSS/MovieDetails.css";
 import { RightCircleOutlined, SearchOutlined } from '@ant-design/icons';
 import { getMovieById } from "../../api/movie";
 import { useParams } from 'react-router-dom';
-import Navigation from '../../layout/Navigation'
+import Navigation from '../../Navigation/Navigation';
 
 const MovieDetails = () => {
 

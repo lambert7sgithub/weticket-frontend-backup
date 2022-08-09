@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   LockOutlined,
-  PhoneOutlined,
+  MailOutlined,
   UserOutlined,
   VerifiedOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
-import './Register.css'
+import "./Register.css";
 import { postUser } from "../api/user";
+import history from "../router/history";
 
 export default function Register() {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    postUser(values).then((response)=>{
-        //给出消息提示
-        console.log(response);
-    })
+    const user = { ...values, captchaCode: "123" };
+    console.log(user);
+    postUser(user)
+      .then(() => {
+        history.push({ pathname: "/login", state: {} });
+        //弹出成功提示
+        // message.success(response.data.msg);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-
-  const [passWord,setPassWord] = useState('');
-  
-  
-  const getFieldValue = (event) => {
-    setPassWord(event.target.value)
-  }
 
   return (
     <div>
@@ -55,21 +56,21 @@ export default function Register() {
               />
             </Form.Item>
             <Form.Item
-              name="phoneNumber"
+              name="email"
               rules={[
                 {
                   required: true,
-                  message: "请输入您的手机号!",
+                  message: "请输入您的邮箱!",
                 },
                 {
-                  max: 11,
-                  message: "手机号格式不正确!",
+                  type: "email",
+                  message: "邮箱格式不对!",
                 },
               ]}
             >
               <Input
-                prefix={<PhoneOutlined className="site-form-item-icon" />}
-                placeholder="手机号"
+                prefix={<MailOutlined className="site-form-item-icon" />}
+                placeholder="邮箱"
               />
             </Form.Item>
             <Form.Item
@@ -85,21 +86,22 @@ export default function Register() {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="密码"
-                onChange={getFieldValue}
               />
             </Form.Item>
             <Form.Item
-              name="confirmPassWord"
+              name="confirm"
+              dependencies={['password']}
+              hasFeedback
               rules={[
-                { required: true, message: "请再次输入您的密码!"},
-                () => ({
-                    validator(_,value){
-                        if(value !== passWord){
-                            return Promise.reject("两次密码不一致")
-                        }
-                        return Promise.resolve()
+                { required: true, message: "请再次输入您的密码!" },
+                ({getFieldValue}) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
                     }
-                })
+                    return Promise.reject("两次密码不一致");
+                  },
+                }),
               ]}
             >
               <Input
@@ -109,7 +111,6 @@ export default function Register() {
               />
             </Form.Item>
             <Form.Item
-              name="verification"
               rules={[
                 {
                   required: true,
