@@ -1,0 +1,35 @@
+.ant-table-thead > tr > th {
+  color: rgb(15, 15, 15);
+  background: #d6d6d4 !important;
+}
+
+.ant-table-tbody:hover {
+  background: eef0f1 !important;
+}
+.even {
+  color: rgb(0, 0, 0);
+
+  background: #ffffff !important;
+}
+.odd {
+  color: rgb(0, 0, 0);
+
+  background: #eef0f1 !important;
+}
+.schedule-table {
+  width: 1200px;
+  margin: 20px auto;
+}
+.current-price {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.start-time {
+  font-size: large;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+}
