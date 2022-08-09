@@ -1,5 +1,4 @@
 import WeTicketLayout from "./layout/WeTicketLayout";
-import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import React from "react";
 import Home from "./feature/home/Home";
@@ -10,6 +9,7 @@ import Food from "./pages/Food";
 import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from './Register/Register.jsx'
+import "./App.css";
 
 function App() {
     return (

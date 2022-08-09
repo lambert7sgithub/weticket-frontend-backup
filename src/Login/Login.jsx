@@ -15,7 +15,6 @@ export default function Login() {
     const loginUser = { ...values, captchaCode: "123" };
     postLoginUser(loginUser)
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
           sessionStorage.setItem("username", loginUser.credentialId);
           sessionStorage.setItem("token", response.headers['authorization']);

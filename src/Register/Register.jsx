@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   LockOutlined,
   MailOutlined,
@@ -11,23 +11,19 @@ import { postUser } from "../api/user";
 import history from "../router/history";
 
 export default function Register() {
-
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    const user = {...values,captchaCode:'123'}
-    postUser(user).then(() => {
-      history.push({pathname:"/login",state:{}})
-      //弹出成功提示
-      // message.success(response.data.msg);
-    }).catch(err => {
-      console.log(err);
-    });
-  };
-
-  const [passWord, setPassWord] = useState("");
-
-  const getFieldValue = (event) => {
-    setPassWord(event.target.value);
+    const user = { ...values, captchaCode: "123" };
+    console.log(user);
+    postUser(user)
+      .then(() => {
+        history.push({ pathname: "/login", state: {} });
+        //弹出成功提示
+        // message.success(response.data.msg);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -90,18 +86,20 @@ export default function Register() {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="密码"
-                onChange={getFieldValue}
               />
             </Form.Item>
             <Form.Item
+              name="confirm"
+              dependencies={['password']}
+              hasFeedback
               rules={[
                 { required: true, message: "请再次输入您的密码!" },
-                () => ({
+                ({getFieldValue}) => ({
                   validator(_, value) {
-                    if (value !== passWord) {
-                      return Promise.reject("两次密码不一致");
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
                     }
-                    return Promise.resolve();
+                    return Promise.reject("两次密码不一致");
                   },
                 }),
               ]}
