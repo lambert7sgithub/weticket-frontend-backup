@@ -16,63 +16,63 @@ const ScheduleTable = (props) => {
 
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
-  const data = [
-    {
-      screeningId: 1,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:00",
-      endTime: "12:30",
-      seatSituation: "有",
-      language: "国语2D",
-      price: 10,
-    },
-    {
-      screeningId: 2,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:30",
-      endTime: "13:30",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 15,
-    },
-    {
-      screeningId: 3,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 4,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 5,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "Sidney No. 1 Lake Park",
-      price: 20,
-    },
-  ];
+//   const data = [
+//     {
+//       screeningId: 1,
+//       movieId: 1,
+//       audioriumId: 1,
+//       auditoriumNmae: "work",
+//       startTime: "12:00",
+//       endTime: "12:30",
+//       seatSituation: "有",
+//       language: "国语2D",
+//       moviePrice: 10,
+//     },
+//     {
+//       screeningId: 2,
+//       movieId: 1,
+//       audioriumId: 1,
+//       auditoriumNmae: "work",
+//       startTime: "12:30",
+//       endTime: "13:30",
+//       language: "国语2D",
+//       seatSituation: "有",
+//       moviePrice: 15,
+//     },
+//     {
+//       screeningId: 3,
+//       movieId: 1,
+//       audioriumId: 1,
+//       auditoriumNmae: "work",
+//       startTime: "13:30",
+//       endTime: "14:50",
+//       language: "国语2D",
+//       seatSituation: "有",
+//       moviePrice: 20,
+//     },
+//     {
+//       screeningId: 4,
+//       movieId: 1,
+//       audioriumId: 1,
+//       auditoriumNmae: "work",
+//       startTime: "13:30",
+//       endTime: "14:50",
+//       language: "国语2D",
+//       seatSituation: "有",
+//       moviePrice: 20,
+//     },
+//     {
+//       screeningId: 5,
+//       movieId: 1,
+//       audioriumId: 1,
+//       auditoriumNmae: "work",
+//       startTime: "13:30",
+//       endTime: "14:50",
+//       language: "国语2D",
+//       seatSituation: "Sidney No. 1 Lake Park",
+//       moviePrice: 20,
+//     },
+//   ];
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -85,8 +85,7 @@ const ScheduleTable = (props) => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("cinemaId" + chosenCinemaId);
-    console.log(dayjs().format("MM月DD日"));
+    dayjs().format("MM月DD日");
   }, [chosenCinemaId, chosenDate]);
 
   const updateCinema = (event) => {
@@ -94,7 +93,6 @@ const ScheduleTable = (props) => {
   };
   const updateDate = (event) => {
     setChosenDate(event.target.value);
-    console.log(date[chosenDate]);
   };
   return (
     <div className="schedule-table">
@@ -159,7 +157,7 @@ const ScheduleTable = (props) => {
         </Row>
       </div>
       <Table
-        dataSource={data}
+        dataSource={scheduleData}
         pagination={false}
         rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
       >
@@ -196,12 +194,12 @@ const ScheduleTable = (props) => {
         />
         <Column
           title="价格"
-          dataIndex="price"
-          key="price"
+          dataIndex="moviePrice"
+          key="moviePrice"
           align="center"
           render={(_, record) => (
             <div>
-              <span className="current-price">￥{record.price}</span>
+              <span className="current-price">￥{record.moviePrice}</span>
             </div>
           )}
         />
