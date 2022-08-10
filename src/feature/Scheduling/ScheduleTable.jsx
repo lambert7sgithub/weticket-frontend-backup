@@ -3,7 +3,7 @@ import { Button, Col, Divider, Radio, Row, Table } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
 import { getCinema } from "../../api/cinema";
-import { getSchedule } from "../../api/Schedule";
+import { getSchedule, getScheduleByTime } from "../../api/Schedule";
 import { useEffect } from "react";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
@@ -18,15 +18,9 @@ const ScheduleTable = (props) => {
   const [cinemas, setCinemas] = useState([]);
   const [date, setDate] = useState([]);
   const [scheduleData, setScheduleData] = useState([]);
+
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
-
-
-  const toSeat = (screeningId) => {
-    // "Scheduling/:movieId/screening/:screeningId/Seat"
-    // to={"/MovieDetails/" + props.movieId}
-    navigate("/Scheduling/"+props.movieId+"/screening/"+screeningId+"/seat")
-  }
 
   const [searchDateString, setSearchDateString] = useState("");
 
@@ -45,20 +39,34 @@ const ScheduleTable = (props) => {
   }, []);
   useEffect(() => {
     // TODO
-    if (chosenDate !== 0) {
-      searchDateString.format("YYYY/MM/DD 00:00:00");
-      console.log(searchDateString);
+    if (!dayjs().isSame(chosenDate, "day")) {
+      getScheduleByTime(
+        chosenCinemaId,
+        passMovieId,
+        chosenDate.format("YYYY-MM-DD 00:00:00")
+      ).then((response) => {
+        setScheduleData(response.data);
+      });
+    } else {
+      getScheduleByTime(
+        chosenCinemaId,
+        passMovieId,
+        chosenDate.format("YYYY-MM-DD HH:mm:ss")
+      ).then((response) => {
+        setScheduleData(response.data);
+      });
     }
-  }, [chosenCinemaId, chosenDate, searchDateString]);
+  }, [chosenCinemaId, passMovieId, chosenDate]);
 
   const updateCinema = (event) => {
     setChosneCinemaId(event.target.value);
   };
   const updateDate = (event) => {
-    setChosenDate(event.target.value);
-    setSearchDateString(date[chosenDate]);
+    setChosenDate(event.target.dayDate);
   };
-
+  const toSeat = (screeningId) => {
+    navigate("/seat/" + passMovieId + "/" + screeningId);
+  };
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
@@ -111,7 +119,7 @@ const ScheduleTable = (props) => {
               >
                 {date.map((item, index) => {
                   return (
-                    <Radio.Button key={index} value={index}>
+                    <Radio.Button key={index} value={index} dayDate={item}>
                       {item.format(format)}
                     </Radio.Button>
                   );
