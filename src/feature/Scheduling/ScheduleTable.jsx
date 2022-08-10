@@ -1,19 +1,21 @@
-import React from "react";
-import { Table, Button, Divider } from "antd";
-
+import React, { useState } from "react";
+import { Button, Col, Divider, Radio, Row, Table } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
+
 const { Column } = Table;
-const ScheduleTable = () => {
+const ScheduleTable = (props) => {
+  const passMovieId = props.movieId;
+  console.log(passMovieId);
   const data = [
     {
       screeningId: 1,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
       startTime: "12:00",
-      address: "New York No. 1 Lake Park",
       endTime: "12:30",
-      seatSituation: "12/30",
+      seatSituation: "有",
       language: "国语2D",
       price: 10,
     },
@@ -21,7 +23,7 @@ const ScheduleTable = () => {
       screeningId: 2,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
       startTime: "12:30",
       endTime: "13:30",
       language: "国语2D",
@@ -32,7 +34,29 @@ const ScheduleTable = () => {
       screeningId: 3,
       movieId: 1,
       audioriumId: 1,
-      auditoriumNmae: "Don't want to work",
+      auditoriumNmae: "work",
+      startTime: "13:30",
+      endTime: "14:50",
+      language: "国语2D",
+      seatSituation: "有",
+      price: 20,
+    },
+    {
+      screeningId: 4,
+      movieId: 1,
+      audioriumId: 1,
+      auditoriumNmae: "work",
+      startTime: "13:30",
+      endTime: "14:50",
+      language: "国语2D",
+      seatSituation: "有",
+      price: 20,
+    },
+    {
+      screeningId: 5,
+      movieId: 1,
+      audioriumId: 1,
+      auditoriumNmae: "work",
       startTime: "13:30",
       endTime: "14:50",
       language: "国语2D",
@@ -40,13 +64,93 @@ const ScheduleTable = () => {
       price: 20,
     },
   ];
+  const date = ["8月9日", "8月10日", "8月11日"];
+  const cinemaName = [
+    "a1 cinema(qwertyuiopas)",
+    "corn cinema",
+    "a2 cinema (qwertyuiopas) to test",
+    "a3 cinema (qwertyuiopas)",
+    "a4 cinema (qwertyuiopas)",
+    "cinema(qwertyuiopas)",
+    "test cinema",
+    "no name cinema",
+  ];
+  const [chosenDate, setChosenDate] = useState(0);
+  const [chosenCinema, setChosneCinema] = useState(0);
 
+  const updateCinema = (event) => {
+    setChosneCinema(event.target.value);
+    console.log(chosenCinema);
+    console.log(cinemaName[chosenCinema + 1]);
+  };
+  const updateDate = (event) => {
+    setChosenDate(event.target.value);
+    console.log(date[chosenDate]);
+  };
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
       <Divider className="divider"></Divider>
       <div className="search">
-        
+        <Row className="search-row">
+          <Col span={4} className="search-header">
+            选择影院
+          </Col>
+          <Col span={20} className="search-content">
+            <div className="contents">
+              <Radio.Group
+                defaultValue={chosenCinema}
+                size="small"
+                className="cinema"
+                buttonStyle="solid"
+                onChange={updateCinema}
+                style={{
+                  marginTop: 16,
+                }}
+              >
+                {cinemaName.map((item, index) => {
+                  return (
+                    <Radio.Button key={index} value={index}>
+                      {item}
+                    </Radio.Button>
+                  );
+                })}
+              </Radio.Group>
+
+              <p className="more-cinema">
+                更多
+                <ArrowRightOutlined style={{ marginLeft: "5px" }} />
+              </p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={4} className="search-header">
+            选择时间
+          </Col>
+          <Col span={20} className="search-content">
+            <div className="date-contents">
+              <Radio.Group
+                defaultValue={chosenDate}
+                size="small"
+                className="cinema"
+                buttonStyle="solid"
+                onChange={updateDate}
+                style={{
+                  marginTop: 16,
+                }}
+              >
+                {date.map((item, index) => {
+                  return (
+                    <Radio.Button key={index} value={index}>
+                      {item}
+                    </Radio.Button>
+                  );
+                })}
+              </Radio.Group>
+            </div>
+          </Col>
+        </Row>
       </div>
       <Table
         dataSource={data}
@@ -60,8 +164,8 @@ const ScheduleTable = () => {
           align="center"
           render={(_, record) => (
             <div>
-              <div class="start-time">{record.startTime}</div>
-              <div class="end-time">预计{record.endTime}结束</div>
+              <div className="start-time">{record.startTime}</div>
+              <div className="end-time">预计{record.endTime}结束</div>
             </div>
           )}
         />
@@ -91,7 +195,7 @@ const ScheduleTable = () => {
           align="center"
           render={(_, record) => (
             <div>
-              <span class="current-price">￥{record.price}</span>
+              <span className="current-price">￥{record.price}</span>
             </div>
           )}
         />
@@ -99,14 +203,7 @@ const ScheduleTable = () => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_, record) => (
-            <Button
-              type="primary"
-              style={{ background: "red", borderColor: "red" }}
-            >
-              选座购票
-            </Button>
-          )}
+          render={(_) => <Button type="primary">选座购票</Button>}
         />
       </Table>
     </div>

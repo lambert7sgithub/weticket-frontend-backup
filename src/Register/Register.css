@@ -3,13 +3,28 @@
 	width:400px;
 	height:500px;
 	top: 40%;
-	left: 50%; 
+	left: 50%;
 }
 
-.outBorder {
+.register .outBorder {
     width: 100%;
     padding: 50px;
     border: 2px solid #BBBBBB;
-    border-radius: 10px;
+    border-radius: 25px;
     position: relative;
+}
+
+.register .ant-input-affix-wrapper {
+    border-radius: 25px;
+}
+
+.register .login-form-button {
+    border-radius: 25px;
+    width: 200px;
+}
+
+
+.register .register-form-title {
+    text-align: center;
+    margin-bottom: 25px;
 }

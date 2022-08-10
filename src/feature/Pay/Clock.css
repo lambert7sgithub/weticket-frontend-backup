@@ -1,0 +1,15 @@
+.remind{
+    font-size: 30px;
+    display: inline-flex;
+    color: #ff7875;
+}
+
+.clock{
+    margin-left: 10px;
+    color:#ff4d4f;
+}
+
+.icon{
+    margin-left: 100px;
+    color: #ff4d4f;
+}

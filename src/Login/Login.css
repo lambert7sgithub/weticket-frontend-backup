@@ -1,16 +1,30 @@
 .login{
     margin: 100px auto;
-	width:400px;
-	height:500px;
-	top: 40%;
-	left: 50%; 
+    width: 400px;
+    height: 500px;
+    top: 40%;
+    left: 50%;
 }
 
-.outBorder {
+.login .outBorder {
     width: 100%;
     padding: 50px;
     border: 2px solid #BBBBBB;
-    border-radius: 10px;
+    border-radius: 25px;
     position: relative;
 }
-  
+
+
+.login .ant-input-affix-wrapper {
+    border-radius: 25px;
+}
+
+.login .login-form-button {
+    border-radius: 25px;
+    width: 200px;
+}
+
+.login-form-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
