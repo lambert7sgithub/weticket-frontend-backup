@@ -1,5 +1,7 @@
 import React from "react";
 import SingleFood from "./SingleFood";
+import "./SingleFood.css";
+import food from "./food.svg";
 
 export default function Food() {
   const foodList = [
@@ -33,17 +35,21 @@ export default function Food() {
     },
   ];
   return (
-    <div>
-      {foodList.map((item, index) => {
-        return (
-            <SingleFood
-                key={index}
-                name={item.name}
-                picture={item.picture}
-                inventory={item.inventory}
-                price={item.price}
-            />
-        );
+      <div>
+        <div className="list-title">
+          <img src={food} alt="" className="svg-icon"></img>零食套餐
+        </div>
+
+        {foodList.map((item, index) => {
+          return (
+              <SingleFood
+                  key={index}
+                  name={item.name}
+                  picture={item.picture}
+                  inventory={item.inventory}
+                  price={item.price}
+              />
+          );
       })}
 
       <div>Footer</div>

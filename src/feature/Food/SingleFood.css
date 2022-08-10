@@ -1,3 +1,20 @@
+.list-title {
+  width: 50%;
+  margin-right: auto;
+  margin-top: 30px;
+  font-size: 26px;
+  color: #fa8c16;
+}
+
+.svg-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  vertical-align: -2px;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 .single-food {
   width: 900px;
   margin: 30px auto;
@@ -39,11 +56,11 @@
 
 .price {
   font-size: 32px;
-  color: darkorange;
+  color: #fa8c16;
 }
 
 .price-symbol {
-  color: darkorange;
+  color: #fa8c16;
   margin-left: 40px;
   line-height: 30px;
 }
