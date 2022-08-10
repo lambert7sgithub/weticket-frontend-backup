@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg t="1660144302074" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8343"
+     width="128" height="128">
+    <defs>
+        <style type="text/css">@font-face { font-family: feedback-iconfont; src:
+            url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff2?t=1630033759944") format("woff2"),
+            url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff?t=1630033759944") format("woff"),
+            url("//at.alicdn.com/t/font_1031158_u69w8yhxdu.ttf?t=1630033759944") format("truetype"); }
+        </style>
+    </defs>
+    <path d="M514.24 288L608 960h256l93.76-672z" fill="#cc8c2c" p-id="8344"></path>
+    <path d="M992 256h-224V155.936l57.088-72.064a32 32 0 1 0-50.176-39.744l-64 80.768a32 32 0 0 0-6.912 19.872V256h-224a32 32 0 0 0 0 64h6.4l13.76 98.656A332.96 332.96 0 0 0 352 384c-150.72 0-288 106.752-288 224a32 32 0 0 0 32 32h435.04l4.48 32H64c-35.296 0-64 28.704-64 64s28.704 64 64 64h489.376l4.48 32H96a32 32 0 0 0-32 32v37.664A90.432 90.432 0 0 0 154.336 992h395.328c13.088 0 25.28-3.52 36.704-8.64 5.76 5.312 13.28 8.64 21.632 8.64h256a32 32 0 0 0 31.68-27.584L985.6 320h6.4a32 32 0 0 0 0-64zM133.76 576c22.624-64.704 110.016-128 218.24-128 57.984 0 115.968 19.2 159.584 52.64l10.56 75.36H133.696z m415.904 352H154.336A26.368 26.368 0 0 1 128 901.664V896h438.752l3.136 22.336a26.08 26.08 0 0 1-20.224 9.664z m286.496 0h-200.32l-84.8-608h369.92l-84.8 608z"
+          fill="#cc8c2c" p-id="8345"></path>
+</svg>

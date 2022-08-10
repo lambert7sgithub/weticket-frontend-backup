@@ -1,70 +1,76 @@
+.movie-page {
+  width: 800px;
+  margin: 30px auto;
+}
 
-.film-header{
-	position: relative;
-	width: 100%;
-	height: 380px;
-	margin-top: 12px;
+.film-header {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: 12px;
+}
+
+.film-card-des {
+  display: flex;
+  height: 450px;
+  width: 100%;
+  margin: 0 auto 20px auto;
 }
 
 .film-card {
-	width: 300px;
-	height: 390px;
-	background: #FFFFFF;
-	margin-right: 100px;
-	margin-left: 190px;
-	position: absolute;
-	overflow: hidden;
-	top: 65px;
-	z-index: 999;
-  }
+  width: 300px;
+  height: 390px;
+  background: #ffffff;
+}
 
-  .film-des {
-	margin-left: 500px;
-	position: absolute;
-	overflow: hidden;
-	top: 100px;
-	z-index: 999;
-  }
+.film-des {
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 100%;
+  margin-top: 20px;
+}
 
-  .p1 {
-	font-weight: bolder;
-	letter-spacing: 3px;
-	color: burlywood;
-	font-size: 30px;
-	padding-left: 30px
-  }
+.p1 {
+  font-weight: bolder;
+  letter-spacing: 3px;
+  color: #cc8c2c;
+  font-size: 30px;
+  padding-left: 30px;
+}
 
-  .p2 {
-	font-size: 15px;
-	font-weight: bolder;
-	padding-top: 15px;
-	letter-spacing: 2px;
-	color: burlywood;
-	margin-left: 20px;
-	padding-left: 25px;
-  }
+.p2 {
+  font-size: 15px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: burlywood;
+  margin-left: 120px;
+  text-align: left;
+}
 
-  .film-content{
-	font-weight: bolder;
-	font-size: 25px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	letter-spacing: 2px;
-	/* padding: 80px 200px; */
-	margin-left: -1370px;
-  }
+.film-content {
+  font-weight: bolder;
+  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 2px;
+  /* padding: 80px 200px; */
+  width: 800px;
+  margin: 0 auto;
+}
 
-  .film-info{
-	text-indent: 2.5em;
-	font-weight: bolder;
-	font-size: larger;
-	margin-left: -1370px;
-	letter-spacing: 2px;
-  }
+.film-info {
+  text-indent: 2.5em;
+  font-weight: 100;
+  font-size: 22px;
 
-  .film-button{
-	padding-top: 20px;
-	padding-left: 40px;
-	width: 400px;
-	letter-spacing: 2px;
-  }
+  letter-spacing: 2px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.film-button {
+  position: relative;
+  bottom: -40px;
+  width: 400px;
+  letter-spacing: 2px;
+}

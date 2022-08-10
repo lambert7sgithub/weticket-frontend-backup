@@ -1,20 +1,36 @@
 import React from "react";
-import { Divider } from "antd";
+import {Button, Divider} from "antd";
 import "./SingleFood.css";
+
 const SingleFood = (props) => {
   const { name, picture, inventory, price } = props;
   return (
-    <div className="singleFood">
-      <div className="picture">
-        <img src={picture} alt=""></img>
+      <div className="single-food">
+          <div className="picture-panel">
+              <img src={picture} className="picture" alt=""></img>
+          </div>
+          <div className="info-panel">
+              <div className="title">{name}</div>
+              <Divider></Divider>
+              <div className="price-panel">
+                  <div className="price-label">门市价：</div>
+                  <div className="price-symbol">￥</div>
+                  <div className="price">{price}</div>
+              </div>
+
+              <div className="buy-panel">
+                  <Button
+                      type="primary"
+                      shape="round"
+                      size="large"
+                      disabled={inventory === 0}
+                  >
+                      {inventory === 0 ? "已售罄" : "立即抢购"}
+                  </Button>
+                  <div className="inventory">库存：{inventory}</div>
+              </div>
+          </div>
       </div>
-      <div>
-        <div className="title">{name}</div>
-        <Divider></Divider>
-        门市价：{price}
-        <div>库存：{inventory}</div>
-      </div>
-    </div>
   );
 };
 
