@@ -7,8 +7,12 @@ import { getSchedule } from "../../api/Schedule";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+
 const { Column } = Table;
+
 const ScheduleTable = (props) => {
+  const navigate = useNavigate()
   //   const passMovieId = props.movieId;
   const [cinemas, setCinemas] = useState([]);
   const [scheduleData, setScheduleData] = useState([]);
@@ -73,6 +77,11 @@ const ScheduleTable = (props) => {
       price: 20,
     },
   ];
+
+  const toSeat = () => {
+    // to={"/MovieDetails/" + props.movieId}
+    navigate("/seat/")
+  }
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -209,7 +218,7 @@ const ScheduleTable = (props) => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_) => <Button type="primary">选座购票</Button>}
+          render={(_) => <Button type="primary" onClick={toSeat}>选座购票</Button>}
         />
       </Table>
     </div>
