@@ -13,3 +13,8 @@ export const findAllMovie = () => {
 export const getScreening = (movieId, cinemaId) => {
     return api.get(`/movie/list?movie-id=${movieId}&cinema-id=${cinemaId}`);
 }
+
+
+export const getSeatDetail = (movieId, cinemaId, screeningId) => {
+    return api.get(`/movie/${movieId}/cinema/${cinemaId}/screenings/${screeningId}`)
+}

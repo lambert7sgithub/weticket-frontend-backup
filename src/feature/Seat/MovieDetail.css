@@ -1,0 +1,97 @@
+.movie-detail {
+    display: block;
+    width: 20%;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+.movie-detail-header {
+    width: 100%;
+    height: 20%;
+}
+
+.movie-desc {
+    margin-left: 140px;
+    width: 50%;
+}
+.movie-desc .value {
+    color: #151515;
+}
+
+.movie-thumb {
+    float: left;
+}
+
+.movie-name {
+    font-size: 35px;
+    font-weight: 700;
+    color: #333;
+}
+.movie-version {
+    width: 100%;
+    display: inline-flex;
+    justify-content: start;
+    color: #999;
+}
+
+.movie-length {
+    width: 100%;
+    color: #999;
+    display: inline-flex;
+    justify-content: start;
+}
+
+.movie-detail-body {
+    display: block;
+    border-top: 1px dashed #e5e5e5;
+}
+.movie-cinema {
+    width: 100%;
+    display: inline-flex;
+    justify-content: start;
+    color: #999;
+}
+
+.movie-room {
+    width: 100%;
+    display: inline-flex;
+    justify-content: start;
+    color: #999;
+}
+.movie-detail-body .value {
+    color: #151515;
+}
+
+.movie-screening {
+    width: 100%;
+    display: inline-flex;
+    justify-content: start;
+    color: #999;
+}
+.movie-seat {
+    text-align: start;
+    color: #999;
+}
+
+.movie-seat-desc .value {
+    font-size: 25px;
+    font-weight: 700;
+    color: #f03d37;
+}
+.movie-detail-footer {
+    border-top: 1px dashed #e5e5e5;
+}
+.movie-detail-footer .value {
+    color: #f03d37;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.movie-price-cal {
+    color: #999;
+    text-align: start;
+}
+.movie-price-tot {
+    color: #999;
+    text-align: start;
+}
+
