@@ -1,4 +1,4 @@
-import { Image, Divider } from "antd";
+import { Image } from "antd";
 import "./MovieDetail.css";
 
 const MovieDetail = (props) => {
