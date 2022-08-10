@@ -16,7 +16,7 @@ export default function Navigation() {
   const login = () => {};
 
   return (
-    <div style={{ height: "70px", width: "100%" }}>
+    <div className="header">
       <div className="header-logo">
         <NavLink to={"/"}>
           <div className="favicon"></div>
