@@ -1,6 +1,8 @@
+
 import React, { useState } from "react";
 import "./Seat.css";
 import { nanoid } from "nanoid";
+import MovieDetail from "./MovieDetail";
 
 export default function Seat() {
   // id, status,
@@ -9,7 +11,7 @@ export default function Seat() {
 //   const seats =  useState(new Array(10).fill(new Array(12).fill(seat)));
 
   const [seats,setSeats] = useState(Array.from({length:10},()=>Array.from({length:12},()=>({
-    id: null,
+    id: nanoid(),
     isSold: false,
   }))))
   console.log(seats);
@@ -23,6 +25,9 @@ export default function Seat() {
 
   return (
     <div>
+      <div className="seat-movie-detail" >
+          <MovieDetail movieId={props.movieId} cinemaId={props.cinemaId} scnId={props.scnId}/>
+      </div>
       <div className="seats-block">
         <div className="seats-container">
           <div className="screen-container" style={{ left: "5px" }}>
@@ -46,3 +51,4 @@ export default function Seat() {
     </div>
   );
 }
+

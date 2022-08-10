@@ -29,13 +29,13 @@ export default function Navigation() {
           mode="horizontal"
           selectedKeys={[current]}
         >
-          <Menu.Item key="index" style={{paddingRight:"100px"}}>
+          <Menu.Item key="index" style={{ paddingRight: "5%" }}>
             <NavLink to={"/"}>首页</NavLink>
           </Menu.Item>
-          <Menu.Item key="movie" style={{paddingRight:"100px"}}>
+          <Menu.Item key="movie" style={{ paddingRight: "5%" }}>
             <NavLink to={"/movie"}>电影</NavLink>
           </Menu.Item>
-          <Menu.Item key="food" style={{paddingRight:"100px"}}>
+          <Menu.Item key="food" style={{ paddingRight: "5%" }}>
             <NavLink to={"/food"}>美食</NavLink>
           </Menu.Item>
           <Menu.Item key="friend">
