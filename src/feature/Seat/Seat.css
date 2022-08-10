@@ -136,7 +136,6 @@
 }
 
 .seats-block .seats-container {
-  margin-left: 500px;
   overflow: auto;
   position: relative;
   padding-top: 112px;
@@ -560,4 +559,12 @@
 
 #iLoginComp #iLoginComp-tip-id {
   color: #f03d37 !important;
+}
+
+
+.seat-page {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
