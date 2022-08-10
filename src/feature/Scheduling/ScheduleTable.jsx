@@ -30,8 +30,6 @@ const ScheduleTable = (props) => {
     navigate("/seat/")
   }
 
-  const dispatch = useDispatch();
-
   const [searchDateString, setSearchDateString] = useState("");
   const format = "MM月DD日";
 

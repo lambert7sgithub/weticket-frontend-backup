@@ -10,11 +10,9 @@ import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from "./Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
-import "./App.less";
 import Schduling from "./feature/Scheduling/Scheduling";
 import Seat from "./feature/Seat/Seat";
-import "./App.css";
-
+import "./App.less";
 
 function App() {
   return (

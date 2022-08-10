@@ -29,7 +29,7 @@
 .movie-version {
     width: 100%;
     display: inline-flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: #999;
 }
 
@@ -37,7 +37,7 @@
     width: 100%;
     color: #999;
     display: inline-flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .movie-detail-body {
@@ -47,14 +47,14 @@
 .movie-cinema {
     width: 100%;
     display: inline-flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: #999;
 }
 
 .movie-room {
     width: 100%;
     display: inline-flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: #999;
 }
 .movie-detail-body .value {
@@ -64,7 +64,7 @@
 .movie-screening {
     width: 100%;
     display: inline-flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: #999;
 }
 .movie-seat {

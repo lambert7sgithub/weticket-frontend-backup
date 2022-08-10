@@ -4,7 +4,7 @@ import "./Seat.css";
 import { nanoid } from "nanoid";
 import MovieDetail from "./MovieDetail";
 
-export default function Seat() {
+export default function Seat(props) {
   // id, status,
   //false 已选 true 可选 2 已选中
   
