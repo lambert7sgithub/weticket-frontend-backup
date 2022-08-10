@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./Seat.css";
 import { nanoid } from "nanoid";
-import {nanoid} from "nanoid";
 import MovieDetail from "./MovieDetail";
 import {getSeatDetail} from "../../api/movie";
 import {message} from "antd";
