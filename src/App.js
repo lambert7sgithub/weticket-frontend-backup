@@ -28,7 +28,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
           <Route path="Pay" element={<Pay />} />
-          <Route path="Schduling/:movieId" element={<Schduling />} />
+          <Route path="Scheduling/:movieId" element={<Schduling />} />
           <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

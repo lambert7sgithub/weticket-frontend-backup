@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./Seat.css";
 import { nanoid } from "nanoid";
-import MovieDetail from "./MovieDetail";
+// import MovieDetail from "./MovieDetail";
 
 export default function Seat(props) {
   // id, status,
@@ -25,9 +25,9 @@ export default function Seat(props) {
 
   return (
     <div>
-      <div className="seat-movie-detail" >
+      {/* <div className="seat-movie-detail" >
           <MovieDetail movieId={props.movieId} cinemaId={props.cinemaId} scnId={props.scnId}/>
-      </div>
+      </div> */}
       <div className="seats-block">
         <div className="seats-container">
           <div className="screen-container" style={{ left: "5px" }}>

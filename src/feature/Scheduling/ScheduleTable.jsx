@@ -25,7 +25,7 @@ const ScheduleTable = (props) => {
   const toSeat = (screeningId) => {
     // "Scheduling/:movieId/screening/:screeningId/Seat"
     // to={"/MovieDetails/" + props.movieId}
-    navigate("/screening/"+screeningId+"/seat")
+    navigate("/Scheduling/"+props.movieId+"/screening/"+screeningId+"/seat")
   }
 
   const [searchDateString, setSearchDateString] = useState("");
