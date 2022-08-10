@@ -12,7 +12,7 @@ export default class MovieList extends React.Component {
             count: 10,
         }
     }
-    
+
     componentDidMount() {
         findAllMovie()
             .then((response) => {
@@ -55,10 +55,7 @@ export default class MovieList extends React.Component {
                     })}
                 </div>
             </div>
-          
-          
-      );
+        );
     };
 }
-
 

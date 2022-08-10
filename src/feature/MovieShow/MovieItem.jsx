@@ -5,7 +5,6 @@ import {Image} from "antd";
 import {NavLink} from "react-router-dom";
 
 function MovieItem(props) {
-
     return (
         <div className="box">
             <NavLink to={"/MovieDetails/" + props.movieId}>
@@ -17,8 +16,6 @@ function MovieItem(props) {
             <Rate allowHalf defaultValue={4.5}/>
         </div>
     );
-
 }
 
 export default MovieItem;
-
