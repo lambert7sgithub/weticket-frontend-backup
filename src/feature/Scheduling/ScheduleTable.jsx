@@ -22,7 +22,6 @@ const ScheduleTable = (props) => {
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
 
-  const [searchDateString, setSearchDateString] = useState("");
 
   const format = "MM月DD日";
 
