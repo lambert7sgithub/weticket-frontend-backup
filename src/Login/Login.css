@@ -1,9 +1,9 @@
 .login{
     margin: 100px auto;
-	width:400px;
-	height:500px;
-	top: 40%;
-	left: 50%; 
+    width: 400px;
+    height: 500px;
+    top: 40%;
+    left: 50%;
 }
 
 .outBorder {
@@ -13,4 +13,13 @@
     border-radius: 10px;
     position: relative;
 }
-  
+
+
+.login .ant-input-affix-wrapper {
+    border-radius: 25px;
+}
+
+.login .login-form-button {
+    border-radius: 25px;
+    width: 200px;
+}
