@@ -25,9 +25,10 @@ const ScheduleTable = (props) => {
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
 
 
-  const toSeat = () => {
+  const toSeat = (screeningId) => {
+    // "Scheduling/:movieId/screening/:screeningId/Seat"
     // to={"/MovieDetails/" + props.movieId}
-    navigate("/seat/")
+    navigate("/screening/"+screeningId+"/seat")
   }
 
   const [searchDateString, setSearchDateString] = useState("");
@@ -172,7 +173,7 @@ const ScheduleTable = (props) => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_) => <Button type="primary" onClick={toSeat}>选座购票</Button>}
+          render={(record) => <Button type="primary" onClick={ () => toSeat(record.screeningId)}>选座购票</Button>}
         />
       </Table>
     </div>
