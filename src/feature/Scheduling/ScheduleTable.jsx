@@ -19,8 +19,10 @@ const ScheduleTable = (props) => {
   const [date, setDate] = useState([]);
   const [scheduleData, setScheduleData] = useState([]);
 
-  const [chosenDate, setChosenDate] = useState(dayjs());
+  const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
+
+  const [searchDateString, setSearchDateString] = useState("");
 
   const format = "MM月DD日";
 
@@ -62,9 +64,6 @@ const ScheduleTable = (props) => {
   const updateDate = (event) => {
     setChosenDate(event.target.dayDate);
   };
-  // useEffect(() => {
-  //   setSearchDateString(date[chosenDate]);
-  // }, [chosenDate]);
   const toSeat = (screeningId) => {
     navigate("/seat/" + passMovieId + "/" + screeningId);
   };
