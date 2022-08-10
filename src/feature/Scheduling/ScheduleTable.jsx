@@ -11,7 +11,6 @@ const {Column} = Table;
 
 const ScheduleTable = (props) => {
   const navigate = useNavigate();
-
   const passMovieId = props.movieId;
 
   const [cinemas, setCinemas] = useState([]);
@@ -20,25 +19,29 @@ const ScheduleTable = (props) => {
 
   const [chosenDate, setChosenDate] = useState(dayjs());
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
+  const [chosenCinemaName, setChosenCinemaName] = useState("");
+  const [chosenLocation, setChosenLocation] = useState("");
 
   useEffect(() => {
     getCinema().then((response) => {
       setCinemas(response.data);
+      setChosenCinemaName(response.data[0].cinemaName);
+      setChosenLocation(response.data[0].location);
+      getSchedule(response.data[0].cinemaId, passMovieId).then((response) => {
+        setScheduleData(response.data);
+      });
     });
-    getSchedule(chosenCinemaId, passMovieId).then((response) => {
-      setScheduleData(response.data);
-    });
-  }, [chosenCinemaId, passMovieId]);
-  useEffect(() => {
     setDate([dayjs(), dayjs().add(1, "day"), dayjs().add(2, "day")]);
+  }, [passMovieId]);
+  useEffect(() => {
   }, []);
   useEffect(() => {
     // TODO
     if (!dayjs().isSame(chosenDate, "day")) {
       getScheduleByTime(
-        chosenCinemaId,
-        passMovieId,
-        chosenDate.format("YYYY-MM-DD 00:00:00")
+          chosenCinemaId,
+          passMovieId,
+          chosenDate.format("YYYY-MM-DD 00:00:00")
       ).then((response) => {
         setScheduleData(response.data);
       });
@@ -55,13 +58,17 @@ const ScheduleTable = (props) => {
 
   const updateCinema = (event) => {
     setChosneCinemaId(event.target.value);
+    setChosenCinemaName(event.target.cinemaName);
+    setChosenLocation(event.target.address);
   };
   const updateDate = (event) => {
     setChosenDate(event.target.dayDate);
   };
 
   const toSeat = (screeningId) => {
-    navigate("/Scheduling/" + passMovieId + "/screening/" + screeningId + "/seat");
+    navigate(
+        "/Scheduling/" + passMovieId + "/screening/" + screeningId + "/seat"
+    );
   };
 
   return (
@@ -84,9 +91,14 @@ const ScheduleTable = (props) => {
               >
                 {cinemas.map((item) => {
                   return (
-                    <Radio.Button key={item.cinemaId} value={item.cinemaId}>
-                      {item.cinemaName}
-                    </Radio.Button>
+                      <Radio.Button
+                          key={item.cinemaId}
+                          value={item.cinemaId}
+                          cinemaName={item.cinemaName}
+                          address={item.location}
+                      >
+                        {item.cinemaName}
+                      </Radio.Button>
                   );
                 })}
               </Radio.Group>
@@ -116,9 +128,9 @@ const ScheduleTable = (props) => {
               >
                 {date.map((item, index) => {
                   return (
-                    <Radio.Button key={index} value={index} dayDate={item}>
-                      {dayjs(item).format("MM[月]DD[日]")}
-                    </Radio.Button>
+                      <Radio.Button key={index} value={index} dayDate={item}>
+                        {dayjs(item).format("MM[月]DD[日]")}
+                      </Radio.Button>
                   );
                 })}
               </Radio.Group>
@@ -126,23 +138,29 @@ const ScheduleTable = (props) => {
           </Col>
         </Row>
       </div>
+      <div className="address">
+        <span className="cinema-name">{chosenCinemaName}</span>
+        <span className="cinema-address">地址：{chosenLocation}</span>
+      </div>
       <Table
-        dataSource={scheduleData}
-        pagination={false}
-        rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
+          dataSource={scheduleData}
+          pagination={false}
+          rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
       >
         <Column
-          title="放映时间"
-          dataIndex="firstName"
-          key="firstName"
-          align="center"
-          render={(_, record) => (
-              <div>
-                <div className="start-time">
-                  {dayjs(record.startDate).format("HH:mm")}
+            title="放映时间"
+            dataIndex="firstName"
+            key="firstName"
+            align="center"
+            render={(_, record) => (
+                <div>
+                  <div className="start-time">
+                    {dayjs(record.startDate).format("HH:mm")}
+                  </div>
+                  <div className="end-time">
+                    预计{dayjs(record.endTime).format("HH:mm")}结束
+                  </div>
                 </div>
-                <div className="end-time">预计{dayjs(record.endTime).format("HH:mm")}结束</div>
-              </div>
           )}
         />
         <Column
