@@ -9,14 +9,14 @@ const WeTicketLayout = () => {
     return (
         <div>
             <Layout>
-                <Header style={{background: "#fff",padding:'0'}}>
+                <Header style={{background: "#fff"}}>
                     <Navigation/>
                 </Header>
-                <Content style={{padding:'0'}}>
+                <Content>
                     <Outlet/>
                 </Content>
 
-                <Footer style={{padding:'0'}}>Made By ❤ 404-BRAIN-NOT-FOUND</Footer>
+                <Footer>Made By ❤ 404-BRAIN-NOT-FOUND</Footer>
             </Layout>
         </div>
     );
