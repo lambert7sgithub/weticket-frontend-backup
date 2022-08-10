@@ -1,97 +1,82 @@
 .movie-detail {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    background-color: #f9f9f9;
+  width: 500px;
+  margin-top: 210px;
+  padding-top: 50px;
+  display: inline-block;
+  background-color: gainsboro;
 }
 .movie-detail-header {
-    width: 100%;
-    height: 20%;
-}
-
-.movie-desc {
-    margin-left: 140px;
-    width: 50%;
-}
-.movie-desc .value {
-    color: #151515;
+  display: flex;
 }
 
 .movie-thumb {
-    float: left;
+  width: 200px;
+  height: 200px;
+  padding: 30px;
 }
 
 .movie-name {
-    font-size: 25px;
-    font-weight: 700;
-    color: #333;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  letter-spacing: 2px;
 }
 .movie-version {
-    width: 100%;
-    display: inline-flex;
-    justify-content: flex-start;
-    color: #999;
-}
-
-.movie-length {
-    width: 100%;
-    color: #999;
-    display: inline-flex;
-    justify-content: flex-start;
+  padding-top: 8px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #999;
 }
 
 .movie-detail-body {
-    display: block;
-    border-top: 1px dashed #e5e5e5;
-}
-.movie-cinema {
-    width: 100%;
-    display: inline-flex;
-    justify-content: flex-start;
-    color: #999;
+  margin-left: -350px;
+  padding: 5px 30px;
 }
 
-.movie-room {
-    width: 100%;
-    display: inline-flex;
-    justify-content: flex-start;
-    color: #999;
-}
-.movie-detail-body .value {
-    color: #151515;
+.movie-length {
+  color: #999;
+  padding-top: 8px;
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
-.movie-screening {
-    width: 100%;
-    display: inline-flex;
-    justify-content: flex-start;
-    color: #999;
+.movie-price {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+  color: #999;
+  padding-top: 10px;
+  padding-left: 60px;
 }
+
+.d1 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+  color: #999;
+}
+
+.price {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+  color: #999;
+}
+
 .movie-seat {
-    text-align: start;
-    color: #999;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+  color: #999;
 }
 
-.movie-seat-desc .value {
-    font-size: 25px;
-    font-weight: 700;
-    color: #f03d37;
-}
-.movie-detail-footer {
-    border-top: 1px dashed #e5e5e5;
-}
-.movie-detail-footer .value {
-    color: #f03d37;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-}
-.movie-price-cal {
-    color: #999;
-    text-align: start;
-}
-.movie-price-tot {
-    color: #999;
-    text-align: start;
-}
-
+/* .divider{
+    display: block;
+    height:1px;
+    width:100%;
+    margin: 24px 0;
+    position: relative;
+} */
