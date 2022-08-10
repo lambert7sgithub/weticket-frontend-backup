@@ -1,7 +1,7 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
 import {Layout} from "antd";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../feature/Navigation/Navigation";
 
 const {Content, Footer, Header} = Layout;
 const WeTicketLayout = () => {
@@ -9,14 +9,14 @@ const WeTicketLayout = () => {
     return (
         <div>
             <Layout>
-                <Header style={{background: "#fff"}}>
+                <Header style={{background: "#fff",padding:'0'}}>
                     <Navigation/>
                 </Header>
-                <Content>
+                <Content style={{padding:'0'}}>
                     <Outlet/>
                 </Content>
 
-                <Footer>Made By ❤ 404-BRAIN-NOT-FOUND</Footer>
+                <Footer style={{padding:'0'}}>Made By ❤ 404-BRAIN-NOT-FOUND</Footer>
             </Layout>
         </div>
     );

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Card, Divider, Layout} from 'antd';
-import "./CSS/MovieDetails.css";
+import "./MovieDetails.css";
 import {RightCircleOutlined, SearchOutlined} from '@ant-design/icons';
 import {getMovieById} from "../../api/movie";
 import {Link, useParams} from 'react-router-dom';

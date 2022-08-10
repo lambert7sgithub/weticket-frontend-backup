@@ -145,11 +145,6 @@
   min-width: 550px;
 }
 
-.seats-block .screen-container {
-  /* display: inline-block; */
-  /* position: relative; */
-}
-
 .seats-block .screen-container .screen {
   width: 550px;
   padding-top: 50px;

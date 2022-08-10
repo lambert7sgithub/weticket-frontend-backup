@@ -8,8 +8,8 @@ import MovieDetails from "./feature/MovieShow/MovieDetails";
 import MovieShow from "./feature/MovieShow/MovieShow";
 import Food from "./feature/Food/Food";
 import Friend from "./pages/Friend";
-import Login from "./Login/Login";
-import Register from "./Register/Register.jsx";
+import Login from "./feature/Login/Login";
+import Register from "./feature/Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
 import Scheduling from "./feature/Scheduling/Scheduling";
@@ -29,7 +29,7 @@ function App() {
           <Route path="Pay" element={<Pay />} />
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
           <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
-          
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

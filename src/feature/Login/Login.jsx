@@ -6,7 +6,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Form, Input, message } from "antd";
 import "./Login.css";
-import { postLoginUser } from "../api/user";
+import { postLoginUser } from "../../api/user";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
