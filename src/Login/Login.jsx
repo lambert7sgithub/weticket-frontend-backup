@@ -43,7 +43,7 @@ export default function Login() {
             }}
             onFinish={onFinish}
           >
-            <h2 style={{ textAlign: "center", marginBottom: "25px" }}>
+            <h2 className="login-form-title">
               登录 WeTicket
             </h2>
             <Form.Item

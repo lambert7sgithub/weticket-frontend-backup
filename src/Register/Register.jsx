@@ -14,9 +14,7 @@ export default function Register() {
   const navigate = useNavigate()
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
     const user = { ...values, captchaCode: "123" };
-    console.log(user);
     postUser(user)
       .then(() => {
         navigate("/login");
@@ -40,7 +38,7 @@ export default function Register() {
             }}
             onFinish={onFinish}
           >
-            <h2 style={{ textAlign: "center", marginBottom: "25px" }}>
+            <h2 className="register-form-title">
               注册 WeTicket
             </h2>
             <Form.Item
