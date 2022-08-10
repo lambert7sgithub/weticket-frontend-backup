@@ -7,16 +7,17 @@ import { RightCircleOutlined, SearchOutlined } from '@ant-design/icons';
 import { getMovieById } from "../../api/movie";
 import { useParams } from 'react-router-dom';
 
+
 const MovieDetails = () => {
 
     let { movieId } = useParams();
     const {Content } = Layout;
+    // let {ScreenUrl} = "Schduling/"+{movieId};
 
     const [movie, setMovie] = useState({});
 
     useEffect(() => {
         getMovieById(movieId).then((response) => {
-            console.log(response.data)
             setMovie(response.data)
         }).catch((error) => {
             alert(error);
@@ -83,7 +84,8 @@ const MovieDetails = () => {
                         <div style={{ alignItems: "center" }}>
                             <div style={{ marginTop: "280px", alignItems: "center" }}>
                                 <Card>
-                                    <a className="push_button red" href="/screening">Buy Ticket</a>
+                                    <a className="push_button red" href={'/Schduling/'+movieId}>Buy Ticket</a>
+           
                                 </Card>
                             </div>
                             <br />

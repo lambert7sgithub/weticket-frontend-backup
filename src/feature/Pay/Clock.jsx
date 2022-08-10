@@ -36,7 +36,7 @@ export default class Clock extends Component {
                     minute: minute < 10 ? '0' + minute : minute,
                     second: second < 10 ? '0' + second : second,
                 });
-            } else clearInterval(this.timer);
+            } else { clearInterval(this.timer); }
         }, 1000);
     };
 

@@ -1,61 +1,62 @@
-import React from 'react'  
+import React from 'react'
 import MovieItem from './MovieItem.jsx'
 import './movielists.css'
-import { RightOutlined,LeftOutlined} from '@ant-design/icons';
+import {RightOutlined, LeftOutlined} from '@ant-design/icons';
+import {findAllMovie} from "../../api/movie";
+
 export default class MovieList extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { 
-            movies:[],
-            count:10,
+        this.state = {
+            movies: [],
+            count: 10,
         }
     }
-    componentDidMount(){
-      const url = "http://localhost:8080/movie/list"
-      fetch(url)
-        .then((res)=>res.json())
-        .then((res)=>{   
-          console.log(res.data)      
-        this.setState({movies:res})
-      })
-    }
-    
-  
-    render() {
-   
-      return <div>
-           {this.renderList()}
-      </div>
-    }
- 
-    renderList = () => {
-      return (
-        <div className="listMovie">
-          <div>
-            <span className="listName">正在热映 &nbsp; </span>
-            <span>共{this.state.count}部电影</span>
 
-            <div className="Page">
+    componentDidMount() {
+        findAllMovie()
+            .then((response) => {
+                    this.setState({movies: response.data});
+                }
+            )
+    }
+
+
+    render() {
+        return (
+            <div>
+                {this.renderList()}
+            </div>
+        )
+    }
+
+    renderList = () => {
+        return (
+            <div className="listMovie">
+                <div>
+                    <span className="listName">正在热映 &nbsp; </span>
+                    <span>共{this.state.count}部电影</span>
+
+                    <div className="Page">
               <span className="previous_page">
                 {" "}
-                <LeftOutlined />
+                  <LeftOutlined/>
                 上一页
               </span>
-              <span className="next_Page">
+                        <span className="next_Page">
                 下一页
-                <RightOutlined />
+                <RightOutlined/>
               </span>
+                    </div>
+                </div>
+                <div className="context">
+                    {this.state.movies.map((items) => {
+                        return <MovieItem {...items} key={items.movieId}/>;
+                    })}
+                </div>
             </div>
-          </div>
-          <div className="context">
-            {this.state.movies.map((items) => {
-              return <MovieItem {...items} key={items.id}></MovieItem>;
-            })}
-          </div>
-        </div>
-      );
+        );
     };
 }
 
- 
- 
+

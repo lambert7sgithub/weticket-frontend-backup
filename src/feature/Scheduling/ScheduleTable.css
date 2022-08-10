@@ -4,7 +4,7 @@
 }
 
 .ant-table-tbody:hover {
-  background: eef0f1 !important;
+  background: #eef0f1 !important;
 }
 .even {
   color: rgb(0, 0, 0);
@@ -19,7 +19,7 @@
   padding: 30px;
   width: 1200px;
   margin: 5px auto;
-  box-shadow: 0px 10px 10px gray;
+  box-shadow: 0 10px 10px gray;
 }
 .schedule-table {
   width: 1100px;
@@ -44,7 +44,6 @@
   margin: 5px auto 25px auto;
 }
 .search-row {
-  border-bottom: 1px solid rgba(139, 210, 238, 0.842);
   border-radius: 30%;
 }
 .search-header {
@@ -65,17 +64,31 @@
   margin: 10px auto;
   word-wrap: break-word;
   text-align: left;
+  padding-bottom: 100px;
 }
 .cinema {
   margin-right: 20px;
 }
 .more-cinema {
   float: right;
-  margin-right: 260px;
+  margin-right: 50px;
   font-style: italic;
 }
+
 .date-contents {
   margin: 20px auto;
   word-wrap: break-word;
   text-align: left;
+}
+
+.ant-radio-button-wrapper {
+  border: none !important;
+  background-color: rgba(213, 248, 245, 0.432) !important;
+  position: static !important;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: #ffffff !important;
+  background: rgb(38, 177, 233) !important;
+  border-color: #1890ff;
 }
