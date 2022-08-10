@@ -22,7 +22,7 @@ const Pay = () => {
                             <div>{record.name} </div> <div>片长：120分钟 </div>
                         </div>
                     </div>
-                </div>,
+                </div>
         },
         {
             title: '场次',

@@ -11,7 +11,7 @@ import Login from "./Login/Login";
 import Register from "./Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
 import "./App.css";
-import ScheduleTable from "./feature/Scheduling/Scheduling";
+import Schduling from "./feature/Scheduling/Scheduling";
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="MovieDetials/:movieId" element={<MovieDetails />} />
+          <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
           <Route path="Pay" element={<Pay />} />
-          <Route path="s" element={<ScheduleTable />} />
+          <Route path="Schduling/:movieId" element={<Schduling />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

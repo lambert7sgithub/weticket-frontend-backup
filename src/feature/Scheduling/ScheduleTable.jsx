@@ -4,7 +4,9 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
 
 const { Column } = Table;
-const ScheduleTable = () => {
+const ScheduleTable = (props) => {
+  const passMovieId = props.movieId;
+  console.log(passMovieId);
   const data = [
     {
       screeningId: 1,
