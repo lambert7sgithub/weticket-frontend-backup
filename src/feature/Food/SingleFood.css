@@ -1,4 +1,63 @@
-.singleFood {
-  width: 1200px;
-  margin: 0 auto;
+.single-food {
+    width: 900px;
+    margin: 20px auto;
+    display: flex;
+    padding-left: 60px;
+    box-shadow: 5px 0 5px -5px gray, -5px 0 5px -5px gray;
+}
+
+.picture-panel {
+    width: 300px;
+    height: 200px;
+    margin-right: 80px;
+}
+
+.picture {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    max-height: 200px;
+    max-width: 300px;
+}
+
+.info-panel {
+    padding-top: 30px;
+
+    text-align: left;
+}
+
+.price-panel {
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+}
+
+.price-label {
+    padding-top: 10px;
+}
+
+.price {
+    font-size: 32px;
+    color: darkorange;
+}
+
+.price-symbol {
+    color: darkorange;
+    margin-left: 40px;
+    line-height: 30px;
+}
+
+.buy-panel {
+    margin-top: 50px;
+    margin-left: 100px;
+    display: flex;
+    line-height: 32px;
+}
+
+.inventory {
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #9b9d9dfd;
+    font-size: small;
 }
