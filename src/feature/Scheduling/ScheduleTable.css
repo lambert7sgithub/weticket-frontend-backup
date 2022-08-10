@@ -109,18 +109,13 @@
   position: static !important;
 }
 
-.ant-radio-group-solid,
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
   color: #ffffff !important;
   background: rgb(38, 177, 233) !important;
   border-color: #1890ff;
 }
 
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover::before {
-  background-color: #1890ff !important;
-}
 
-.ant-radio-group-solid,
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within {
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within {
   box-shadow: 0 0 0 0.5px #1890ff !important;
 }
