@@ -1,4 +1,4 @@
-import { Image } from "antd";
+import { Image, Button } from "antd";
 import "./MovieDetail.css";
 
 const MovieDetail = (props) => {
@@ -7,9 +7,7 @@ const MovieDetail = (props) => {
     <div className="movie-detail">
       <div className="movie-detail-header">
         <div className="movie-thumb">
-          <Image
-            src="../../../public/photos/1.jpg"
-          />
+          <Image src="../../../public/photos/1.jpg" />
         </div>
         <div>
           <div className="movie-name">名字：{movieDetail.movieName}</div>
@@ -37,7 +35,7 @@ const MovieDetail = (props) => {
           {movieDetail.screening}
         </div>
         <div className="price">
-            原价： ￥{movieDetail.price}x{movieDetail.quantity}
+          原价： ￥{movieDetail.price}x{movieDetail.quantity}
         </div>
         <div className="movie-seat">
           已选座位：
@@ -47,6 +45,11 @@ const MovieDetail = (props) => {
           <div className="movie-price-tot">
             总价： ￥{movieDetail.price * movieDetail.quantity}
           </div>
+        </div>
+        <div className="buy">
+          <Button type="primary" danger shape='round' size="large">
+            购买
+          </Button>
         </div>
       </div>
     </div>
