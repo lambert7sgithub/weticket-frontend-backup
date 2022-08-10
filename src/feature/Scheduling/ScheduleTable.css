@@ -38,6 +38,7 @@
 .title {
   font-weight: bold;
   font-size: large;
+  float: left;
 }
 .search {
   width: 1100px;
@@ -61,22 +62,25 @@
   padding-left: 10px;
 }
 .contents {
-  margin: 10px auto;
+  margin: 20px auto;
   word-wrap: break-word;
   text-align: left;
-  padding-bottom: 100px;
 }
 .cinema {
   margin-right: 20px;
+  margin-top: 16px;
 }
 .more-cinema {
   float: right;
   margin-right: 50px;
   font-style: italic;
 }
+.arrow {
+  margin-left: 5px;
+}
 
 .date-contents {
-  margin: 20px auto;
+  margin: 10px auto;
   word-wrap: break-word;
   text-align: left;
 }
@@ -87,7 +91,8 @@
   position: static !important;
 }
 
-.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+.ant-radio-group-solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
   color: #ffffff !important;
   background: rgb(38, 177, 233) !important;
   border-color: #1890ff;
