@@ -50,9 +50,9 @@ export default function Food() {
                   price={item.price}
               />
           );
-      })}
+        })}
 
-      <div>Footer</div>
-    </div>
+        <div>Footer</div>
+      </div>
   );
 }
