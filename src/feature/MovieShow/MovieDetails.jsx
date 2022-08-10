@@ -1,103 +1,89 @@
-import React, {useEffect, useState} from 'react';
-import {Card, Divider, Layout} from 'antd';
+import React, { useEffect, useState } from "react";
+import { Divider, Layout, Button } from "antd";
 import "./MovieDetails.css";
-import {RightCircleOutlined, SearchOutlined} from '@ant-design/icons';
-import {getMovieById} from "../../api/movie";
-import {Link, useParams} from 'react-router-dom';
-
+import { RightCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import { getMovieById } from "../../api/movie";
+import { NavLink, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
+  let { movieId } = useParams();
+  const { Content } = Layout;
 
-    let {movieId} = useParams();
-    const {Content} = Layout;
+  const [movie, setMovie] = useState({});
 
-    const [movie, setMovie] = useState({});
+  useEffect(() => {
+    getMovieById(movieId)
+      .then((response) => {
+        setMovie(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, [movieId]);
 
-    useEffect(() => {
-        getMovieById(movieId).then((response) => {
-            setMovie(response.data)
-        }).catch((error) => {
-            alert(error);
-        })
-    }, [movieId]);
+  return (
+    <Layout>
+      <Layout>
+        <Content>
+          <div className="film">
+            <div className="film-header"></div>
+            <div className="film-card">
+              <img src={movie.picture} alt=""></img>
+            </div>
+            <div className="film-des">
+              <div className="p1">
+                <RightCircleOutlined /> {movie.movieName}
+              </div>
 
+              <Divider />
+              <div className="p2">
+                <span>导演：</span>
+                {movie.actor}
+              </div>
+              <div className="p2">
+                <span>主演：</span>
+                {movie.directedBy}
+              </div>
+              <div className="p2">
+                <span>语言：</span>
+                {movie.language}
+              </div>
+              <div className="p2">
+                <span>片长：</span>
+                {movie.length}
+              </div>
+              <div className="p2">
+                <span>上映时间：</span>
+                {movie.length}
+              </div>
 
-    return (
-        <Layout>
-            <Layout style={{display: "flex"}}>
-                <Content>
-                    <div style={{display: "flex"}}>
-                        <div style={{display: "flex"}}>
-                            <img src={movie.picture} alt=""
-                                 style={{margin: "120px 50px 200px 50px", height: "600px"}}></img>
-                            <div style={{marginRight: "10px", width: "700px"}}>
-                                <div style={{height: "400px", marginTop: "100px", fontSize: "30px"}}>
-                                    <Card style={{width: "600px", fontSize: "20px"}}>
-                                        <p>
-                                            <span
-                                                style={{fontSize: "40px"}}><RightCircleOutlined/> {movie.movieName}</span>
-                                        </p>
-                                        <Divider/>
-                                        <p>
-                                            <span>导演：</span>
-                                            {movie.actor}
-                                        </p>
-                                        <p>
-                                            <span>主演：</span>
-                                            {movie.directedBy}
-                                        </p>
-                                        <p>
-                                            <span>语言：</span>
-                                            {movie.language}
-                                        </p>
-                                        <p>
-                                            <span>片长：</span>
-                                            {movie.length}
-                                        </p>
-                                        <p>
-                                            <span>上映时间：</span>
-                                            {movie.length}
-                                        </p>
+              <div className="film-button">
+                <Button
+                  type="primary"
+                  danger
+                  shape="round"
+                  size="large"
+                >
+                  <NavLink to={"/Scheduling/" + movieId}>Buy Ticket</NavLink>
+                </Button>
+              </div>
+            </div>
+            <div className="film-content">
+              <span>
+                <SearchOutlined /> 剧情描述:
+              </span>
+              <Divider />
+            </div>
 
-
-                                    </Card>
-                                </div>
-
-                                <div>
-                                    <Card style={{width: "600px", fontSize: "25px"}}>
-                                        <p>
-
-                                            <span style={{fontSize: "25px"}}> <SearchOutlined/> 剧情描述:</span>
-                                        </p>
-                                        <Divider/>
-                                        <div style={{fontSize: "15px"}}>
-                                            <p>  {movie.info}</p>
-                                        </div>
-                                    </Card>
-                                </div>
-                            </div>
-                        </div>
-                        <div style={{alignItems: "center"}}>
-                            <div style={{marginTop: "280px", alignItems: "center"}}>
-                                <Card>
-                                    <a className="push_button red" href={'/Scheduling/'+movieId}>Buy Ticket</a>
-           
-                                </Card>
-                            </div>
-                            <br/>
-                            <div>
-                                <Card>
-                                    <Link to={"/"} className="push_button blue">
-                                        Buy Ticket
-                                    </Link>
-                                </Card>
-                            </div>
-                        </div>
-                    </div>
-                </Content>
-            </Layout>
-        </Layout>
-    );
+            <div className="film-info">
+              <p> {movie.info}</p>
+            </div>
+            <br />
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
+  );
 };
 
 export default MovieDetails;
