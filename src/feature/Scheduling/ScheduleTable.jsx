@@ -4,97 +4,56 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
 import { getCinema } from "../../api/cinema";
 import { getSchedule } from "../../api/Schedule";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
+
 const { Column } = Table;
+
 const ScheduleTable = (props) => {
-  //   const passMovieId = props.movieId;
+  const navigate = useNavigate();
+
+  const passMovieId = props.movieId;
+
   const [cinemas, setCinemas] = useState([]);
+  const [date, setDate] = useState([]);
   const [scheduleData, setScheduleData] = useState([]);
-  const date = ["8月9日", "8月10日", "8月11日"];
 
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
-  const data = [
-    {
-      screeningId: 1,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:00",
-      endTime: "12:30",
-      seatSituation: "有",
-      language: "国语2D",
-      price: 10,
-    },
-    {
-      screeningId: 2,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:30",
-      endTime: "13:30",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 15,
-    },
-    {
-      screeningId: 3,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 4,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 5,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "Sidney No. 1 Lake Park",
-      price: 20,
-    },
-  ];
 
-  const dispatch = useDispatch();
+  const [searchDateString, setSearchDateString] = useState("");
+
+  const format = "MM月DD日";
+
   useEffect(() => {
     getCinema().then((response) => {
       setCinemas(response.data);
     });
-    getSchedule().then((response) => {
+    getSchedule(chosenCinemaId, passMovieId).then((response) => {
       setScheduleData(response.data);
     });
-  }, [dispatch]);
-
+  }, [chosenCinemaId, passMovieId]);
   useEffect(() => {
-    console.log("cinemaId" + chosenCinemaId);
-    console.log(dayjs().format("MM月DD日"));
-  }, [chosenCinemaId, chosenDate]);
+    setDate([dayjs(), dayjs().add(1, "day"), dayjs().add(2, "day")]);
+  }, []);
+  useEffect(() => {
+    // TODO
+    if (chosenDate !== 0) {
+      searchDateString.format("YYYY/MM/DD 00:00:00");
+      console.log(searchDateString);
+    }
+  }, [chosenCinemaId, chosenDate, searchDateString]);
 
   const updateCinema = (event) => {
     setChosneCinemaId(event.target.value);
   };
   const updateDate = (event) => {
     setChosenDate(event.target.value);
-    console.log(date[chosenDate]);
+    setSearchDateString(date[chosenDate]);
+  };
+  const toSeat = (screeningId) => {
+    navigate("/seat/" + passMovieId + "/" + screeningId);
   };
   return (
     <div className="schedule-table">
@@ -137,7 +96,7 @@ const ScheduleTable = (props) => {
           <Col span={20} className="search-content">
             <div className="date-contents">
               <Radio.Group
-                defaultValue={chosenDate}
+                defaultValue={0}
                 size="small"
                 className="cinema"
                 buttonStyle="solid"
@@ -149,7 +108,7 @@ const ScheduleTable = (props) => {
                 {date.map((item, index) => {
                   return (
                     <Radio.Button key={index} value={index}>
-                      {item}
+                      {item.format(format)}
                     </Radio.Button>
                   );
                 })}
@@ -159,7 +118,7 @@ const ScheduleTable = (props) => {
         </Row>
       </div>
       <Table
-        dataSource={data}
+        dataSource={scheduleData}
         pagination={false}
         rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
       >
@@ -170,7 +129,7 @@ const ScheduleTable = (props) => {
           align="center"
           render={(_, record) => (
             <div>
-              <div className="start-time">{record.startTime}</div>
+              <div className="start-time">{record.startDate}</div>
               <div className="end-time">预计{record.endTime}结束</div>
             </div>
           )}
@@ -184,8 +143,8 @@ const ScheduleTable = (props) => {
 
         <Column
           title="放映厅"
-          dataIndex="auditoriumNmae"
-          key="auditoriumNmae"
+          dataIndex="auditoriumName"
+          key="auditoriumName"
           align="center"
         />
         <Column
@@ -196,12 +155,12 @@ const ScheduleTable = (props) => {
         />
         <Column
           title="价格"
-          dataIndex="price"
-          key="price"
+          dataIndex="moviePrice"
+          key="moviePrice"
           align="center"
           render={(_, record) => (
             <div>
-              <span className="current-price">￥{record.price}</span>
+              <span className="current-price">￥{record.moviePrice}</span>
             </div>
           )}
         />
@@ -209,7 +168,11 @@ const ScheduleTable = (props) => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_) => <Button type="primary">选座购票</Button>}
+          render={(record) => (
+            <Button type="primary" onClick={() => toSeat(record.screeningId)}>
+              选座购票
+            </Button>
+          )}
         />
       </Table>
     </div>

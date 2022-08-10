@@ -13,7 +13,6 @@ export default function Login() {
   const navigate = useNavigate()
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
     const loginUser = { ...values, captchaCode: "123" };
     postLoginUser(loginUser)
       .then((response) => {

@@ -1,4 +1,4 @@
-name: CI_DEV
+name: CI_CD__TO_PRE_ON_DEV
 
 on:
   push:
@@ -22,3 +22,11 @@ jobs:
       - run: npm run build --if-present
 
       - run: npm test
+
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "weticket-frontend" #Must be unique in Heroku
+          heroku_email: ${{secrets.EMAIL}}
+        env:
+          NODE_ENV: production

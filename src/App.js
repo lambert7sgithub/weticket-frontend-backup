@@ -5,15 +5,17 @@ import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./feature/MovieShow/MovieDetails";
 import MovieShow from "./feature/MovieShow/MovieShow";
-import Food from "./pages/Food";
+import Food from "./feature/Food/Food";
 import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from "./Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
-import "./App.css";
 import Schduling from "./feature/Scheduling/Scheduling";
+import Seat from "./feature/Seat/Seat";
+import "./App.less";
 import Order from "./feature/orders/Order";
 import PersonOrder from "./feature/personalCenter/PersonOrder";
+
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
           <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
           <Route path="Pay" element={<Pay />} />
           <Route path="Schduling/:movieId" element={<Schduling />} />
+          <Route path="Scheduling/:movieId/screening/:screeningId/Seat" element={<Seat />} />
           <Route path="order" element={<Order />} />
           <Route path="personorder" element={<PersonOrder />} />
         </Route>
