@@ -5,7 +5,7 @@ import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./feature/MovieShow/MovieDetails";
 import MovieShow from "./feature/MovieShow/MovieShow";
-import Food from "./pages/Food";
+import Food from "./feature/Food/Food";
 import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from "./Register/Register.jsx";
