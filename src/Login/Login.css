@@ -6,11 +6,11 @@
     left: 50%;
 }
 
-.outBorder {
+.login .outBorder {
     width: 100%;
     padding: 50px;
     border: 2px solid #BBBBBB;
-    border-radius: 10px;
+    border-radius: 25px;
     position: relative;
 }
 
@@ -22,4 +22,9 @@
 .login .login-form-button {
     border-radius: 25px;
     width: 200px;
+}
+
+.login-form-title {
+    text-align: center;
+    margin-bottom: 25px;
 }

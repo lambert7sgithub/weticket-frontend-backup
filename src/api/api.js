@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const currentHostName = process.env.NODE_ENV;
-console.log(document.location.hostname);
+const currentHostName = document.location.hostname;
 let baseURL;
 if (currentHostName === 'weticket-frontend.herokuapp.com') {
     baseURL = "https://weticket-backend.herokuapp.com/";
