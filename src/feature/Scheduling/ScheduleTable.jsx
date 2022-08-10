@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import { Button, Col, Divider, Radio, Row, Table } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "./ScheduleTable.css";
-
+import { getCinema } from "../../api/cinema";
+import { getSchedule } from "../../api/Schedule";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import dayjs from "dayjs";
 const { Column } = Table;
 const ScheduleTable = (props) => {
-  const passMovieId = props.movieId;
-  console.log(passMovieId);
+  //   const passMovieId = props.movieId;
+  const [cinemas, setCinemas] = useState([]);
+  const [scheduleData, setScheduleData] = useState([]);
+  const date = ["8月9日", "8月10日", "8月11日"];
+
+  const [chosenDate, setChosenDate] = useState(0);
+  const [chosenCinemaId, setChosneCinemaId] = useState(0);
   const data = [
     {
       screeningId: 1,
@@ -64,24 +73,24 @@ const ScheduleTable = (props) => {
       price: 20,
     },
   ];
-  const date = ["8月9日", "8月10日", "8月11日"];
-  const cinemaName = [
-    "a1 cinema(qwertyuiopas)",
-    "corn cinema",
-    "a2 cinema (qwertyuiopas) to test",
-    "a3 cinema (qwertyuiopas)",
-    "a4 cinema (qwertyuiopas)",
-    "cinema(qwertyuiopas)",
-    "test cinema",
-    "no name cinema",
-  ];
-  const [chosenDate, setChosenDate] = useState(0);
-  const [chosenCinema, setChosneCinema] = useState(0);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getCinema().then((response) => {
+      setCinemas(response.data);
+    });
+    getSchedule().then((response) => {
+      setScheduleData(response.data);
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("cinemaId" + chosenCinemaId);
+    console.log(dayjs().format("MM月DD日"));
+  }, [chosenCinemaId, chosenDate]);
 
   const updateCinema = (event) => {
-    setChosneCinema(event.target.value);
-    console.log(chosenCinema);
-    console.log(cinemaName[chosenCinema + 1]);
+    setChosneCinemaId(event.target.value);
   };
   const updateDate = (event) => {
     setChosenDate(event.target.value);
@@ -99,19 +108,16 @@ const ScheduleTable = (props) => {
           <Col span={20} className="search-content">
             <div className="contents">
               <Radio.Group
-                defaultValue={chosenCinema}
+                defaultValue={1}
                 size="small"
                 className="cinema"
                 buttonStyle="solid"
                 onChange={updateCinema}
-                style={{
-                  marginTop: 16,
-                }}
               >
-                {cinemaName.map((item, index) => {
+                {cinemas.map((item) => {
                   return (
-                    <Radio.Button key={index} value={index}>
-                      {item}
+                    <Radio.Button key={item.cinemaId} value={item.cinemaId}>
+                      {item.cinemaName}
                     </Radio.Button>
                   );
                 })}
@@ -119,7 +125,7 @@ const ScheduleTable = (props) => {
 
               <p className="more-cinema">
                 更多
-                <ArrowRightOutlined style={{ marginLeft: "5px" }} />
+                <ArrowRightOutlined className="arrow" />
               </p>
             </div>
           </Col>

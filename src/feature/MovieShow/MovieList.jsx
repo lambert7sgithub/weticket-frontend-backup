@@ -59,4 +59,3 @@ export default class MovieList extends React.Component {
     };
 }
 
-

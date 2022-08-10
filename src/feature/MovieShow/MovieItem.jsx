@@ -19,4 +19,3 @@ function MovieItem(props) {
 }
 
 export default MovieItem;
-

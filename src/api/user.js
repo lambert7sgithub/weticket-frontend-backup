@@ -8,4 +8,3 @@ export const postUser = (user) =>{
     return api.post("/user",user)
 }
 
-
