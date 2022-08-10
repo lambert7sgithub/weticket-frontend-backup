@@ -10,7 +10,7 @@ function MovieItem(props) {
             <NavLink to={"/MovieDetails/" + props.movieId}>
                 <Image  width={150} height={200} src={props.picture}/>
             </NavLink>
-            <h4 className="moviename">{props.movie_name}</h4>
+            <h4 className="moviename">{props.movieName}</h4>
 
             <h5>评分：{props.score}</h5>
             <Rate allowHalf defaultValue={4.5}/>

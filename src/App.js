@@ -12,6 +12,8 @@ import Register from "./Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
 import "./App.css";
 import Schduling from "./feature/Scheduling/Scheduling";
+import Order from "./feature/orders/Order";
+import PersonOrder from "./feature/personalCenter/PersonOrder";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
           <Route path="Pay" element={<Pay />} />
           <Route path="Schduling/:movieId" element={<Schduling />} />
+          <Route path="order" element={<Order />} />
+          <Route path="personorder" element={<PersonOrder />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
