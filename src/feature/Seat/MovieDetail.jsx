@@ -3,6 +3,7 @@ import './MovieDetail.css';
 
 const MovieDetail = (props) => {
     const {movieDetail} = props;
+    console.log(movieDetail);
     return (
         <div className="movie-detail">
             <div className="movie-detail-header">
