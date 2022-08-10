@@ -62,12 +62,11 @@ const ScheduleTable = (props) => {
   const updateDate = (event) => {
     setChosenDate(event.target.dayDate);
   };
-  // useEffect(() => {
-  //   setSearchDateString(date[chosenDate]);
-  // }, [chosenDate]);
+
   const toSeat = (screeningId) => {
-    navigate("/seat/" + passMovieId + "/" + screeningId);
+    navigate("/Scheduling/" + passMovieId + "/screening/" + screeningId + "/seat");
   };
+  
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
