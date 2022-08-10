@@ -10,7 +10,7 @@ import Friend from "./pages/Friend";
 import Login from "./Login/Login";
 import Register from "./Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
-import "./App.css";
+import "./App.less";
 import ScheduleTable from "./feature/Scheduling/Scheduling";
 import Order from "./feature/orders/Order";
 import PersonOrder from "./feature/personalCenter/PersonOrder";
