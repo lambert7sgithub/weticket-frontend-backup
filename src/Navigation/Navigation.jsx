@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Input, Menu } from "antd";
+import {Button, Input, Menu} from "antd";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
+import Login from "../Login/Login";
 
 export default function Navigation() {
   const { Search } = Input;
@@ -10,10 +11,32 @@ export default function Navigation() {
   const onClick = (e) => {
     setCurrent(e.key);
   };
-
-  const register = () => {};
-
-  const login = () => {};
+  const logout = () => {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+  }
+  const showLoginStatus = () => {
+    const username = sessionStorage.getItem("username");
+    if (username === undefined || username === null || username.length === 0) {
+      return (
+          <div>
+            <b onClick={()=>{}}>
+              <NavLink to={"register"}>注册</NavLink>
+            </b>
+            <b onClick={()=>{}}>
+              <NavLink to={"login"}>登录</NavLink>
+            </b>
+          </div>
+      )
+    } else {
+      return (
+          <div>
+            {username}
+            <Button onClick={logout} to={<Login/>}>登出</Button>
+          </div>
+      );
+    }
+  }
 
   return (
     <div className="header">
@@ -47,12 +70,7 @@ export default function Navigation() {
         <Search placeholder="搜索电影" enterButton />
       </div>
       <label className="header-user">
-        <b onClick={register}>
-          <NavLink to={"register"}>注册</NavLink>
-        </b>
-        <b onClick={login}>
-          <NavLink to={"login"}>登录</NavLink>
-        </b>
+        {showLoginStatus()}
       </label>
     </div>
   );
