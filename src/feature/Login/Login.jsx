@@ -16,17 +16,12 @@ export default function Login() {
     const loginUser = { ...values, captchaCode: "123" };
     postLoginUser(loginUser)
       .then((response) => {
-        if (response.status === 200) {
-          sessionStorage.setItem("username", loginUser.credentialId);
-          sessionStorage.setItem("token", response.headers['authorization']);
-          navigate('/')
-        } else {
-          message.error("登录失败");
-          return;
-        }
+        sessionStorage.setItem("username", loginUser.credentialId);
+        sessionStorage.setItem("token", response.headers['authorization']);
+        navigate('/')
       })
       .catch((err) => {
-        console.log(err);
+        message.error("登录失败: 用户名或密码错误");
       });
   };
 

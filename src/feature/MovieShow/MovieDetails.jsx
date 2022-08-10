@@ -21,8 +21,6 @@ const MovieDetails = () => {
         })
     }, [movieId]);
 
-    console.log(movie);
-
 
     return (
         <Layout>
