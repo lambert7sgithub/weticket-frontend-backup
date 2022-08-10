@@ -11,9 +11,7 @@ import { useNavigate } from "react-router-dom";
 const { Column } = Table;
 
 const ScheduleTable = (props) => {
-
-  const navigate = useNavigate()
-  //   const passMovieId = props.movieId;
+  const navigate = useNavigate();
 
   const passMovieId = props.movieId;
 
@@ -24,13 +22,8 @@ const ScheduleTable = (props) => {
   const [chosenDate, setChosenDate] = useState(0);
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
 
-
-  const toSeat = () => {
-    // to={"/MovieDetails/" + props.movieId}
-    navigate("/seat/")
-  }
-
   const [searchDateString, setSearchDateString] = useState("");
+
   const format = "MM月DD日";
 
   useEffect(() => {
@@ -58,6 +51,9 @@ const ScheduleTable = (props) => {
   const updateDate = (event) => {
     setChosenDate(event.target.value);
     setSearchDateString(date[chosenDate]);
+  };
+  const toSeat = (screeningId) => {
+    navigate("/seat/" + passMovieId + "/" + screeningId);
   };
   return (
     <div className="schedule-table">
@@ -133,7 +129,7 @@ const ScheduleTable = (props) => {
           align="center"
           render={(_, record) => (
             <div>
-              <div className="start-time">{record.startTime}</div>
+              <div className="start-time">{record.startDate}</div>
               <div className="end-time">预计{record.endTime}结束</div>
             </div>
           )}
@@ -147,8 +143,8 @@ const ScheduleTable = (props) => {
 
         <Column
           title="放映厅"
-          dataIndex="auditoriumNmae"
-          key="auditoriumNmae"
+          dataIndex="auditoriumName"
+          key="auditoriumName"
           align="center"
         />
         <Column
@@ -172,7 +168,11 @@ const ScheduleTable = (props) => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_) => <Button type="primary" onClick={toSeat}>选座购票</Button>}
+          render={(record) => (
+            <Button type="primary" onClick={() => toSeat(record.screeningId)}>
+              选座购票
+            </Button>
+          )}
         />
       </Table>
     </div>
