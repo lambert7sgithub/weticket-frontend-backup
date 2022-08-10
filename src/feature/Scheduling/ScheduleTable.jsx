@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { Button, Col, Divider, Radio, Row, Table } from "antd";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Divider, Radio, Row, Table} from "antd";
+import {ArrowRightOutlined} from "@ant-design/icons";
 import "./ScheduleTable.css";
-import { getCinema } from "../../api/cinema";
-import { getSchedule, getScheduleByTime } from "../../api/Schedule";
-import { useEffect } from "react";
+import {getCinema} from "../../api/cinema";
+import {getSchedule, getScheduleByTime} from "../../api/Schedule";
 import dayjs from "dayjs";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-const { Column } = Table;
+const {Column} = Table;
 
 const ScheduleTable = (props) => {
   const navigate = useNavigate();
@@ -21,8 +20,6 @@ const ScheduleTable = (props) => {
 
   const [chosenDate, setChosenDate] = useState(dayjs());
   const [chosenCinemaId, setChosneCinemaId] = useState(0);
-
-  const format = "MM月DD日";
 
   useEffect(() => {
     getCinema().then((response) => {
@@ -66,7 +63,7 @@ const ScheduleTable = (props) => {
   const toSeat = (screeningId) => {
     navigate("/Scheduling/" + passMovieId + "/screening/" + screeningId + "/seat");
   };
-  
+
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
@@ -120,7 +117,7 @@ const ScheduleTable = (props) => {
                 {date.map((item, index) => {
                   return (
                     <Radio.Button key={index} value={index} dayDate={item}>
-                      {dayjs(item).format(format)}
+                      {dayjs(item).format("MM[月]DD[日]")}
                     </Radio.Button>
                   );
                 })}
@@ -140,10 +137,12 @@ const ScheduleTable = (props) => {
           key="firstName"
           align="center"
           render={(_, record) => (
-            <div>
-              <div className="start-time">{record.startDate}</div>
-              <div className="end-time">预计{record.endTime}结束</div>
-            </div>
+              <div>
+                <div className="start-time">
+                  {dayjs(record.startDate).format("HH:mm")}
+                </div>
+                <div className="end-time">预计{dayjs(record.endTime).format("HH:mm")}结束</div>
+              </div>
           )}
         />
         <Column

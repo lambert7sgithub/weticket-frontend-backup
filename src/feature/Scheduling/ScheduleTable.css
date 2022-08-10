@@ -18,16 +18,17 @@
 .schedule-main-page {
   padding: 30px;
   width: 1200px;
-  margin: 5px auto;
+  margin: 0 auto 5px auto;
   box-shadow: 0 10px 10px gray;
 }
 .schedule-table {
   width: 1100px;
-  margin: 20px auto;
+  margin: 10px auto 20px auto;
 }
 .current-price {
   font-weight: bold;
   margin-right: 5px;
+  font-size: large;
 }
 
 .start-time {
@@ -91,8 +92,7 @@
   position: static !important;
 }
 
-.ant-radio-group-solid
-  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
   color: #ffffff !important;
   background: rgb(38, 177, 233) !important;
   border-color: #1890ff;
