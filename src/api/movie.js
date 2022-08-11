@@ -18,3 +18,7 @@ export const getScreening = (movieId, cinemaId) => {
 export const getSeatDetail = (movieId, cinemaId, screeningId) => {
     return api.get(`/movie/${movieId}/cinema/${cinemaId}/screenings/${screeningId}`)
 }
+
+export const getAllSeats = (screeningId) => {
+    return api.get(`/screenings/${screeningId}`)
+}

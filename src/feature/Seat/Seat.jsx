@@ -1,30 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Seat.css";
-import { nanoid } from "nanoid";
 import MovieDetail from "./MovieDetail";
-import { getSeatDetail } from "../../api/movie";
+import { getSeatDetail,getAllSeats } from "../../api/movie";
 import { message } from "antd";
+import { useParams } from "react-router-dom";
 
-export default function Seat(props) {
+export default function Seat() {
   // id, status,
   //false 已选 true 可选 2 已选中
+    let { movieId, screeningId, cinemaId } = useParams();
 
-  const [seats, setSeats] = useState(
-    Array.from({ length: 10 }, () =>
-      Array.from({ length: 12 }, () => ({
-        id: nanoid(),
-        isSold: false,
-      }))
-    )
-  );
+//   const [seats, setSeats] = useState(
+//     Array.from({ length: 10 }, () =>
+//       Array.from({ length: 12 }, () => ({
+//         id: nanoid(),
+//         isSold: false,
+//       }))
+//     )
+//   );
 
-  const movieDetail = getSeatDetail(props.movieId, props.cinemaId, props.scnId)
+  const [seats, setSeats] = useState({});
+
+  useEffect(() => {
+    getAllSeats(screeningId)
+      .then((response) => {
+        console.log(response);
+        setSeats(response.data)
+        console.log(seats)
+      })
+      .catch((error) => {
+        alert(error)
+      });
+  },[movieId]);
+
+
+
+  const movieDetail = getSeatDetail(movieId, cinemaId, screeningId)
     .then((res) => {
       return res.data;
     })
     .catch(() => {
       message.error("无法拉取电影详情");
     });
+    
   const changeSeatStatus = (rowIndex, colIndex) => {
     let copy = [...seats];
     copy[rowIndex][colIndex].isSold = !copy[rowIndex][colIndex].isSold;
@@ -42,7 +60,7 @@ export default function Seat(props) {
           <div style={{ padding: "0 40px", width: "580px" }}>
             {seats.map((items, rowIndex) =>
               items.map((item, colIndex) => (
-                <span key={colIndex} style={{paddingBottom:'20px'}}>
+                <span key={colIndex} style={{ paddingBottom: "20px" }}>
                   <span
                     className={
                       item.isSold === false
