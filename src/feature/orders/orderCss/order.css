@@ -58,7 +58,6 @@ table.gridtable th:nth-child(-n + 2) {
 }
 
 .showRight {
-    width: 110px;
     float: left;
     padding-left: 15px;
 }
