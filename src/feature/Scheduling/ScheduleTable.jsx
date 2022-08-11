@@ -67,7 +67,9 @@ const ScheduleTable = (props) => {
 
   const toSeat = (screeningId) => {
     navigate(
-        "/Scheduling/" + passMovieId + "/screening/" + screeningId + "/seat"
+    
+      // Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat
+        "/Cinema/"+chosenCinemaId + "/screening/" + screeningId + "/Scheduling/" + passMovieId + "/seat"
     );
   };
 

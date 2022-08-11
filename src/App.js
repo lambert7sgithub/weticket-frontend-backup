@@ -9,10 +9,10 @@ import MovieShow from "./feature/MovieShow/MovieShow";
 import Food from "./feature/Food/Food";
 import Friend from "./pages/Friend";
 import Login from "./feature/Login/Login";
-import Register from "./feature/Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
 import Scheduling from "./feature/Scheduling/Scheduling";
+import Register from "./Register/Register";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
           <Route path="Pay" element={<Pay />} />
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
-          <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
+          <Route path="Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat" element={<Seat />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

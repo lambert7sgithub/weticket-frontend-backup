@@ -1,52 +1,61 @@
 import React, { useEffect, useState } from "react";
 import "./Seat.css";
 import MovieDetail from "./MovieDetail";
-import { getSeatDetail,getAllSeats } from "../../api/movie";
-import { message } from "antd";
+import {  getAllSeats, getMovieDetail } from "../../api/movie";
 import { useParams } from "react-router-dom";
 
 export default function Seat() {
-  // id, status,
-  //false 已选 true 可选 2 已选中
-    let { movieId, screeningId, cinemaId } = useParams();
 
-//   const [seats, setSeats] = useState(
-//     Array.from({ length: 10 }, () =>
-//       Array.from({ length: 12 }, () => ({
-//         id: nanoid(),
-//         isSold: false,
-//       }))
-//     )
-//   );
-
-  const [seats, setSeats] = useState({});
+  let { screeningId } = useParams();
+  const [seats, setSeats] = useState([]);
+  const sortedSeats = [];
+  const [userSelectedSeats, setUserSelectedSeats] = useState([]);
+  const [movieDetail, setMovieDetail] = useState({});
 
   useEffect(() => {
     getAllSeats(screeningId)
       .then((response) => {
-        console.log(response);
-        setSeats(response.data)
-        console.log(seats)
+        const seats = response.data;
+        for (let i = 0; i < 12; i++) {
+          for (let j = 0; j < 12; j++) {
+            let seat = seats.filter((seat) => seat.x === i && seat.y === j);
+            const { x, y, status } = seat[0];
+            sortedSeats.push({ x, y, status });
+          }
+        }
+        setSeats(sortedSeats);
       })
       .catch((error) => {
-        alert(error)
+        alert(error);
       });
-  },[movieId]);
+  }, []);
 
-
-
-  const movieDetail = getSeatDetail(movieId, cinemaId, screeningId)
-    .then((res) => {
-      return res.data;
-    })
-    .catch(() => {
-      message.error("无法拉取电影详情");
+  useEffect(() => {
+    getMovieDetail(screeningId).then((response) => {
+      setMovieDetail(response.data);
     });
-    
-  const changeSeatStatus = (rowIndex, colIndex) => {
-    let copy = [...seats];
-    copy[rowIndex][colIndex].isSold = !copy[rowIndex][colIndex].isSold;
-    setSeats(copy);
+  }, []);
+
+  const changeSeatStatus = (seatIndex) => {
+    let seat = seats[seatIndex];
+    if (seat.status === 0) {
+      seat.status = 1;
+    } else {
+      seat.status = 0;
+    }
+
+    let newUserSelectedSeats = [...userSelectedSeats];
+
+    newUserSelectedSeats.push(seat);
+
+    let filterSeat = newUserSelectedSeats.filter((seat) => {
+      return seat.status === 1;
+    });
+    setUserSelectedSeats(filterSeat);
+
+    let newSeats = [...seats];
+    newSeats[seatIndex] = seat;
+    setSeats(newSeats);
   };
 
   return (
@@ -58,25 +67,27 @@ export default function Seat() {
 
         <div className="seats-wrapper">
           <div style={{ padding: "0 40px", width: "580px" }}>
-            {seats.map((items, rowIndex) =>
-              items.map((item, colIndex) => (
-                <span key={colIndex} style={{ paddingBottom: "20px" }}>
-                  <span
-                    className={
-                      item.isSold === false
-                        ? "seat selectable item"
-                        : "seat sold item"
-                    }
-                    onClick={() => changeSeatStatus(rowIndex, colIndex)}
-                  />
-                </span>
-              ))
-            )}
+            {seats.map((item, seatIndex) => (
+              <span key={seatIndex} style={{ paddingBottom: "20px" }}>
+                <span
+                  className={
+                    item.status === 0
+                      ? "seat selectable item"
+                      : "seat sold item"
+                  }
+                  onClick={() => changeSeatStatus(seatIndex)}
+                />
+              </span>
+            ))}
           </div>
         </div>
       </div>
       <div>
-        <MovieDetail movieDetail={movieDetail} />
+        <MovieDetail
+          movieDetail={movieDetail}
+          screening={screeningId}
+          seats={userSelectedSeats}
+        />
       </div>
     </div>
   );
