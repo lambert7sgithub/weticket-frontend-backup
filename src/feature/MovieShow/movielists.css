@@ -15,8 +15,8 @@
 }
 
 .Page{
-    display: inline-block;
-    /* float: right; */
+    display: block;
+    float: right;
     padding-top: 5px;
     padding-right: 10px;
 }

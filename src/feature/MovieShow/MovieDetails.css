@@ -18,9 +18,17 @@
 }
 
 .film-card {
+
   width: 300px;
   height: 390px;
   background: #ffffff;
+  margin-top: 20px;
+}
+
+.film-card img{
+  width: 320px;
+  height: 458px;
+ 
 }
 
 .film-des {

@@ -50,7 +50,7 @@ const MovieDetails = () => {
                                     </p>
                                     <p>
                                         上映时间：
-                                        {movie.length}
+                                        {movie.showTime}
                                     </p>
                                     <p>
                                         片长：
