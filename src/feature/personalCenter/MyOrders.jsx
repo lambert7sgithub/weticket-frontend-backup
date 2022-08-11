@@ -1,10 +1,8 @@
-import React,{useEffect, useState}from 'react';
+// import React,{useEffect, useState}from 'react';
 import OrderList from './OrderList.jsx';
-import {getOrderById} from '../../api/order'
-import { useDispatch } from "react-redux";
 const MyOrders = () => {
-    const [orders,setOrders] = useState([]);
-    const [state,setState] =useState([]);
+    // const [orders,setOrders] = useState([]);
+    // const [state,setState] =useState([]);
 
     // const dispatch = useDispatch();
     // useEffect(() => {
