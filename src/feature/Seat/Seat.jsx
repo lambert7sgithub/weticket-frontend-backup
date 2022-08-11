@@ -28,13 +28,13 @@ export default function Seat() {
       .catch((error) => {
         alert(error);
       });
-  }, []);
+  });
 
   useEffect(() => {
     getMovieDetail(screeningId).then((response) => {
       setMovieDetail(response.data);
     });
-  }, []);
+  });
 
   const changeSeatStatus = (seatIndex) => {
     let seat = seats[seatIndex];
