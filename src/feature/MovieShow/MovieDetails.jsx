@@ -59,7 +59,7 @@ const MovieDetails = () => {
                                 </div>
                                 <div className="film-button">
                                     <Button type="primary" shape="round" size="large">
-                                        <NavLink to={"/Scheduling/" + movieId}>Buy Ticket</NavLink>
+                                        <NavLink to={"/Scheduling/" + movieId}>进 入 购 票</NavLink>
                                     </Button>
                                 </div>
                             </div>
