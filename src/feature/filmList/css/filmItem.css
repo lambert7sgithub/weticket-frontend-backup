@@ -1,6 +1,5 @@
 .filmItemImage {
-    width: 240px;
-    height: 388px;
+    height: 400px;
 }
 
 .filmComment {
@@ -10,4 +9,5 @@
 .filmScore {
     color: #ffb400;
     text-align: right;
+    font-size: x-large;
 }

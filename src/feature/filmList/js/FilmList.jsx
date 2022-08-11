@@ -4,7 +4,6 @@ import {useDispatch} from "react-redux";
 import {findAllMovie} from "../../../api/movie";
 import {addFilms} from "../../../app/filmSlice";
 import FilmGroup from "./FilmGroup";
-import FilmListHeader from "./FilmListHeader";
 
 const FilmList = () => {
 
@@ -16,13 +15,12 @@ const FilmList = () => {
             message.loading({content: 'Loading...', key});
             dispatch(addFilms(response.data));
         }).finally(() => {
-            message.success({content: 'Welcome!', key, duration: 2});
+            message.success({content: 'Loaded!', key, duration: 1});
         });
     }, [dispatch]);
 
     return (
         <div>
-            <FilmListHeader/>
             <FilmGroup/>
         </div>
     );
