@@ -28,6 +28,7 @@ export default class PersonOrder extends Component {
           <div>
             <SolutionOutlined />
             &nbsp;&nbsp;个人中心
+            <hr/>
           </div>
           <div  onClick={() => this.tabClick(0)}>
             <TagOutlined />
