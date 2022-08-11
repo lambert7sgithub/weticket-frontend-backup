@@ -6,7 +6,7 @@ const FoodList = (props) => {
       <>
         <div className="OrderListShow">
           <div className="orderShow">
-            <img alt="" src="/food/1.jpg"></img>
+            <img alt="" src={props.picture}/>
             <div className="showRight">
               <ul>
                 <li>《{props.foodname}》</li>
