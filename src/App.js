@@ -13,6 +13,8 @@ import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
 import Scheduling from "./feature/Scheduling/Scheduling";
 import Register from "./feature/Register/Register";
+import Order from './feature/orders/Order'
+import PersonOrder from './feature/personalCenter/PersonOrder'
 
 function App() {
   return (
