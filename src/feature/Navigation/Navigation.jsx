@@ -14,6 +14,7 @@ export default function Navigation() {
   const logout = () => {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("token");
+    window.location.replace("/")
   };
   const showLoginStatus = () => {
     const username = sessionStorage.getItem("username");
