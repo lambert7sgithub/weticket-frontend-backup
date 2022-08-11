@@ -11,6 +11,20 @@ export default function Seat() {
   const sortedSeats = [];
   const [userSelectedSeats, setUserSelectedSeats] = useState([]);
   const [movieDetail, setMovieDetail] = useState({});
+
+
+  
+  const judge = (status)=>{
+    if(status === 1){
+      return 'seat sold item'
+    }else if(status === 3){
+      return 'seat love item'
+    }else if(status === 0)
+      return 'seat selectable item'
+    }
+    // item.status === 0 ? "seat selectable item" : "seat sold item"
+  
+
   useEffect(() => {
     getAllSeats(screeningId)
       .then((response) => {
@@ -22,6 +36,7 @@ export default function Seat() {
             sortedSeats.push({ x, y, status });
           }
         }
+        console.log(sortedSeats)
         setSeats(sortedSeats);
         console.log(sortedSeats);
       })
@@ -71,7 +86,7 @@ export default function Seat() {
             {seats.map((item, seatIndex) => (
               <span key={seatIndex} style={{ paddingBottom: "20px" }}>
                 <span
-                  className={item.status === 0 ? "seat selectable item" : "seat sold item"}
+                  className={judge(item.status)}
                   onClick={() => changeSeatStatus(seatIndex)}
                 />
               </span>

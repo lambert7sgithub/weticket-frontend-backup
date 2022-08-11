@@ -16,9 +16,7 @@ const MovieDetail = (props) => {
         });
         setSeats(filterSeat);
     }, [props.seats]);
-    const handlePair = (checked) => {
-        setPair(checked);
-    }
+
     localStorage.setItem("movieDetail", JSON.stringify(movieDetail));
     localStorage.setItem("screening", JSON.stringify(screening));
     localStorage.setItem("selectSeats", JSON.stringify(seats));
@@ -86,7 +84,10 @@ const MovieDetail = (props) => {
                 <div className="buy">
                     <div className="pair-switch">
                         <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked
-                                onClick={handlePair}/>
+                                onChange={(e) => {
+                                    setPair(!e);
+                                    console.log(e)  
+                                }}/>
                     </div>
 
                     <Button
