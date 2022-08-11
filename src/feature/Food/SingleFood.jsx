@@ -1,9 +1,8 @@
-import React from "react";
-import { Button, Divider, Modal, message } from "antd";
+import React, {useState} from "react";
+import {Button, Divider, Modal} from "antd";
 import "./SingleFood.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { addFoodOrder } from "../../api/foods";
+import {useNavigate} from "react-router-dom";
+import {addFoodOrder} from "../../api/foods";
 
 const SingleFood = (props) => {
   const navigate = useNavigate();
