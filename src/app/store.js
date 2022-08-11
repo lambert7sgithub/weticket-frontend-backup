@@ -1,8 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit"; 
+import {configureStore} from "@reduxjs/toolkit";
 import movieSlice from "../app/movieSlice";
+import socialContactReducer from '../app/socialContactSlice';
 
 export const store = configureStore({
   reducer: {
-    movie: movieSlice
+    movie: movieSlice,
+    socialContact: socialContactReducer
   },
 });

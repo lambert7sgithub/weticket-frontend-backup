@@ -9,9 +9,16 @@ if (currentHostName === 'weticket-frontend.herokuapp.com') {
 } else {
     baseURL = "http://localhost:8080/";
 }
-
+let TOKEN = sessionStorage.getItem("token");
+const getToken = () => {
+  if (TOKEN !== null) {
+      return {Authorization: TOKEN};
+  } else {
+      return null;
+  }
+}
 const api = axios.create({
-    baseURL
+    baseURL, headers: getToken()
 });
 
 export default api;

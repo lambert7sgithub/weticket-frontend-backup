@@ -7,7 +7,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./feature/MovieShow/MovieDetails";
 import MovieShow from "./feature/MovieShow/MovieShow";
 import Food from "./feature/Food/Food";
-import Friend from "./pages/Friend";
 import Login from "./feature/Login/Login";
 import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
@@ -16,6 +15,8 @@ import Register from "./feature/Register/Register";
 import Order from './feature/orders/Order'
 import PersonOrder from './feature/personalCenter/PersonOrder'
 import LongitudinalMovieList from "./feature/LongitudinalMovie/LongitudinalMovieList";
+import SocialContact from "./feature/SocialContact/SocialContact";
+
 function App() {
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movie" element={<MovieShow />} />
           <Route path="food" element={<Food />} />
-          <Route path="friend" element={<Friend />} />
+          <Route path="friend" element={<SocialContact/>}/>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="MovieDetails/:movieId" element={<MovieDetails />} />
@@ -43,4 +44,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./Seat.css";
 import MovieDetail from "./MovieDetail";
 import {  getAllSeats, getMovieDetail } from "../../api/movie";
@@ -11,7 +11,6 @@ export default function Seat() {
   const sortedSeats = [];
   const [userSelectedSeats, setUserSelectedSeats] = useState([]);
   const [movieDetail, setMovieDetail] = useState({});
-
   useEffect(() => {
     getAllSeats(screeningId)
       .then((response) => {
@@ -28,14 +27,15 @@ export default function Seat() {
       .catch((error) => {
         alert(error);
       });
+// eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getMovieDetail(screeningId).then((response) => {
       setMovieDetail(response.data);
     });
+// eslint-disable-next-line
   }, []);
-
   const changeSeatStatus = (seatIndex) => {
     let seat = seats[seatIndex];
     if (seat.status === 0) {
@@ -58,6 +58,16 @@ export default function Seat() {
     setSeats(newSeats);
   };
 
+  const getSeatStatus = (item) => {
+    if(item.status === 0) {
+      return "seat selectable item";
+    }else if (item.status === 3) {
+      return "seat sold item"
+    } else {
+      return "seat unwil item"
+    }
+  }
+
   return (
     <div className="seats-content">
       <div className="seats-block">
@@ -70,11 +80,7 @@ export default function Seat() {
             {seats.map((item, seatIndex) => (
               <span key={seatIndex} style={{ paddingBottom: "20px" }}>
                 <span
-                  className={
-                    item.status === 0
-                      ? "seat selectable item"
-                      : "seat sold item"
-                  }
+                  className={getSeatStatus(item)}
                   onClick={() => changeSeatStatus(seatIndex)}
                 />
               </span>
