@@ -72,7 +72,11 @@ export default function Navigation() {
       <div className="header-search">
         <Search placeholder="搜索电影" enterButton />
       </div>
-      <label className="header-user">{showLoginStatus()}</label>
+     
+         <NavLink to={"/personorder"}>
+         <label className="header-user">{showLoginStatus()}</label>
+         </NavLink>
+      
     </div>
   );
 }

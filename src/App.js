@@ -33,6 +33,8 @@ function App() {
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
           <Route path="Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat" element={<Seat />} />
           <Route path="order" element={<Order />}/>
+          <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
+          <Route path="order/:orderid" element={<Order />}/>
           <Route path="personorder" element={<PersonOrder />}/>
           <Route path="result" element={<LongitudinalMovieList />} />
           <Route path="*" element={<NotFoundPage />} />

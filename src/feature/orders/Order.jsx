@@ -4,18 +4,19 @@ import {ShoppingCartOutlined} from '@ant-design/icons';
 import { useEffect } from "react";
 import {getOrderById} from '../../api/order'
 import { useDispatch } from "react-redux";
+import {useParams} from "react-router-dom";
 const Order = () => {
 
     const [state,setState] =useState([]);
-    const dispatch = useDispatch();
+    let {orderid} = useParams();
     useEffect(() => {
-        getOrderById("hjijkuhjgsnjiuyg15467154shsgdlos").then((response) => {
+        getOrderById(orderid).then((response) => {
             console.log(response.data);
             setState(response.data)
         }).catch((error) => {
             alert(error);
         })
-    }, [dispatch]);
+    }, [orderid]);
        
 
   return (
@@ -58,7 +59,7 @@ const Order = () => {
             </ul>
           </td>
           <td>{state.votes}</td>
-          <td className="monyeStyle">￥{state.unitprice}</td>
+          <td className="monyeStyle">￥{state.allprice}</td>
           <td>{state.unitprice === false?"未使用":"已使用"}</td>
         </tr>
       </table>

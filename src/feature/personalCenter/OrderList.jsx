@@ -1,11 +1,14 @@
 import React from "react";
 import "./orders/order.css";
+import {NavLink} from "react-router-dom";
 const OrderList = (props) => {
   return (
     <>
-    <div className="OrderListShow">
+    <NavLink to={"/order/" + props.orderid}>
+    <div className="OrderListShow" >
+    
       <div className="orderShow">
-        <img alt="" src="/photos/1.jpg"></img>
+        <img alt="" src={props.imageurl}></img>
         <div className="showRight">
           <ul>
             <li>《{props.moviename}》</li>
@@ -16,6 +19,7 @@ const OrderList = (props) => {
       </div>
       <div className="monyeStyle">￥{props.allprice}</div>
     </div>
+    </NavLink>
     </>
   );
 };
