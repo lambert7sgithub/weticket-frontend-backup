@@ -53,7 +53,12 @@ export default function Food() {
         );
       })}
 
-      <Pagination showQuickJumper defaultCurrent={1} total={foodList.length} />
+      <Pagination
+        showQuickJumper
+        defaultCurrent={1}
+        defaultPageSize={3}
+        total={foodList.length}
+      />
     </div>
   );
 }
