@@ -38,18 +38,11 @@ export default class PersonOrder extends Component {
             <TagOutlined />
             &nbsp;&nbsp;我的订单
           </div>
-          <div onClick={() => this.tabClick(1)}>
-            <UserOutlined />
-            &nbsp;&nbsp;个人资料
-          </div>
           <div onClick={() => this.tabClick(2)} >
             <RedEnvelopeOutlined />
             &nbsp;&nbsp;美食订单
           </div>
-          <div onClick={() => this.tabClick(3)}>
-            <LikeOutlined />
-            &nbsp;&nbsp;交友记录
-          </div>
+          
         </div>
         <div className="tabs-content">
           {<section>{this.changeComponent(this.state.cur)}</section>}
