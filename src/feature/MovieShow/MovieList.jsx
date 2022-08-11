@@ -42,7 +42,8 @@ export default class MovieList extends React.Component {
                 {" "}
                   <LeftOutlined/>
                 上一页
-              </span>
+              </span> 
+              <span>  </span>
                         <span className="next_Page">
                 下一页
                 <RightOutlined/>
