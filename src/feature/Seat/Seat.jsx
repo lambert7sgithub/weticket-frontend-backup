@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./Seat.css";
 import MovieDetail from "./MovieDetail";
 import {  getAllSeats, getMovieDetail } from "../../api/movie";
@@ -11,7 +11,6 @@ export default function Seat() {
   const sortedSeats = [];
   const [userSelectedSeats, setUserSelectedSeats] = useState([]);
   const [movieDetail, setMovieDetail] = useState({});
-
   useEffect(() => {
     getAllSeats(screeningId)
       .then((response) => {
@@ -28,14 +27,15 @@ export default function Seat() {
       .catch((error) => {
         alert(error);
       });
-  });
+// eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     getMovieDetail(screeningId).then((response) => {
       setMovieDetail(response.data);
     });
-  });
-
+// eslint-disable-next-line
+  }, []);
   const changeSeatStatus = (seatIndex) => {
     let seat = seats[seatIndex];
     if (seat.status === 0) {
