@@ -47,3 +47,9 @@ a {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.order-title {
+    margin: 10px auto;
+    font-size: large;
+    text-align: left;
+}

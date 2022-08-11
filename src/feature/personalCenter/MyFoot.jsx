@@ -1,9 +1,11 @@
-import React,{useEffect, useState}from 'react';
+import React, {useEffect, useState} from 'react';
 import {findFootOrdersByUserId} from "../../api/order";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import FoodList from './FoodList';
+import "./personorder.css";
+
 const MyFoot = () => {
-    const [foodorders,setFoodOrders] = useState([])
+    const [foodorders, setFoodOrders] = useState([])
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -17,11 +19,11 @@ const MyFoot = () => {
 
     return (
         <div>
-             <h1>美食订单</h1>
+            <div className='order-title'>美食订单：</div>
              {foodorders.map((items,index) => {
                     return <FoodList {...items} key={index}/>;
             })}
-        
+
         </div>
     );
 };
