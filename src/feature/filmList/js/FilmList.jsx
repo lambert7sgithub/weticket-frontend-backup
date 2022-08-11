@@ -11,11 +11,10 @@ const FilmList = () => {
     useEffect(() => {
         let key = new Date();
         findAllMovie().then((response) => {
-            console.log(response);
-            message.loading({content: 'Loading...', key});
+            message.loading({content: '数据加载中...', key, duration: 1});
             dispatch(addFilms(response.data));
-        }).finally(() => {
-            message.success({content: 'Loaded!', key, duration: 1});
+        }).catch(() => {
+            message.warning({content: '数据加载失败，请稍后再试...', key, duration: 1});
         });
     }, [dispatch]);
 

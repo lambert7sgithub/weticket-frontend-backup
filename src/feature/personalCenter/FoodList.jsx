@@ -1,10 +1,10 @@
 import React from 'react';
 import "./orders/order.css";
-import {NavLink} from "react-router-dom";
+
 const FoodList = (props) => {
     return (
         <>
-        <NavLink to={"/foodorder/" + props.orderid}>
+       
         <div className="OrderListShow" >
         
           <div className="orderShow">
@@ -16,9 +16,8 @@ const FoodList = (props) => {
               </ul>
             </div>
           </div>
-          <div className="monyeStyle">￥{props.totalPrice}</div>
+          <div className="monyeStyle">￥{props.totalprice}</div>
         </div>
-        </NavLink>
         </>
       );
 };

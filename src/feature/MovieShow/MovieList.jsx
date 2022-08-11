@@ -1,24 +1,28 @@
 import React from 'react'
 import MovieItem from './MovieItem.jsx'
 import './movielists.css'
-import {RightOutlined, LeftOutlined} from '@ant-design/icons';
+import {LeftOutlined, RightOutlined} from '@ant-design/icons';
 import {findAllMovie} from "../../api/movie";
+import {message} from "antd";
 
 export default class MovieList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             movies: [],
-            count: 10,
+            count: '',
         }
     }
 
     componentDidMount() {
         findAllMovie()
             .then((response) => {
-                    this.setState({movies: response.data});
+                this.setState({movies: response.data, count: response.data.length});
                 }
-            )
+            ).catch(() => {
+            let key = new Date();
+            message.warning({content: '数据加载失败!请稍后再试', key, duration: 2});
+        });
     }
 
 

@@ -1,11 +1,10 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import SingleFood from "./SingleFood";
 import "./SingleFood.css";
-import { Pagination } from "antd";
+import {message, Pagination} from "antd";
 import food from "./food.svg";
-import { getFoods } from "../../api/foods";
-import { useEffect } from "react";
-import { useState } from "react";
+import {getFoods} from "../../api/foods";
+
 export default function Food() {
   const [currentPage, setCurrentPage] = useState(0);
   const [foodList, setFoodList] = useState([]);
@@ -14,6 +13,8 @@ export default function Food() {
     getFoods(currentPage).then((response) => {
       setFoodList(response.data.content);
       setTotalFood(response.data.totalElements);
+    }).catch(() => {
+        message.warning({content: '数据加载失败!请稍后再试', key: new Date(), duration: 2});
     });
   }, [currentPage]);
   const updatePage = (current) => {

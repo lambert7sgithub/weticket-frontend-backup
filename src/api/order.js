@@ -9,7 +9,7 @@ export const findOrdersByUserId = (userId) => {
 };
 
 export const findFootOrdersByUserId = (userId) => {
-  return api.get("/foodorder/user/" + userId,{
+  return api.get("/food-orders/user/" + userId,{
     headers: { Authorization: sessionStorage.getItem("token") },
   });
 };
