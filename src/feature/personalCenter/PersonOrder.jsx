@@ -1,16 +1,11 @@
-import {
-  TagOutlined,
-  SolutionOutlined,
-  RedEnvelopeOutlined,
-  UserOutlined,
-  LikeOutlined,
-} from "@ant-design/icons";
-import React, { Component } from "react";
+import {RedEnvelopeOutlined, SolutionOutlined, TagOutlined,} from "@ant-design/icons";
+import React, {Component} from "react";
 import MyFriend from "./MyFriend";
 import PersonMessage from "./PersonMessage";
 import MyOrders from "./MyOrders";
 import MyFoot from "./MyFoot";
 import "./personorder.css";
+
 export default class PersonOrder extends Component {
   constructor(props) {
     super(props);
