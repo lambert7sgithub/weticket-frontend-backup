@@ -54,6 +54,7 @@ const LongitudinalMovieList = () => {
   ];
   return (
     <div className="movie-panel">
+      
       <div className="movie-flex">
         {movieList.map((item, index) => {
           return (

@@ -10,11 +10,11 @@ const FilmGroup = () => {
     return (
         <div>
             <Row gutter={16}>
-                <Col offset={2}/>
                 {
+
                     films.map((film) =>
-                        <Col className="gutter-row" span={4}>
-                            <FilmItem key={film.id} film={film}/>
+                        <Col gutter={16} className="gutter-row" span={5} offset={2} key={film.movieId}>
+                            <FilmItem film={film}/>
                         </Col>
                     )
                 }
@@ -22,6 +22,6 @@ const FilmGroup = () => {
         </div>
     );
 
-}
+};
 
 export default FilmGroup;

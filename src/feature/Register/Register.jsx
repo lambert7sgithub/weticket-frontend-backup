@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  LockOutlined,
-  MailOutlined,
-  UserOutlined,
-  VerifiedOutlined,
-} from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
+import {LockOutlined, MailOutlined, UserOutlined,} from "@ant-design/icons";
+import {Button, Form, Input} from "antd";
 import "./Register.css";
-import { postUser } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import {postUser} from "../../api/user";
+import {useNavigate} from "react-router-dom";
 
 export default function Register() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onFinish = (values) => {
     const user = { ...values, captchaCode: "123" };
@@ -36,9 +31,7 @@ export default function Register() {
             }}
             onFinish={onFinish}
           >
-            <h2 className="register-form-title">
-              注册 WeTicket
-            </h2>
+            <h2 className="register-form-title">注册 WeTicket</h2>
             <Form.Item
               name="username"
               rules={[
@@ -88,13 +81,13 @@ export default function Register() {
             </Form.Item>
             <Form.Item
               name="confirm"
-              dependencies={['password']}
+              dependencies={["password"]}
               hasFeedback
               rules={[
                 { required: true, message: "请再次输入您的密码!" },
-                ({getFieldValue}) => ({
+                ({ getFieldValue }) => ({
                   validator(_, value) {
-                    if (!value || getFieldValue('password') === value) {
+                    if (!value || getFieldValue("password") === value) {
                       return Promise.resolve();
                     }
                     return Promise.reject("两次密码不一致");
@@ -108,20 +101,6 @@ export default function Register() {
                 placeholder="再次输入密码"
               />
             </Form.Item>
-            <Form.Item
-              rules={[
-                {
-                  required: true,
-                  message: "请输入验证码!",
-                },
-              ]}
-            >
-              <Input
-                prefix={<VerifiedOutlined className="site-form-item-icon" />}
-                placeholder="验证码"
-              />
-            </Form.Item>
-
             <Form.Item>
               <Button
                 style={{ display: "block", margin: "0 auto" }}

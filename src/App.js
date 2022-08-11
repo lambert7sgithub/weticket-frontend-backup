@@ -5,7 +5,6 @@ import "./App.less";
 import Home from "./feature/home/Home";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetails from "./feature/MovieShow/MovieDetails";
-import MovieShow from "./feature/MovieShow/MovieShow";
 import Food from "./feature/Food/Food";
 import Login from "./feature/Login/Login";
 import Pay from "./feature/Pay/Pay";
@@ -16,6 +15,7 @@ import Order from './feature/orders/Order'
 import PersonOrder from './feature/personalCenter/PersonOrder'
 import LongitudinalMovieList from "./feature/LongitudinalMovie/LongitudinalMovieList";
 import SocialContact from "./feature/SocialContact/SocialContact";
+import FilmList from "./feature/filmList/js/FilmList";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WeTicketLayout />}>
           <Route index element={<Home />} />
-          <Route path="movie" element={<MovieShow />} />
+            <Route path="movie" element={<FilmList/>}/>
           <Route path="food" element={<Food />} />
           <Route path="friend" element={<SocialContact/>}/>
           <Route path="login" element={<Login />} />
@@ -33,6 +33,8 @@ function App() {
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
           <Route path="Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat" element={<Seat />} />
           <Route path="order" element={<Order />}/>
+          <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
+          <Route path="order/:orderid" element={<Order />}/>
           <Route path="personorder" element={<PersonOrder />}/>
           <Route path="result" element={<LongitudinalMovieList />} />
           <Route path="*" element={<NotFoundPage />} />

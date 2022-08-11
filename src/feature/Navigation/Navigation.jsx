@@ -3,8 +3,9 @@ import { Button, Input, Menu } from "antd";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import Login from "../Login/Login";
-
+import { useNavigate } from "react-router-dom";
 export default function Navigation() {
+  const navigate = useNavigate();
   const { Search } = Input;
   const [current, setCurrent] = useState("home");
 
@@ -14,8 +15,19 @@ export default function Navigation() {
   const logout = () => {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("token");
-    window.location.replace("/")
+    window.location.replace("/");
+    navigate("/");
   };
+  const searchMovie = () => {
+    navigate("/result");
+  };
+  const getUsername = () => {
+    const username = sessionStorage.getItem("username");
+    return username;
+  };
+  const toProile=()=>{
+      navigate("/personorder");
+  }
   const showLoginStatus = () => {
     const username = sessionStorage.getItem("username");
     if (username === undefined || username === null || username.length === 0) {
@@ -31,11 +43,15 @@ export default function Navigation() {
       );
     } else {
       return (
-        <div>
-          {username}
-          <Button onClick={logout} to={<Login />}>
-            登出
-          </Button>
+        <div className="nav-user">
+          <div className="header-username" onClick={() => {}}>
+            <Button onClick={toProile} >{getUsername()}</Button>
+          </div>
+          <div className="nav-btn">
+            <Button onClick={logout} to={<Login />}>
+              登出
+            </Button>
+          </div>
         </div>
       );
     }
@@ -69,9 +85,11 @@ export default function Navigation() {
           </Menu.Item>
         </Menu>
       </div>
+
       <div className="header-search">
-        <Search placeholder="搜索电影" enterButton />
+        <Search placeholder="搜索电影" enterButton onSearch={searchMovie} />
       </div>
+
       <label className="header-user">{showLoginStatus()}</label>
     </div>
   );

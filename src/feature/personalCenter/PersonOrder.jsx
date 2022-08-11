@@ -44,7 +44,7 @@ export default class PersonOrder extends Component {
           </div>
           <div onClick={() => this.tabClick(2)} >
             <RedEnvelopeOutlined />
-            &nbsp;&nbsp;美食记录
+            &nbsp;&nbsp;美食订单
           </div>
           <div onClick={() => this.tabClick(3)}>
             <LikeOutlined />
@@ -56,16 +56,7 @@ export default class PersonOrder extends Component {
         </div>
         
       </div>
-      //  <div className="tabs-title">
-      //     <ul>
-      //       {this.state.tabItem.map((item, index) => (
-      //         <li onClick={() => this.tabClick(index)}>{item.name}</li>
-      //       ))}
-      //     </ul>
-      //   </div>
-
         
-      
     );
   }
   tabClick(index) {

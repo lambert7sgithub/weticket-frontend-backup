@@ -31,6 +31,7 @@ export default function Food() {
         return (
           <SingleFood
             key={index}
+            id={item.id}
             name={item.foodName}
             picture={item.picture}
             inventory={item.inventory}

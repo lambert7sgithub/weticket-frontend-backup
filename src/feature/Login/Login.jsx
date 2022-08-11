@@ -1,31 +1,25 @@
 import React from "react";
-import {
-  LockOutlined,
-  UserOutlined,
-  VerifiedOutlined,
-} from "@ant-design/icons";
-import { Button, Form, Input, message } from "antd";
+import {LockOutlined, UserOutlined,} from "@ant-design/icons";
+import {Button, Form, Input, message} from "antd";
 import "./Login.css";
-import { postLoginUser } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import {postLoginUser} from "../../api/user";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onFinish = async (values) => {
-    const loginUser = {...values, captchaCode: "123"};
+    const loginUser = { ...values, captchaCode: "123" };
     await postLoginUser(loginUser)
-        .then((response) => {
-          sessionStorage.setItem("username", loginUser.credentialId);
-          sessionStorage.setItem("token", response.headers['authorization']);
-          window.location.replace("/")
-          navigate('/')
-        })
-        .catch((err) => {
-          message.error("登录失败: 用户名或密码错误");
-        });
+      .then((response) => {
+        sessionStorage.setItem("username", loginUser.credentialId);
+        sessionStorage.setItem("token", response.headers["authorization"]);
+        window.location.replace("/");
+        navigate("/");
+      })
+      .catch((err) => {
+        message.error("登录失败: 用户名或密码错误");
+      });
   };
-
-
 
   return (
     <div>
@@ -39,9 +33,7 @@ export default function Login() {
             }}
             onFinish={onFinish}
           >
-            <h2 className="login-form-title">
-              登录 WeTicket
-            </h2>
+            <h2 className="login-form-title">登录 WeTicket</h2>
             <Form.Item
               name="credentialId"
               rules={[
@@ -71,20 +63,6 @@ export default function Login() {
                 placeholder="密码"
               />
             </Form.Item>
-            <Form.Item
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your verification Code!",
-                },
-              ]}
-            >
-              <Input
-                prefix={<VerifiedOutlined className="site-form-item-icon" />}
-                placeholder="验证码"
-              />
-            </Form.Item>
-
             <Form.Item>
               <Button
                 style={{ display: "block", margin: "0 auto" }}
