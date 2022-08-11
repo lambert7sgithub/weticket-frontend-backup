@@ -3,7 +3,6 @@ import  './orderCss/order.css'
 import {ShoppingCartOutlined} from '@ant-design/icons';
 import { useEffect } from "react";
 import {getOrderById} from '../../api/order'
-import { useDispatch } from "react-redux";
 import {useParams} from "react-router-dom";
 const Order = () => {
 
