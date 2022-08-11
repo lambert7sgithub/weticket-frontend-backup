@@ -1,90 +1,78 @@
-import React, { useState } from "react";
-import { Button, Col, Divider, Radio, Row, Table } from "antd";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Divider, Radio, Row, Table} from "antd";
+import {ArrowRightOutlined} from "@ant-design/icons";
 import "./ScheduleTable.css";
+import {getCinema} from "../../api/cinema";
+import {getSchedule, getScheduleByTime} from "../../api/Schedule";
+import dayjs from "dayjs";
+import {useNavigate} from "react-router-dom";
 
-const { Column } = Table;
-const ScheduleTable = () => {
-  const data = [
-    {
-      screeningId: 1,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:00",
-      endTime: "12:30",
-      seatSituation: "有",
-      language: "国语2D",
-      price: 10,
-    },
-    {
-      screeningId: 2,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "12:30",
-      endTime: "13:30",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 15,
-    },
-    {
-      screeningId: 3,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 4,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "有",
-      price: 20,
-    },
-    {
-      screeningId: 5,
-      movieId: 1,
-      audioriumId: 1,
-      auditoriumNmae: "work",
-      startTime: "13:30",
-      endTime: "14:50",
-      language: "国语2D",
-      seatSituation: "Sidney No. 1 Lake Park",
-      price: 20,
-    },
-  ];
-  const date = ["8月9日", "8月10日", "8月11日"];
-  const cinemaName = [
-    "a1 cinema(qwertyuiopas)",
-    "corn cinema",
-    "a2 cinema (qwertyuiopas) to test",
-    "a3 cinema (qwertyuiopas)",
-    "a4 cinema (qwertyuiopas)",
-    "cinema(qwertyuiopas)",
-    "test cinema",
-    "no name cinema",
-  ];
-  const [chosenDate, setChosenDate] = useState(0);
-  const [chosenCinema, setChosneCinema] = useState(0);
+const {Column} = Table;
+
+const ScheduleTable = (props) => {
+  const navigate = useNavigate();
+  const passMovieId = props.movieId;
+
+  const [cinemas, setCinemas] = useState([]);
+  const [date, setDate] = useState([]);
+  const [scheduleData, setScheduleData] = useState([]);
+
+  const [chosenDate, setChosenDate] = useState(dayjs());
+  const [chosenCinemaId, setChosneCinemaId] = useState(0);
+  const [chosenCinemaName, setChosenCinemaName] = useState("");
+  const [chosenLocation, setChosenLocation] = useState("");
+
+  useEffect(() => {
+    getCinema().then((response) => {
+      setCinemas(response.data);
+      setChosenCinemaName(response.data[0].cinemaName);
+      setChosenLocation(response.data[0].location);
+      getSchedule(response.data[0].cinemaId, passMovieId).then((response) => {
+        setScheduleData(response.data);
+      });
+    });
+    setDate([dayjs(), dayjs().add(1, "day"), dayjs().add(2, "day")]);
+  }, [passMovieId]);
+  useEffect(() => {
+  }, []);
+  useEffect(() => {
+    // TODO
+    if (!dayjs().isSame(chosenDate, "day")) {
+      getScheduleByTime(
+          chosenCinemaId,
+          passMovieId,
+          chosenDate.format("YYYY-MM-DD 00:00:00")
+      ).then((response) => {
+        setScheduleData(response.data);
+      });
+    } else {
+      getScheduleByTime(
+        chosenCinemaId,
+        passMovieId,
+        chosenDate.format("YYYY-MM-DD HH:mm:ss")
+      ).then((response) => {
+        setScheduleData(response.data);
+      });
+    }
+  }, [chosenCinemaId, passMovieId, chosenDate]);
 
   const updateCinema = (event) => {
-    setChosneCinema(event.target.value);
-    console.log(chosenCinema);
-    console.log(cinemaName[chosenCinema + 1]);
+    setChosneCinemaId(event.target.value);
+    setChosenCinemaName(event.target.cinemaName);
+    setChosenLocation(event.target.address);
   };
   const updateDate = (event) => {
-    setChosenDate(event.target.value);
-    console.log(date[chosenDate]);
+    setChosenDate(event.target.dayDate);
   };
+
+  const toSeat = (screeningId) => {
+    navigate(
+    
+      // Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat
+        "/Cinema/"+chosenCinemaId + "/screening/" + screeningId + "/Scheduling/" + passMovieId + "/seat"
+    );
+  };
+
   return (
     <div className="schedule-table">
       <span className="title">选座购票</span>
@@ -97,27 +85,29 @@ const ScheduleTable = () => {
           <Col span={20} className="search-content">
             <div className="contents">
               <Radio.Group
-                defaultValue={chosenCinema}
+                defaultValue={1}
                 size="small"
                 className="cinema"
                 buttonStyle="solid"
                 onChange={updateCinema}
-                style={{
-                  marginTop: 16,
-                }}
               >
-                {cinemaName.map((item, index) => {
+                {cinemas.map((item) => {
                   return (
-                    <Radio.Button key={index} value={index}>
-                      {item}
-                    </Radio.Button>
+                      <Radio.Button
+                          key={item.cinemaId}
+                          value={item.cinemaId}
+                          cinemaName={item.cinemaName}
+                          address={item.location}
+                      >
+                        {item.cinemaName}
+                      </Radio.Button>
                   );
                 })}
               </Radio.Group>
 
               <p className="more-cinema">
                 更多
-                <ArrowRightOutlined style={{ marginLeft: "5px" }} />
+                <ArrowRightOutlined className="arrow" />
               </p>
             </div>
           </Col>
@@ -129,7 +119,7 @@ const ScheduleTable = () => {
           <Col span={20} className="search-content">
             <div className="date-contents">
               <Radio.Group
-                defaultValue={chosenDate}
+                defaultValue={0}
                 size="small"
                 className="cinema"
                 buttonStyle="solid"
@@ -140,9 +130,9 @@ const ScheduleTable = () => {
               >
                 {date.map((item, index) => {
                   return (
-                    <Radio.Button key={index} value={index}>
-                      {item}
-                    </Radio.Button>
+                      <Radio.Button key={index} value={index} dayDate={item}>
+                        {dayjs(item).format("MM[月]DD[日]")}
+                      </Radio.Button>
                   );
                 })}
               </Radio.Group>
@@ -150,21 +140,29 @@ const ScheduleTable = () => {
           </Col>
         </Row>
       </div>
+      <div className="address">
+        <span className="cinema-name">{chosenCinemaName}</span>
+        <span className="cinema-address">地址：{chosenLocation}</span>
+      </div>
       <Table
-        dataSource={data}
-        pagination={false}
-        rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
+          dataSource={scheduleData}
+          pagination={false}
+          rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
       >
         <Column
-          title="放映时间"
-          dataIndex="firstName"
-          key="firstName"
-          align="center"
-          render={(_, record) => (
-            <div>
-              <div className="start-time">{record.startTime}</div>
-              <div className="end-time">预计{record.endTime}结束</div>
-            </div>
+            title="放映时间"
+            dataIndex="firstName"
+            key="firstName"
+            align="center"
+            render={(_, record) => (
+                <div>
+                  <div className="start-time">
+                    {dayjs(record.startDate).format("HH:mm")}
+                  </div>
+                  <div className="end-time">
+                    预计{dayjs(record.endTime).format("HH:mm")}结束
+                  </div>
+                </div>
           )}
         />
         <Column
@@ -176,8 +174,8 @@ const ScheduleTable = () => {
 
         <Column
           title="放映厅"
-          dataIndex="auditoriumNmae"
-          key="auditoriumNmae"
+          dataIndex="auditoriumName"
+          key="auditoriumName"
           align="center"
         />
         <Column
@@ -188,12 +186,12 @@ const ScheduleTable = () => {
         />
         <Column
           title="价格"
-          dataIndex="price"
-          key="price"
+          dataIndex="moviePrice"
+          key="moviePrice"
           align="center"
           render={(_, record) => (
             <div>
-              <span className="current-price">￥{record.price}</span>
+              <span className="current-price">￥{record.moviePrice}</span>
             </div>
           )}
         />
@@ -201,7 +199,11 @@ const ScheduleTable = () => {
           title="选座购票"
           key="action"
           align="center"
-          render={(_) => <Button type="primary">选座购票</Button>}
+          render={(record) => (
+            <Button type="primary" onClick={() => toSeat(record.screeningId)}>
+              选座购票
+            </Button>
+          )}
         />
       </Table>
     </div>

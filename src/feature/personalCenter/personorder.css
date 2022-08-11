@@ -1,0 +1,55 @@
+.orderList {
+    height: 500px;
+    width: 850px;
+    background-color: #ffff;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.nav {
+    float: left;
+    width: 130px;
+    height: 100%;
+    border-right: 1px solid gainsboro;
+}
+
+.nav div {
+    padding: 5px;
+}
+
+.nav div:nth-child(1) {
+    padding-top: 25px;
+}
+
+.nav div:hover {
+    color: #cc8c2c !important;
+}
+
+a {
+    color: black !important;
+}
+
+.tabs-content {
+    float: left;
+    width: 675px;
+    background-color: #ffff;
+    height: 500px;
+    margin-left: 20px;
+}
+
+.menu-person {
+    margin-bottom: 15px;
+    font-size: large;
+}
+
+.menu-order {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.order-title {
+    margin: 10px auto;
+    font-size: large;
+    text-align: left;
+}

@@ -1,12 +1,43 @@
-import React from 'react';
-import { Table, Tag } from 'antd';
+import { Table, Tag, message} from 'antd';
 import './Pay.css';
 import Clock from './Clock';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import dayjs from "dayjs";
+import {getBookingSeats} from '../../api/movie';
+import { useNavigate } from "react-router-dom";
+
+const Pay = (props) => {
 
 
-const Pay = () => {
+    const navigate = useNavigate()
+    let movieDetail = JSON.parse(localStorage.getItem('movieDetail'));
+    let selectSeats = JSON.parse(localStorage.getItem('selectSeats'));
+    let screeningId = JSON.parse(localStorage.getItem('screening'));
+    let willingPair = JSON.parse(localStorage.getItem("willingPair"));
+    let seats = [];
+    selectSeats.map(seat => seats.push([seat.x, seat.y]));
+    let seatBookingRequest = {
+        "bookings": seats,
+        "willingPair":willingPair
+    }
+
+
+
+
+        const confirmOrder = () => {
+            getBookingSeats(screeningId, seatBookingRequest)
+            .then((response) => {
+                message.success({content: '订单支付成功！'})
+                navigate('/')
+
+            })
+            .catch((error) => {
+                alert(error);
+            });
+        }
+        
+
     const columns = [
         {
             title: '电影',
@@ -15,44 +46,54 @@ const Pay = () => {
             render: (record) =>
                 <div className="movieName">
                     <div>
-                        <span><img src={record.picture} alt="" className="photo" /> </span>
+                        <span><img src={movieDetail.picture} alt="" className="photo" /> </span>
                     </div>
                     <div>
                         <div className="nameSpan">
-                            <div>{record.name} </div> <div>片长：120分钟 </div>
+                            <div>{movieDetail.movieName} </div> <div>片长：{movieDetail.movieLength}分钟 </div>
                         </div>
                     </div>
-                </div>,
+                </div>
         },
         {
             title: '场次',
             className: 'column-money',
-            dataIndex: 'money',
+            dataIndex: 'screening',
             align: 'center',
-            render: (record) => <div className="divFontSize"><div>珠海英皇电影城</div><div>4号激光厅</div><div>8月8日(周一)22:20</div></div>,
+            render: (recod) => <div className="divFontSize"><div>{movieDetail.cinema}</div><div>{movieDetail.screeningRoom}</div><div>{dayjs(movieDetail.date).format("YYYY-MM-DD HH:mm")}</div></div>,
         },
         {
             title: '票数/座位',
-            dataIndex: 'address',
+            dataIndex: 'seat',
             align: 'center',
-            render: (record) => <div className="divFontSize"><div>1张</div><div><Tag className="divFontSize">9排02座</Tag></div></div>,
+            render: () => <div className="divFontSize"><div>{selectSeats.length}张</div><div>
+                <Tag className="divFontSize">
+                    {selectSeats.map((seat, index) => {
+                        return (
+                            <div key={index}>
+                                {seat.x + 1}排{seat.y + 1}座
+                            </div>
+                        );
+                    })}
+                </Tag></div></div>,
         },
         {
-            title: '金额小计',
-            dataIndex: 'address',
+            title: '单价',
+            dataIndex: 'money',
             align: 'center',
-            render: (record) => <div className="moneyStyle">￥39.90</div>,
+            render: () => <div className="moneyStyle">￥{movieDetail.price} /张</div>,
         },
     ];
+
     const data = [
         {
-            key: '1',
+            key:'',
             pictureAddress: {
-                picture: '/photos/1.jpg',
-                name: "旅行记"
+                picture: '',
+                name: ""
             },
-            money: '￥300,000.00',
-            address: 'New York No. 1 Lake Park',
+            money: '',
+            address: '',
         },
     ];
 
@@ -66,14 +107,14 @@ const Pay = () => {
             <div className="remindPay"><Clock duration={900} /></div>
             <Table
                 columns={columns}
-                dataSource={data}
                 bordered
+                dataSource={data}
                 pagination={paginationProps}
-                title={() => '订单号：2152356'}
-                footer={() => <div className="footerStyle">实付款：<span className="moneyStyle">￥39.90</span></div>}
+                title={() => '订单详情'}
+                footer={() => <div className="footerStyle">实付款：<span className="moneyStyle">{selectSeats.length * movieDetail.price}</span></div>}
             />
             <div className="buyButtonDiv">
-                <Button type="primary" shape="round" icon={<CheckCircleOutlined />} size='large' block="true" className="buyButton">
+                <Button type="primary" shape="round" icon={<CheckCircleOutlined />} size='large' block="true" className="buyButton" onClick={confirmOrder}>
                     确认订单，立即支付
                 </Button>
             </div>

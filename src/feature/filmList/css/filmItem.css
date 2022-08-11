@@ -1,0 +1,13 @@
+.filmItemImage {
+    height: 400px;
+}
+
+.filmComment {
+    text-align: right;
+}
+
+.filmScore {
+    color: #ffb400;
+    text-align: right;
+    font-size: x-large;
+}

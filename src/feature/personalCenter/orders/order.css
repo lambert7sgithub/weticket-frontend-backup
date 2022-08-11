@@ -1,0 +1,36 @@
+.OrderListShow {
+    width: 100%;
+    height: 80px;
+    border: 1px solid gainsboro;
+    margin-bottom: 5px;
+}
+
+.orderShow img {
+    width: 50px;
+    float: left;
+    height: 60px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.showRight {
+    float: left;
+    padding-top: 10px;
+}
+
+.monyeStyle {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 80px;
+}
+
+
+.ita-cinema {
+    font-style: italic;
+    font-size: 6px;
+}
+
+.ita-movie {
+    font-size: 12px;
+    margin-bottom: 2px;
+}

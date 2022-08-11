@@ -1,0 +1,107 @@
+.movie-detail {
+  width: 500px;
+  margin-top: 60px;
+  padding-top: 20px;
+  height: 100%;
+  display: inline-block;
+  background-color: gainsboro;
+}
+.movie-detail-header {
+  display: flex;
+}
+
+.movie-thumb {
+  width: 50%;
+  height: 50%;
+  padding: 30px;
+}
+
+.movie-name {
+  text-align: left;
+  padding-top: 55px;
+  padding-bottom: 50px;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+.movie-version {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 8px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.movie-detail-body {
+  float: left;
+  padding: 5px 50px;
+}
+
+.movie-length {
+  text-align: left;
+  color: #999;
+  padding-top: 8px;
+  padding-left: 10px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.movie-price {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+  color: #999;
+  padding-top: 10px;
+  padding-left: 60px;
+}
+
+.d1 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+  color: #999;
+}
+
+.price {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+  color: #999;
+}
+
+.movie-seat {
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding-left: 35px;
+  padding-bottom: 15px;
+  color: #999;
+}
+
+/* .divider{
+    display: block;
+    height:1px;
+    width:100%;
+    margin: 24px 0;
+    position: relative;
+} */
+
+.buy {
+  width: 100%;
+  height: 100px;
+  border-radius: 50px;
+  display: inline-grid;
+}
+
+.buy .pair-switch {
+  width: 60%;
+  margin-bottom: 20px;
+  margin-left: 20%;
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
