@@ -1,5 +1,5 @@
 .orderList {
-   
+
     height: 500px ;
     width: 800px ;
     background-color: #ffff;
@@ -22,11 +22,11 @@
 .nav div:nth-child(1){
 
     padding-top: 25px;
- 
- }
- .nav div:hover{
-   color: red;
- 
+
+}
+ .nav div:hover {
+     color: #cc8c2c !important;
+
  }
 
  a{
@@ -47,4 +47,4 @@
 
 
 
- 
+

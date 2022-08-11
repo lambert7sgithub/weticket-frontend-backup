@@ -1,29 +1,28 @@
-import React, { useState } from "react";
-import { Button, Input, Menu } from "antd";
-import { NavLink } from "react-router-dom";
+import React, {useState} from "react";
+import {Button, Input, Menu} from "antd";
+import {NavLink, useNavigate} from "react-router-dom";
 import "./Navigation.css";
 import Login from "../Login/Login";
-import { useNavigate } from "react-router-dom";
-export default function Navigation() {
-  const navigate = useNavigate();
-  const { Search } = Input;
-  const [current, setCurrent] = useState("home");
 
-  const onClick = (e) => {
-    setCurrent(e.key);
-  };
-  const logout = () => {
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("token");
-    window.location.replace("/");
-    navigate("/");
-  };
-  const searchMovie = () => {
-    navigate("/result");
-  };
+export default function Navigation() {
+    const navigate = useNavigate();
+    const {Search} = Input;
+    const [current, setCurrent] = useState("home");
+
+    const onClick = (e) => {
+        setCurrent(e.key);
+    };
+    const logout = () => {
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("token");
+        window.location.replace("/");
+        navigate("/");
+    };
+    const searchMovie = () => {
+        navigate("/result");
+    };
   const getUsername = () => {
-    const username = sessionStorage.getItem("username");
-    return username;
+      return sessionStorage.getItem("username");
   };
   const toProile=()=>{
       navigate("/personorder");
@@ -45,7 +44,7 @@ export default function Navigation() {
       return (
         <div className="nav-user">
           <div className="header-username" onClick={() => {}}>
-            <Button onClick={toProile} >{getUsername()}</Button>
+              <Button onClick={toProile} className="username-btn">{getUsername()}</Button>
           </div>
           <div className="nav-btn">
             <Button onClick={logout} to={<Login />}>

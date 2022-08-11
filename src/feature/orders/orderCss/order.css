@@ -1,89 +1,90 @@
-*{
-    margin: 0px; 
-    padding: 0px; 
-    }
-.orderTable{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.orderTable {
     width: 800px;
     height: 245px;
     background-color: #ffffff;
     margin: 0 auto;
-
 }
-.orderTable h4{
+
+.orderTable h4 {
     float: left;
     color: red;
     padding-top: 5px;
     padding-left: 5px;
 }
 
-
 table.gridtable {
     width: 100%;
-	font-family: verdana,arial,sans-serif;
-	font-size:11px;
-	border-width: 1px;
-	border-color: #c1bebe;
-	border-collapse: collapse;
-    
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    border-width: 1px;
+    border-color: #c1bebe;
+    border-collapse: collapse;
 }
 table.gridtable th {
-	border-width: 1px;
+    border-width: 1px;
     height: 35px;
-	border-style: solid;
-	border-color: #c1bebe;
-	background-color: #dedede;
+    border-style: solid;
+    border-color: #c1bebe;
+    background-color: #dedede;
 }
 table.gridtable td {
     height: 178px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #c1bebe;
-	background-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c1bebe;
+    background-color: #ffffff;
     text-align: center;
 }
 
-table.gridtable th:nth-child(-n+2){
+table.gridtable th:nth-child(-n + 2) {
     width: 200px;
 }
 
-.movieShow{
+.movieShow {
     padding-left: 20px;
     width: 230px;
     height: 120px;
 }
 
-.movieShow img{
+.movieShow img {
     float: left;
     width: 90px;
     height: 120px;
 }
-.showRight{
-    width: 110;
+
+.showRight {
+    width: 110px;
     float: left;
     padding-left: 15px;
 }
-ul li{
-  
+
+ul li {
     list-style: none;
 }
-.showRight ul li{
+
+.showRight ul li {
     text-align: left;
     list-style: none;
 }
 
-.showRight ul li:nth-child(1){
+.showRight ul li:nth-child(1) {
     font-weight: bold;
 }
 
-.changci li{
-padding: 15px;
+.changci li {
+    padding: 15px;
 }
 
-.changci li:nth-child(3){
+.changci li:nth-child(3) {
     color: red;
 }
 
-.monyeStyle{
+.monyeStyle {
     font-size: 25px;
-    color: red;
+    color: #cc8c2c;
 }

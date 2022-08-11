@@ -1,8 +1,7 @@
-import {Image, Button, Switch, message} from "antd";
+import {Button, Image, message, Switch} from "antd";
 import {useEffect, useState} from "react";
 import "./MovieDetail.css";
 import {useNavigate} from "react-router-dom";
-
 
 const MovieDetail = (props) => {
     const navigate = useNavigate();
@@ -25,9 +24,9 @@ const MovieDetail = (props) => {
     const toPay = () => {
         const username = sessionStorage.getItem("username");
         if (username === undefined || username === null || username.length === 0) {
-            message.info('请先登陆')
-            navigate("/login")
-        }else{
+            message.info("请先登陆");
+            navigate("/login");
+        } else {
             navigate("/pay");
         }
     };
@@ -57,12 +56,9 @@ const MovieDetail = (props) => {
                 </div>
                 <div className="d1">
                     影厅：
-                    {movieDetail.screeningRoom}
+                    {movieDetail.screeningRoom}号厅
                 </div>
-                <div className="d1">
-                    场次：
-                    {screening}
-                </div>
+                <div className="d1">场次： 第{screening}场</div>
                 <div className="price">
                     原价： ￥{movieDetail.price}x{seats.length}
                 </div>
@@ -83,11 +79,15 @@ const MovieDetail = (props) => {
                 </div>
                 <div className="buy">
                     <div className="pair-switch">
-                        <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked
-                                onChange={(e) => {
-                                    setPair(!e);
-                                    console.log(e)  
-                                }}/>
+                        <Switch
+                            checkedChildren="开启"
+                            unCheckedChildren="关闭"
+                            defaultChecked
+                            onChange={(e) => {
+                                setPair(!e);
+                                console.log(e);
+                            }}
+                        />
                     </div>
 
                     <Button
