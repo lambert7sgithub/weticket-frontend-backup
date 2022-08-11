@@ -1,10 +1,52 @@
 .orderList {
    
-  
-    height: 600px;
-    width: 900px;
+    height: 500px ;
+    width: 800px ;
     background-color: #ffff;
     margin: 0 auto;
     margin-top: 50px;
 }
 
+.nav{
+    float: left;
+    width: 130px;
+    height: 100%;
+     /* color: red; */
+    border-right: 1px solid gainsboro;
+    /* background-color: aqua; */
+}
+
+.nav div{
+
+   padding: 5px;
+
+}
+.nav div:nth-child(1){
+
+    padding-top: 25px;
+ 
+ }
+ .nav div:hover{
+   color: red;
+ 
+ }
+
+ a{
+    color: black !important;
+ }
+ a:hover{
+    color: red !important;
+ }
+
+ .tabs-content{
+   float: left;
+   width: 665px;
+   background-color: #ffff;
+   height: 500px;
+ }
+
+
+
+
+
+ 
