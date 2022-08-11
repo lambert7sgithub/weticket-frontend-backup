@@ -20,7 +20,8 @@
   margin: 30px auto;
   display: flex;
   padding-left: 60px;
-  box-shadow: 5px 0 5px -5px gray, -5px 0 5px -5px gray;
+  border: 1px solid rgb(177, 173, 173);
+  box-shadow: 0px 10px 10px gray;
 }
 
 .picture-panel {
@@ -37,7 +38,12 @@
   max-height: 200px;
   max-width: 300px;
 }
-
+.picture-panel img {
+  display: block;
+  width: 300px;
+  height: 200px;
+  background: url(../../../public/food/not-fount.png) no-repeat 0 0;
+}
 .info-panel {
   padding-top: 30px;
 
@@ -77,4 +83,9 @@
   margin-top: 5px;
   color: #9b9d9dfd;
   font-size: small;
+}
+.food-pagination {
+  float: right;
+  width: 1200px;
+  margin: 30px auto;
 }

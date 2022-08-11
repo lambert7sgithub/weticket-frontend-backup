@@ -2,14 +2,19 @@ import React from "react";
 import { Button, Divider, Modal, message } from "antd";
 import "./SingleFood.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingleFood = (props) => {
+  const navigate = useNavigate();
   const { name, picture, inventory, price } = props;
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
-    setVisible(true);
+    const username = sessionStorage.getItem("username");
+    if (username === undefined || username === null || username.length === 0) {
+        navigate("/login")
+    }else{setVisible(true);}
   };
 
   const handleOk = () => {
@@ -18,7 +23,7 @@ const SingleFood = (props) => {
       setLoading(false);
       setVisible(false);
       message.success("您已成功购买" + name);
-    },500);
+    }, 500);
   };
 
   const handleCancel = () => {
@@ -49,7 +54,7 @@ const SingleFood = (props) => {
         <p>您将支付{price}元</p>
       </Modal>
       <div className="picture-panel">
-        <img src={picture} className="picture" alt=""></img>
+        <img src={picture} className="picture" alt="该套餐暂无实物图"></img>
       </div>
       <div className="info-panel">
         <div className="title">{name}</div>

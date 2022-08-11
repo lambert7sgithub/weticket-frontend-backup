@@ -1,25 +1,25 @@
-import React, {useEffect, useState} from "react";
-import {Button, Divider, Layout} from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Divider, Layout } from "antd";
 import "./MovieDetails.css";
-import {RightCircleOutlined, SearchOutlined} from "@ant-design/icons";
-import {getMovieById} from "../../api/movie";
-import {NavLink, useParams} from "react-router-dom";
-
+import { RightCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import { getMovieById } from "../../api/movie";
+import { NavLink, useParams } from "react-router-dom";
+import dayjs from "dayjs";
 const MovieDetails = () => {
-    let {movieId} = useParams();
-    const {Content} = Layout;
+  let { movieId } = useParams();
+  const { Content } = Layout;
 
-    const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({});
 
-    useEffect(() => {
-        getMovieById(movieId)
-            .then((response) => {
-                setMovie(response.data);
-            })
-            .catch((error) => {
-                alert(error);
-            });
-    }, [movieId]);
+  useEffect(() => {
+    getMovieById(movieId)
+      .then((response) => {
+        setMovie(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, [movieId]);
 
     return (
         <Layout className="movie-page">
@@ -54,7 +54,7 @@ const MovieDetails = () => {
                                     </p>
                                     <p>
                                         片长：
-                                        {movie.length}
+                                        {dayjs(movie.showTime).format("YYYY-MM-DD HH:mm:ss")}
                                     </p>
                                 </div>
                                 <div className="film-button">
@@ -65,18 +65,18 @@ const MovieDetails = () => {
                             </div>
                         </div>
 
-                        <div className="film-content">
+            <div className="film-content">
               <span>
-                <SearchOutlined/> 剧情描述:
+                <SearchOutlined /> 剧情描述:
               </span>
-                            <Divider/>
-                            <div className="film-info">
-                                <div> {movie.info}</div>
-                            </div>
-                        </div>
+              <Divider />
+              <div className="film-info">
+                <div> {movie.info}</div>
+              </div>
+            </div>
 
-                        <br/>
-                    </div>
+            <br />
+          </div>
         </Content>
       </Layout>
     </Layout>
