@@ -1,13 +1,9 @@
 import React from "react";
-import {
-  LockOutlined,
-  UserOutlined,
-  VerifiedOutlined,
-} from "@ant-design/icons";
-import { Button, Form, Input, message } from "antd";
+import {LockOutlined, UserOutlined,} from "@ant-design/icons";
+import {Button, Form, Input, message} from "antd";
 import "./Login.css";
-import { postLoginUser } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import {postLoginUser} from "../../api/user";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();

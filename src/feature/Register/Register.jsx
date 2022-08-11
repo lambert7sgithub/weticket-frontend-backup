@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  LockOutlined,
-  MailOutlined,
-  UserOutlined,
-  VerifiedOutlined,
-} from "@ant-design/icons";
-import { Button, Form, Input } from "antd";
+import {LockOutlined, MailOutlined, UserOutlined,} from "@ant-design/icons";
+import {Button, Form, Input} from "antd";
 import "./Register.css";
-import { postUser } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import {postUser} from "../../api/user";
+import {useNavigate} from "react-router-dom";
 
 export default function Register() {
   const navigate = useNavigate();
