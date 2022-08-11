@@ -1,0 +1,76 @@
+.movie-page {
+  width: 800px;
+  margin: 30px auto;
+}
+
+.film-header {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: 12px;
+}
+
+.film-card-des {
+  display: flex;
+  height: 450px;
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
+
+.film-card {
+  width: 300px;
+  height: 390px;
+  background: #ffffff;
+}
+
+.film-des {
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.p1 {
+  font-weight: bolder;
+  letter-spacing: 3px;
+  color: #cc8c2c;
+  font-size: 30px;
+  padding-left: 30px;
+}
+
+.p2 {
+  font-size: 15px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: burlywood;
+  margin-left: 120px;
+  text-align: left;
+}
+
+.film-content {
+  font-weight: bolder;
+  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 2px;
+  /* padding: 80px 200px; */
+  width: 800px;
+  margin: 0 auto;
+}
+
+.film-info {
+  text-indent: 2.5em;
+  font-weight: 100;
+  font-size: 22px;
+
+  letter-spacing: 2px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.film-button {
+  position: relative;
+  bottom: -40px;
+  width: 400px;
+  letter-spacing: 2px;
+}
