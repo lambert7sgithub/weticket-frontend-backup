@@ -11,7 +11,7 @@ if (currentHostName === 'weticket-frontend.herokuapp.com') {
 }
 let TOKEN = sessionStorage.getItem("token");
 const getToken = () => {
-  if (TOKEN !== undefined) {
+  if (TOKEN !== null) {
       return {Authorization: TOKEN};
   } else {
       return null;
