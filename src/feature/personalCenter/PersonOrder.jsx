@@ -25,27 +25,24 @@ export default class PersonOrder extends Component {
     return (
       <div className="orderList">
         <div className="nav">
-          <div>
-            <SolutionOutlined />
-            &nbsp;&nbsp;个人中心
+            <div className="menu-person">
+                <SolutionOutlined/>
+                &nbsp;&nbsp;个人中心
+            </div>
             <hr/>
-          </div>
-          <div  onClick={() => this.tabClick(0)}>
-            <TagOutlined />
-            &nbsp;&nbsp;我的订单
-          </div>
-          <div onClick={() => this.tabClick(2)} >
-            <RedEnvelopeOutlined />
-            &nbsp;&nbsp;美食订单
-          </div>
-          
+            <div className="menu-order" onClick={() => this.tabClick(0)}>
+                <TagOutlined/>
+                &nbsp;&nbsp;我的订单
+            </div>
+            <div className="menu-order" onClick={() => this.tabClick(2)}>
+                <RedEnvelopeOutlined/>
+                &nbsp;&nbsp;美食订单
+            </div>
         </div>
-        <div className="tabs-content">
-          {<section>{this.changeComponent(this.state.cur)}</section>}
+          <div className="tabs-content">
+              {<section>{this.changeComponent(this.state.cur)}</section>}
         </div>
-        
       </div>
-        
     );
   }
   tabClick(index) {
