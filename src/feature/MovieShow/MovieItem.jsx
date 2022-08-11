@@ -1,7 +1,6 @@
 import React from "react";
 import "./movieitem.css";
-import {Rate} from "antd";
-import {Image} from "antd";
+import {Image, Rate} from "antd";
 import {NavLink} from "react-router-dom";
 
 function MovieItem(props) {
@@ -13,7 +12,7 @@ function MovieItem(props) {
             <h4 className="moviename">{props.movieName}</h4>
 
             <h5>评分：{props.score}</h5>
-            <Rate allowHalf defaultValue={4.5}/>
+            <Rate allowHalf disabled defaultValue={props.score / 20}/>
         </div>
     );
 }
