@@ -12,17 +12,17 @@ const SocialContact = () => {
     useEffect(() => {
         let key = new Date();
         findAllMovie().then((response) => {
-            message.loading({content: '影院数据读取中...', key});
+            message.loading({content: '影院数据读取中...', key, duration: 1});
             dispatch(addFilms(response.data));
-        }).finally(() => {
-            message.success({content: '影院数据读取完毕!', key, duration: 2});
+        }).catch(() => {
+            message.warning({content: '影院数据读取失败!请稍后再试', key, duration: 2});
         });
         key = new Date();
         getCinema().then((response) => {
-            message.loading({content: '电影数据读取中...', key});
+            message.loading({content: '电影数据读取中...', key, duration: 1});
             dispatch(addCinemas(response.data));
-        }).finally(() => {
-            message.success({content: '电影数据读取完毕!', key, duration: 2});
+        }).catch(() => {
+            message.warning({content: '电影数据读取失败!请稍后再试', key, duration: 2});
         });
     }, [dispatch]);
 
