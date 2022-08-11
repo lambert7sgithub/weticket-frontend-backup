@@ -1,41 +1,36 @@
-import { Table, Tag } from 'antd';
+import { Table, Tag, message} from 'antd';
 import './Pay.css';
 import Clock from './Clock';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import dayjs from "dayjs";
 import {getBookingSeats} from '../../api/movie';
+import { useNavigate } from "react-router-dom";
 
-const Pay = () => {
+const Pay = (props) => {
 
-    // useEffect(() => {   
-    //     getPayOrderInfo().then((response) => {
-    //         console.log(response.data)
-    //     }).catch((error) => {
-    //         alert(error);
-    //     })
-    // },[]);
 
+    const navigate = useNavigate()
     let movieDetail = JSON.parse(localStorage.getItem('movieDetail'));
     let selectSeats = JSON.parse(localStorage.getItem('selectSeats'));
     let screeningId = JSON.parse(localStorage.getItem('screening'));
+    let willingPair = JSON.parse(localStorage.getItem("willingPair"));
     let seats = [];
     selectSeats.map(seat => seats.push([seat.x, seat.y]));
     let seatBookingRequest = {
         "bookings": seats,
-        "pair":false
+        "willingPair":willingPair
     }
 
 
-    console.log(movieDetail);
-    console.log(selectSeats)
 
 
         const confirmOrder = () => {
             getBookingSeats(screeningId, seatBookingRequest)
             .then((response) => {
-                console.log(response);
-                localStorage.clear();
+                message.success({content: '订单支付成功！'})
+                navigate('/')
+
             })
             .catch((error) => {
                 alert(error);

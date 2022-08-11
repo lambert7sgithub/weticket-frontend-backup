@@ -32,7 +32,7 @@ const SingleFood = (props) => {
     addFoodOrder(foodOrder).then(() => {
       setLoading(false);
       setVisible(false);
-      message.success("您已成功购买" + name);
+      window.location.replace('/food')
     });
 
   };

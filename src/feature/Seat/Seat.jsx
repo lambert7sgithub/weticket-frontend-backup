@@ -23,6 +23,7 @@ export default function Seat() {
           }
         }
         setSeats(sortedSeats);
+        console.log(sortedSeats);
       })
       .catch((error) => {
         alert(error);

@@ -1,7 +1,8 @@
-import {Image, Button, Switch} from "antd";
+import {Image, Button, Switch, message} from "antd";
 import {useEffect, useState} from "react";
 import "./MovieDetail.css";
 import {useNavigate} from "react-router-dom";
+
 
 const MovieDetail = (props) => {
     const navigate = useNavigate();
@@ -24,7 +25,13 @@ const MovieDetail = (props) => {
     localStorage.setItem("willingPair", JSON.stringify(willingPair));
 
     const toPay = () => {
-        navigate("/pay");
+        const username = sessionStorage.getItem("username");
+        if (username === undefined || username === null || username.length === 0) {
+            message.info('请先登陆')
+            navigate("/login")
+        }else{
+            navigate("/pay");
+        }
     };
 
     return (
