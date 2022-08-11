@@ -28,9 +28,13 @@
 }
 
 .ant-menu-item {
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   font-size: 20px;
   font-weight: 800;
+}
+.menu-item {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .header-search {
