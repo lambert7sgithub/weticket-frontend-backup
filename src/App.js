@@ -15,7 +15,7 @@ import Scheduling from "./feature/Scheduling/Scheduling";
 import Register from "./feature/Register/Register";
 import Order from './feature/orders/Order'
 import PersonOrder from './feature/personalCenter/PersonOrder'
-
+import LongitudinalMovieList from "./feature/LongitudinalMovie/LongitudinalMovieList";
 function App() {
   return (
     <div className="App">
@@ -33,6 +33,7 @@ function App() {
           <Route path="Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat" element={<Seat />} />
           <Route path="order" element={<Order />}/>
           <Route path="personorder" element={<PersonOrder />}/>
+          <Route path="result" element={<LongitudinalMovieList />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
