@@ -13,6 +13,9 @@ import Register from "./feature/Register/Register.jsx";
 import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
 import Scheduling from "./feature/Scheduling/Scheduling";
+import Order from "./feature/orders/Order"; 
+import PersonOrder from "./feature/personalCenter/PersonOrder";
+
 
 function App() {
   return (
@@ -29,7 +32,8 @@ function App() {
           <Route path="Pay" element={<Pay />} />
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
           <Route path="Scheduling/:movieId/screening/:screeningId/seat" element={<Seat />} />
-
+          <Route path="order" element={<Order />}/>
+          <Route path="personorder" element={<PersonOrder />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
@@ -39,3 +43,4 @@ function App() {
 }
 
 export default App;
+

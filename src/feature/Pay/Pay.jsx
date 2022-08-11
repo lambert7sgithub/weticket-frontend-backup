@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
 import { Table, Tag } from 'antd';
 import './Pay.css';
 import Clock from './Clock';
 import { CheckCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import {getPayOrderInfo} from '../../api/order';
 
 
 const Pay = () => {
 
-    useEffect(() => {   
-        getPayOrderInfo().then((response) => {
-            console.log(response.data)
-        }).catch((error) => {
-            alert(error);
-        })
-    },[]);
+    // useEffect(() => {   
+    //     getPayOrderInfo().then((response) => {
+    //         console.log(response.data)
+    //     }).catch((error) => {
+    //         alert(error);
+    //     })
+    // },[]);
 
     const columns = [
         {

@@ -1,6 +1,5 @@
 import api from './api'
 
-
-export const getPayOrderInfo = () => {
-    return api.get("/payOrder")
+export const getOrderById = (orderId) => {
+    return api.get("/order/"+orderId);
 }
