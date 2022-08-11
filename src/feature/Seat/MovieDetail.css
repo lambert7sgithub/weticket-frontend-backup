@@ -11,12 +11,13 @@
 }
 
 .movie-thumb {
-  width: 200px;
-  height: 200px;
+  width: 50%;
+  height: 50%;
   padding: 30px;
 }
 
 .movie-name {
+  text-align: left;
   padding-top: 15px;
   padding-left: 15px;
   padding-bottom: 10px;
@@ -24,6 +25,8 @@
   letter-spacing: 2px;
 }
 .movie-version {
+  text-align: left;
+  padding-left: 10px;
   padding-top: 8px;
   font-size: 13px;
   letter-spacing: 1px;
@@ -36,8 +39,10 @@
 }
 
 .movie-length {
+  text-align: left;
   color: #999;
   padding-top: 8px;
+  padding-left: 10px;
   font-size: 13px;
   letter-spacing: 1px;
 }

@@ -58,16 +58,6 @@ export default function Seat() {
     setSeats(newSeats);
   };
 
-  const getSeatStatus = (item) => {
-    if(item.status === 0) {
-      return "seat selectable item";
-    }else if (item.status === 3) {
-      return "seat sold item"
-    } else {
-      return "seat unwil item"
-    }
-  }
-
   return (
     <div className="seats-content">
       <div className="seats-block">
@@ -80,7 +70,7 @@ export default function Seat() {
             {seats.map((item, seatIndex) => (
               <span key={seatIndex} style={{ paddingBottom: "20px" }}>
                 <span
-                  className={getSeatStatus(item)}
+                  className={item.status === 0 ? "seat selectable item" : "seat sold item"}
                   onClick={() => changeSeatStatus(seatIndex)}
                 />
               </span>
