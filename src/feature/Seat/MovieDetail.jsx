@@ -38,7 +38,7 @@ const MovieDetail = (props) => {
                     <Image src={movieDetail.picture}/>
                 </div>
                 <div>
-                    <div className="movie-name">名字：{movieDetail.movieName}</div>
+                    <div className="movie-name">影片名：{movieDetail.movieName}</div>
                     <div className="movie-version">
                         版本：
                         {movieDetail.movieLang}
@@ -79,6 +79,7 @@ const MovieDetail = (props) => {
                 </div>
                 <div className="buy">
                     <div className="pair-switch">
+                        是否愿意结伴观看
                         <Switch
                             checkedChildren="开启"
                             unCheckedChildren="关闭"
