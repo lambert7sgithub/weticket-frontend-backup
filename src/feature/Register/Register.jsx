@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
 import "./Register.css";
-import { postUser } from "../api/user";
+import { postUser } from "../../api/user";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -18,8 +18,6 @@ export default function Register() {
     postUser(user)
       .then(() => {
         navigate("/login");
-        //弹出成功提示
-        // message.success(response.data.msg);
       })
       .catch((err) => {
         console.log(err);

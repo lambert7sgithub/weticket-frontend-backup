@@ -1,0 +1,21 @@
+.favicon {
+    background: no-repeat center/80% url("./favicon.ico");
+    float: left;
+    width: 64px;
+    height: 64px;
+  }
+
+.footer{
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.introduct{
+    margin-left: 25px;
+    font-size: 15px;
+}
+
+.text{
+    font-size: 20px;
+}

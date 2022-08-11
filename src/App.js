@@ -12,7 +12,7 @@ import Login from "./feature/Login/Login";
 import Pay from "./feature/Pay/Pay";
 import Seat from "./feature/Seat/Seat";
 import Scheduling from "./feature/Scheduling/Scheduling";
-import Register from "./Register/Register";
+import Register from "./feature/Register/Register";
 
 function App() {
   return (
@@ -29,7 +29,8 @@ function App() {
           <Route path="Pay" element={<Pay />} />
           <Route path="Scheduling/:movieId" element={<Scheduling />} />
           <Route path="Cinema/:cinemaId/screening/:screeningId/Scheduling/:movieId/seat" element={<Seat />} />
-
+          <Route path="order" element={<Order />}/>
+          <Route path="personorder" element={<PersonOrder />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
@@ -39,3 +40,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Table, Tag } from 'antd';
 import './Pay.css';
 import Clock from './Clock';
@@ -7,6 +6,15 @@ import { Button } from 'antd';
 
 
 const Pay = () => {
+
+    // useEffect(() => {   
+    //     getPayOrderInfo().then((response) => {
+    //         console.log(response.data)
+    //     }).catch((error) => {
+    //         alert(error);
+    //     })
+    // },[]);
+
     const columns = [
         {
             title: '电影',
