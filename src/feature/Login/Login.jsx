@@ -11,19 +11,21 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate()
-
-  const onFinish = (values) => {
-    const loginUser = { ...values, captchaCode: "123" };
-    postLoginUser(loginUser)
-      .then((response) => {
-        sessionStorage.setItem("username", loginUser.credentialId);
-        sessionStorage.setItem("token", response.headers['authorization']);
-        navigate('/')
-      })
-      .catch((err) => {
-        message.error("登录失败: 用户名或密码错误");
-      });
+  const onFinish = async (values) => {
+    const loginUser = {...values, captchaCode: "123"};
+    await postLoginUser(loginUser)
+        .then((response) => {
+          sessionStorage.setItem("username", loginUser.credentialId);
+          sessionStorage.setItem("token", response.headers['authorization']);
+          window.location.replace("/")
+          navigate('/')
+        })
+        .catch((err) => {
+          message.error("登录失败: 用户名或密码错误");
+        });
   };
+
+
 
   return (
     <div>
