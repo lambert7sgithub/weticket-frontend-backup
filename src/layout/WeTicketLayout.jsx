@@ -1,22 +1,22 @@
 import React from "react";
-import {Outlet} from "react-router-dom";
-import {Layout} from "antd";
+import { Outlet } from "react-router-dom";
+import { Layout } from "antd";
 import Navigation from "../feature/Navigation/Navigation";
+import DefineFooter from "../feature/Footer/Footer";
 
-const {Content, Footer, Header} = Layout;
+const { Content, Footer, Header } = Layout;
 const WeTicketLayout = () => {
 
     return (
         <div>
             <Layout>
-                <Header style={{background: "#fff"}}>
-                    <Navigation/>
+                <Header style={{ background: "#fff" }}>
+                    <Navigation />
                 </Header>
                 <Content>
-                    <Outlet/>
+                    <Outlet />
                 </Content>
-
-                <Footer>Made By ❤ 404-BRAIN-NOT-FOUND</Footer>
+                <Footer><DefineFooter></DefineFooter></Footer>
             </Layout>
         </div>
     );
