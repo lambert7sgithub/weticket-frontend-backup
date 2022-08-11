@@ -1,5 +1,5 @@
 .list-title {
-  width: 50%;
+  width: 60%;
   margin-right: auto;
   margin-top: 30px;
   font-size: 26px;
@@ -54,7 +54,7 @@
   padding-top: 10px;
 }
 
-.price {
+.food-price {
   font-size: 32px;
   color: #fa8c16;
 }

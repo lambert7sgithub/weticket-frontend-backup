@@ -43,7 +43,7 @@
 }
 .search {
   width: 1100px;
-  margin: 5px auto 25px auto;
+  margin: 5px auto 10px auto;
 }
 .search-row {
   border-radius: 30%;
@@ -76,6 +76,7 @@
   margin-right: 50px;
   font-style: italic;
 }
+
 .arrow {
   margin-left: 5px;
 }
@@ -84,6 +85,22 @@
   margin: 10px auto;
   word-wrap: break-word;
   text-align: left;
+}
+
+.address {
+  text-align: left;
+}
+
+.cinema-name {
+  color: #cc8c2c;
+  font-size: large;
+  margin-right: 30px;
+}
+
+.cinema-address {
+  color: rgb(175, 174, 174);
+  font-size: small;
+  vertical-align: -2px;
 }
 
 .ant-radio-button-wrapper {
@@ -96,4 +113,9 @@
   color: #ffffff !important;
   background: rgb(38, 177, 233) !important;
   border-color: #1890ff;
+}
+
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within {
+  box-shadow: 0 0 0 0.5px #1890ff !important;
 }
