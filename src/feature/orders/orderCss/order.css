@@ -1,89 +1,89 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .orderTable {
-    width: 800px;
-    height: 245px;
-    background-color: #ffffff;
-    margin: 0 auto;
+  width: 800px;
+  height: 245px;
+  background-color: #ffffff;
+  margin: 30px auto;
 }
 
 .orderTable h4 {
-    float: left;
-    color: red;
-    padding-top: 5px;
-    padding-left: 5px;
+  float: left;
+  color: red;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 table.gridtable {
-    width: 100%;
-    font-family: verdana, arial, sans-serif;
-    font-size: 11px;
-    border-width: 1px;
-    border-color: #c1bebe;
-    border-collapse: collapse;
+  width: 100%;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  border-width: 1px;
+  border-color: #c1bebe;
+  border-collapse: collapse;
 }
 table.gridtable th {
-    border-width: 1px;
-    height: 35px;
-    border-style: solid;
-    border-color: #c1bebe;
-    background-color: #dedede;
+  border-width: 1px;
+  height: 35px;
+  border-style: solid;
+  border-color: #c1bebe;
+  background-color: #dedede;
 }
 table.gridtable td {
-    height: 178px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #c1bebe;
-    background-color: #ffffff;
-    text-align: center;
+  height: 178px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c1bebe;
+  background-color: #ffffff;
+  text-align: center;
 }
 
 table.gridtable th:nth-child(-n + 2) {
-    width: 200px;
+  width: 200px;
 }
 
 .movieShow {
-    padding-left: 20px;
-    width: 230px;
-    height: 120px;
+  padding-left: 20px;
+  width: 230px;
+  height: 120px;
 }
 
 .movieShow img {
-    float: left;
-    width: 90px;
-    height: 120px;
+  float: left;
+  width: 90px;
+  height: 120px;
 }
 
 .showRight {
-    float: left;
-    padding-left: 15px;
+  float: left;
+  padding-left: 15px;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
 
 .showRight ul li {
-    text-align: left;
-    list-style: none;
+  text-align: left;
+  list-style: none;
 }
 
 .showRight ul li:nth-child(1) {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .changci li {
-    padding: 15px;
+  padding: 15px;
 }
 
 .changci li:nth-child(3) {
-    color: red;
+  color: red;
 }
 
 .monyeStyle {
-    font-size: 25px;
-    color: #cc8c2c;
+  font-size: 25px;
+  color: #cc8c2c;
 }

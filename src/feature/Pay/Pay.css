@@ -1,54 +1,55 @@
+.pay-panel {
+  width: 1400px;
+  margin: 20px auto;
+}
 .movieName {
-    display: flex
- }
+  display: flex;
+}
 
- .photo{
-    height: 220px
- }
+.photo {
+  height: 220px;
+}
 
- .nameSpan{
-    display: block;
-     margin-left: 10px;
-    text-align: center;
-    margin-top: 60%;
-    font-size: 18px;
- }
+.nameSpan {
+  display: block;
+  margin-left: 10px;
+  text-align: center;
+  margin-top: 60%;
+  font-size: 18px;
+}
 
- .divFontSize{
-     margin: 5px;
-     font-size: 20px;
-     
- }
- 
- .moneyStyle{
-    font-size: 30px;
-    color: red;
- }
- 
- .footerStyle{
-    font-size: 20px;
-    text-align: right;
- }
+.divFontSize {
+  margin: 5px;
+  font-size: 20px;
+}
 
- .replacecolor{
-     background-color: lightblue;
- }
+.moneyStyle {
+  font-size: 30px;
+  color: red;
+}
 
- .remindPay{
-    text-align: center;
-    height: 100px;
-    padding: 25px;
-    background-color:#bae7ff;
- }
+.footerStyle {
+  font-size: 20px;
+  text-align: right;
+}
 
- .buyButtonDiv{
-     margin: 10px;
-     float: right;
-     width: 200px;
- }
+.replacecolor {
+  background-color: lightblue;
+}
 
- .buyButton{
-     background-color: #40a9ff;
- }
+.remindPay {
+  text-align: center;
+  height: 100px;
+  padding: 25px;
+  background-color: #bae7ff;
+}
 
+.buyButtonDiv {
+  margin: 10px;
+  float: right;
+  width: 200px;
+}
 
+.buyButton {
+  background-color: #40a9ff;
+}

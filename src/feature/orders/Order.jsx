@@ -59,7 +59,7 @@ const Order = () => {
           </td>
           <td>{state.votes}</td>
           <td className="monyeStyle">￥{state.allprice}</td>
-          <td>{state.unitprice === false?"未使用":"已使用"}</td>
+          <td>{state.isused === false?"未使用":"已使用"}</td>
         </tr>
       </table>
     </div>
